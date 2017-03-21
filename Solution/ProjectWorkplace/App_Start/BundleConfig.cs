@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace ng2_api
+namespace ProjectWorkplace
 {
     public class BundleConfig
     {
