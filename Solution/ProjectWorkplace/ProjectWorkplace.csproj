@@ -165,7 +165,6 @@
     <Compile Include="Controllers\ResourcesController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -452,7 +451,6 @@
     <Content Include="node_modules\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="node_modules\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="node_modules\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
-    <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
