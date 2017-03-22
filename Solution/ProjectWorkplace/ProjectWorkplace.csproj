@@ -209,11 +209,17 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="material-color\deeppurple-amber.css" />
+    <Content Include="material-color\icon.css" />
+    <Content Include="material-color\indigo-pink.css" />
+    <Content Include="material-color\pink-bluegrey.css" />
+    <Content Include="material-color\purple-green.css" />
     <Content Include="node_modules\%40angular\common\bundles\common.umd.min.js" />
     <Content Include="node_modules\%40angular\compiler\bundles\compiler.umd.min.js" />
     <Content Include="node_modules\%40angular\core\bundles\core.umd.min.js" />
     <Content Include="node_modules\%40angular\forms\bundles\forms.umd.min.js" />
     <Content Include="node_modules\%40angular\http\bundles\http.umd.min.js" />
+    <Content Include="node_modules\%40angular\material\bundles\material.umd.js" />
     <Content Include="node_modules\%40angular\platform-browser-dynamic\bundles\platform-browser-dynamic.umd.min.js" />
     <Content Include="node_modules\%40angular\platform-browser\bundles\platform-browser.umd.min.js" />
     <Content Include="node_modules\%40angular\router\bundles\router.umd.min.js" />
@@ -222,6 +228,7 @@
     <Content Include="node_modules\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="node_modules\bootstrap\dist\js\bootstrap.min.js" />
     <Content Include="node_modules\core-js\client\shim.min.js" />
+    <Content Include="node_modules\hammerjs\hammer.min.js" />
     <Content Include="node_modules\jquery\dist\jquery.min.js" />
     <Content Include="node_modules\rxjs\add\operator\catch.js" />
     <Content Include="node_modules\rxjs\add\operator\map.js" />
@@ -444,7 +451,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="material-color\icons.woff2" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="node_modules\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
