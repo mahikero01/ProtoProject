@@ -1,0 +1,642 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProjectWorkplaceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PW_Answers">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Name="AnswerID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuestionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AnswerDesc" Type="varchar(max)" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsCorrect" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Examinees">
+          <Key>
+            <PropertyRef Name="ExamineeID" />
+          </Key>
+          <Property Name="ExamineeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CodeNum" Type="int" Nullable="false" />
+          <Property Name="SubjectID" Type="uniqueidentifier" />
+          <Property Name="DateCompleted" Type="datetime2" Precision="7" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="Items" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Persons">
+          <Key>
+            <PropertyRef Name="PersonID" />
+          </Key>
+          <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="WorkDayNum" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_PersonTeams">
+          <Key>
+            <PropertyRef Name="PersonTeamID" />
+          </Key>
+          <Property Name="PersonTeamID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TeamID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LeaderID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EffectiveDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Questions">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuestionDesc" Type="varchar(max)" Nullable="false" />
+          <Property Name="IsCommon" Type="bit" Nullable="false" />
+          <Property Name="IsMultipleAns" Type="bit" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_QuizTags">
+          <Key>
+            <PropertyRef Name="QuizTagID" />
+          </Key>
+          <Property Name="QuizTagID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuestionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SubjectID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Resources">
+          <Key>
+            <PropertyRef Name="ResourceID" />
+          </Key>
+          <Property Name="ResourceID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ResourceName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ResourcePath" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ResourceCategory" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="IsUrl" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Roles">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleDesc" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Subjects">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Name="SubjectID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SubjectName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Teams">
+          <Key>
+            <PropertyRef Name="TeamID" />
+          </Key>
+          <Property Name="TeamID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TeamDesc" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_PW_Answers_PW_Questions">
+          <End Role="PW_Questions" Type="Self.PW_Questions" Multiplicity="1" />
+          <End Role="PW_Answers" Type="Self.PW_Answers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Questions">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="PW_Answers">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_Examinees_PW_Persons">
+          <End Role="PW_Persons" Type="Self.PW_Persons" Multiplicity="1" />
+          <End Role="PW_Examinees" Type="Self.PW_Examinees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Persons">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PW_Examinees">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_Persons_PW_Roles">
+          <End Role="PW_Roles" Type="Self.PW_Roles" Multiplicity="1" />
+          <End Role="PW_Persons" Type="Self.PW_Persons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="PW_Persons">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_PersonTeams_PW_Persons">
+          <End Role="PW_Persons" Type="Self.PW_Persons" Multiplicity="1" />
+          <End Role="PW_PersonTeams" Type="Self.PW_PersonTeams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Persons">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PW_PersonTeams">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_PersonTeams_PW_Persons1">
+          <End Role="PW_Persons" Type="Self.PW_Persons" Multiplicity="1" />
+          <End Role="PW_PersonTeams" Type="Self.PW_PersonTeams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Persons">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PW_PersonTeams">
+              <PropertyRef Name="LeaderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_PersonTeams_PW_Teams">
+          <End Role="PW_Teams" Type="Self.PW_Teams" Multiplicity="1" />
+          <End Role="PW_PersonTeams" Type="Self.PW_PersonTeams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Teams">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="PW_PersonTeams">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_QuickTags_PW_Questions">
+          <End Role="PW_Questions" Type="Self.PW_Questions" Multiplicity="1" />
+          <End Role="PW_QuizTags" Type="Self.PW_QuizTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Questions">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="PW_QuizTags">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_QuickTags_PW_Subjects">
+          <End Role="PW_Subjects" Type="Self.PW_Subjects" Multiplicity="1" />
+          <End Role="PW_QuizTags" Type="Self.PW_QuizTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Subjects">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="PW_QuizTags">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjectWorkplaceModelStoreContainer">
+          <EntitySet Name="PW_Answers" EntityType="Self.PW_Answers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_Examinees" EntityType="Self.PW_Examinees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_Persons" EntityType="Self.PW_Persons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_PersonTeams" EntityType="Self.PW_PersonTeams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_Questions" EntityType="Self.PW_Questions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_QuizTags" EntityType="Self.PW_QuizTags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_Resources" EntityType="Self.PW_Resources" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_Roles" EntityType="Self.PW_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_Subjects" EntityType="Self.PW_Subjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_Teams" EntityType="Self.PW_Teams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_PW_Answers_PW_Questions" Association="Self.FK_PW_Answers_PW_Questions">
+            <End Role="PW_Questions" EntitySet="PW_Questions" />
+            <End Role="PW_Answers" EntitySet="PW_Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_Examinees_PW_Persons" Association="Self.FK_PW_Examinees_PW_Persons">
+            <End Role="PW_Persons" EntitySet="PW_Persons" />
+            <End Role="PW_Examinees" EntitySet="PW_Examinees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_Persons_PW_Roles" Association="Self.FK_PW_Persons_PW_Roles">
+            <End Role="PW_Roles" EntitySet="PW_Roles" />
+            <End Role="PW_Persons" EntitySet="PW_Persons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_PersonTeams_PW_Persons" Association="Self.FK_PW_PersonTeams_PW_Persons">
+            <End Role="PW_Persons" EntitySet="PW_Persons" />
+            <End Role="PW_PersonTeams" EntitySet="PW_PersonTeams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_PersonTeams_PW_Persons1" Association="Self.FK_PW_PersonTeams_PW_Persons1">
+            <End Role="PW_Persons" EntitySet="PW_Persons" />
+            <End Role="PW_PersonTeams" EntitySet="PW_PersonTeams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_PersonTeams_PW_Teams" Association="Self.FK_PW_PersonTeams_PW_Teams">
+            <End Role="PW_Teams" EntitySet="PW_Teams" />
+            <End Role="PW_PersonTeams" EntitySet="PW_PersonTeams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_QuickTags_PW_Questions" Association="Self.FK_PW_QuickTags_PW_Questions">
+            <End Role="PW_Questions" EntitySet="PW_Questions" />
+            <End Role="PW_QuizTags" EntitySet="PW_QuizTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_QuickTags_PW_Subjects" Association="Self.FK_PW_QuickTags_PW_Subjects">
+            <End Role="PW_Subjects" EntitySet="PW_Subjects" />
+            <End Role="PW_QuizTags" EntitySet="PW_QuizTags" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProjectWorkplaceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PW_Answers">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Name="AnswerID" Type="Guid" Nullable="false" />
+          <Property Name="QuestionID" Type="Guid" Nullable="false" />
+          <Property Name="AnswerDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsCorrect" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PW_Questions" Relationship="Self.FK_PW_Answers_PW_Questions" FromRole="PW_Answers" ToRole="PW_Questions" />
+        </EntityType>
+        <EntityType Name="PW_Examinees">
+          <Key>
+            <PropertyRef Name="ExamineeID" />
+          </Key>
+          <Property Name="ExamineeID" Type="Guid" Nullable="false" />
+          <Property Name="PersonID" Type="Guid" Nullable="false" />
+          <Property Name="CodeNum" Type="Int32" Nullable="false" />
+          <Property Name="SubjectID" Type="Guid" />
+          <Property Name="DateCompleted" Type="DateTime" Precision="7" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="Items" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PW_Persons" Relationship="Self.FK_PW_Examinees_PW_Persons" FromRole="PW_Examinees" ToRole="PW_Persons" />
+        </EntityType>
+        <EntityType Name="PW_Persons">
+          <Key>
+            <PropertyRef Name="PersonID" />
+          </Key>
+          <Property Name="PersonID" Type="Guid" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WorkDayNum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PW_Examinees" Relationship="Self.FK_PW_Examinees_PW_Persons" FromRole="PW_Persons" ToRole="PW_Examinees" />
+          <NavigationProperty Name="PW_Roles" Relationship="Self.FK_PW_Persons_PW_Roles" FromRole="PW_Persons" ToRole="PW_Roles" />
+          <NavigationProperty Name="PW_PersonTeams" Relationship="Self.FK_PW_PersonTeams_PW_Persons" FromRole="PW_Persons" ToRole="PW_PersonTeams" />
+          <NavigationProperty Name="PW_PersonTeams1" Relationship="Self.FK_PW_PersonTeams_PW_Persons1" FromRole="PW_Persons" ToRole="PW_PersonTeams" />
+        </EntityType>
+        <EntityType Name="PW_PersonTeams">
+          <Key>
+            <PropertyRef Name="PersonTeamID" />
+          </Key>
+          <Property Name="PersonTeamID" Type="Guid" Nullable="false" />
+          <Property Name="PersonID" Type="Guid" Nullable="false" />
+          <Property Name="TeamID" Type="Guid" Nullable="false" />
+          <Property Name="LeaderID" Type="Guid" Nullable="false" />
+          <Property Name="EffectiveDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PW_Persons" Relationship="Self.FK_PW_PersonTeams_PW_Persons" FromRole="PW_PersonTeams" ToRole="PW_Persons" />
+          <NavigationProperty Name="PW_Persons1" Relationship="Self.FK_PW_PersonTeams_PW_Persons1" FromRole="PW_PersonTeams" ToRole="PW_Persons" />
+          <NavigationProperty Name="PW_Teams" Relationship="Self.FK_PW_PersonTeams_PW_Teams" FromRole="PW_PersonTeams" ToRole="PW_Teams" />
+        </EntityType>
+        <EntityType Name="PW_Questions">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="Guid" Nullable="false" />
+          <Property Name="QuestionDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsCommon" Type="Boolean" Nullable="false" />
+          <Property Name="IsMultipleAns" Type="Boolean" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PW_Answers" Relationship="Self.FK_PW_Answers_PW_Questions" FromRole="PW_Questions" ToRole="PW_Answers" />
+          <NavigationProperty Name="PW_QuizTags" Relationship="Self.FK_PW_QuickTags_PW_Questions" FromRole="PW_Questions" ToRole="PW_QuizTags" />
+        </EntityType>
+        <EntityType Name="PW_QuizTags">
+          <Key>
+            <PropertyRef Name="QuizTagID" />
+          </Key>
+          <Property Name="QuizTagID" Type="Guid" Nullable="false" />
+          <Property Name="QuestionID" Type="Guid" Nullable="false" />
+          <Property Name="SubjectID" Type="Guid" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PW_Questions" Relationship="Self.FK_PW_QuickTags_PW_Questions" FromRole="PW_QuizTags" ToRole="PW_Questions" />
+          <NavigationProperty Name="PW_Subjects" Relationship="Self.FK_PW_QuickTags_PW_Subjects" FromRole="PW_QuizTags" ToRole="PW_Subjects" />
+        </EntityType>
+        <EntityType Name="PW_Resources">
+          <Key>
+            <PropertyRef Name="ResourceID" />
+          </Key>
+          <Property Name="ResourceID" Type="Guid" Nullable="false" />
+          <Property Name="ResourceName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ResourcePath" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ResourceCategory" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsUrl" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PW_Roles">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleDesc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PW_Persons" Relationship="Self.FK_PW_Persons_PW_Roles" FromRole="PW_Roles" ToRole="PW_Persons" />
+        </EntityType>
+        <EntityType Name="PW_Subjects">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Name="SubjectID" Type="Guid" Nullable="false" />
+          <Property Name="SubjectName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PW_QuizTags" Relationship="Self.FK_PW_QuickTags_PW_Subjects" FromRole="PW_Subjects" ToRole="PW_QuizTags" />
+        </EntityType>
+        <EntityType Name="PW_Teams">
+          <Key>
+            <PropertyRef Name="TeamID" />
+          </Key>
+          <Property Name="TeamID" Type="Guid" Nullable="false" />
+          <Property Name="TeamDesc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PW_PersonTeams" Relationship="Self.FK_PW_PersonTeams_PW_Teams" FromRole="PW_Teams" ToRole="PW_PersonTeams" />
+        </EntityType>
+        <Association Name="FK_PW_Answers_PW_Questions">
+          <End Role="PW_Questions" Type="Self.PW_Questions" Multiplicity="1" />
+          <End Role="PW_Answers" Type="Self.PW_Answers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Questions">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="PW_Answers">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_Examinees_PW_Persons">
+          <End Role="PW_Persons" Type="Self.PW_Persons" Multiplicity="1" />
+          <End Role="PW_Examinees" Type="Self.PW_Examinees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Persons">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PW_Examinees">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_Persons_PW_Roles">
+          <End Role="PW_Roles" Type="Self.PW_Roles" Multiplicity="1" />
+          <End Role="PW_Persons" Type="Self.PW_Persons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="PW_Persons">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_PersonTeams_PW_Persons">
+          <End Role="PW_Persons" Type="Self.PW_Persons" Multiplicity="1" />
+          <End Role="PW_PersonTeams" Type="Self.PW_PersonTeams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Persons">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PW_PersonTeams">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_PersonTeams_PW_Persons1">
+          <End Role="PW_Persons" Type="Self.PW_Persons" Multiplicity="1" />
+          <End Role="PW_PersonTeams" Type="Self.PW_PersonTeams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Persons">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PW_PersonTeams">
+              <PropertyRef Name="LeaderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_PersonTeams_PW_Teams">
+          <End Role="PW_Teams" Type="Self.PW_Teams" Multiplicity="1" />
+          <End Role="PW_PersonTeams" Type="Self.PW_PersonTeams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Teams">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="PW_PersonTeams">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_QuickTags_PW_Questions">
+          <End Role="PW_Questions" Type="Self.PW_Questions" Multiplicity="1" />
+          <End Role="PW_QuizTags" Type="Self.PW_QuizTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Questions">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="PW_QuizTags">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_QuickTags_PW_Subjects">
+          <End Role="PW_Subjects" Type="Self.PW_Subjects" Multiplicity="1" />
+          <End Role="PW_QuizTags" Type="Self.PW_QuizTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Subjects">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="PW_QuizTags">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjectWorkplaceContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PW_Answers" EntityType="Self.PW_Answers" />
+          <EntitySet Name="PW_Examinees" EntityType="Self.PW_Examinees" />
+          <EntitySet Name="PW_Persons" EntityType="Self.PW_Persons" />
+          <EntitySet Name="PW_PersonTeams" EntityType="Self.PW_PersonTeams" />
+          <EntitySet Name="PW_Questions" EntityType="Self.PW_Questions" />
+          <EntitySet Name="PW_QuizTags" EntityType="Self.PW_QuizTags" />
+          <EntitySet Name="PW_Resources" EntityType="Self.PW_Resources" />
+          <EntitySet Name="PW_Roles" EntityType="Self.PW_Roles" />
+          <EntitySet Name="PW_Subjects" EntityType="Self.PW_Subjects" />
+          <EntitySet Name="PW_Teams" EntityType="Self.PW_Teams" />
+          <AssociationSet Name="FK_PW_Answers_PW_Questions" Association="Self.FK_PW_Answers_PW_Questions">
+            <End Role="PW_Questions" EntitySet="PW_Questions" />
+            <End Role="PW_Answers" EntitySet="PW_Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_Examinees_PW_Persons" Association="Self.FK_PW_Examinees_PW_Persons">
+            <End Role="PW_Persons" EntitySet="PW_Persons" />
+            <End Role="PW_Examinees" EntitySet="PW_Examinees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_Persons_PW_Roles" Association="Self.FK_PW_Persons_PW_Roles">
+            <End Role="PW_Roles" EntitySet="PW_Roles" />
+            <End Role="PW_Persons" EntitySet="PW_Persons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_PersonTeams_PW_Persons" Association="Self.FK_PW_PersonTeams_PW_Persons">
+            <End Role="PW_Persons" EntitySet="PW_Persons" />
+            <End Role="PW_PersonTeams" EntitySet="PW_PersonTeams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_PersonTeams_PW_Persons1" Association="Self.FK_PW_PersonTeams_PW_Persons1">
+            <End Role="PW_Persons" EntitySet="PW_Persons" />
+            <End Role="PW_PersonTeams" EntitySet="PW_PersonTeams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_PersonTeams_PW_Teams" Association="Self.FK_PW_PersonTeams_PW_Teams">
+            <End Role="PW_Teams" EntitySet="PW_Teams" />
+            <End Role="PW_PersonTeams" EntitySet="PW_PersonTeams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_QuickTags_PW_Questions" Association="Self.FK_PW_QuickTags_PW_Questions">
+            <End Role="PW_Questions" EntitySet="PW_Questions" />
+            <End Role="PW_QuizTags" EntitySet="PW_QuizTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_QuickTags_PW_Subjects" Association="Self.FK_PW_QuickTags_PW_Subjects">
+            <End Role="PW_Subjects" EntitySet="PW_Subjects" />
+            <End Role="PW_QuizTags" EntitySet="PW_QuizTags" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjectWorkplaceModelStoreContainer" CdmEntityContainer="ProjectWorkplaceContext">
+          <EntitySetMapping Name="PW_Answers">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Answers">
+              <MappingFragment StoreEntitySet="PW_Answers">
+                <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="AnswerDesc" ColumnName="AnswerDesc" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsCorrect" ColumnName="IsCorrect" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Examinees">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Examinees">
+              <MappingFragment StoreEntitySet="PW_Examinees">
+                <ScalarProperty Name="ExamineeID" ColumnName="ExamineeID" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="CodeNum" ColumnName="CodeNum" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Items" ColumnName="Items" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Persons">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Persons">
+              <MappingFragment StoreEntitySet="PW_Persons">
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="WorkDayNum" ColumnName="WorkDayNum" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_PersonTeams">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_PersonTeams">
+              <MappingFragment StoreEntitySet="PW_PersonTeams">
+                <ScalarProperty Name="PersonTeamID" ColumnName="PersonTeamID" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Questions">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Questions">
+              <MappingFragment StoreEntitySet="PW_Questions">
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="QuestionDesc" ColumnName="QuestionDesc" />
+                <ScalarProperty Name="IsCommon" ColumnName="IsCommon" />
+                <ScalarProperty Name="IsMultipleAns" ColumnName="IsMultipleAns" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_QuizTags">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_QuizTags">
+              <MappingFragment StoreEntitySet="PW_QuizTags">
+                <ScalarProperty Name="QuizTagID" ColumnName="QuizTagID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Resources">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Resources">
+              <MappingFragment StoreEntitySet="PW_Resources">
+                <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
+                <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+                <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
+                <ScalarProperty Name="ResourceCategory" ColumnName="ResourceCategory" />
+                <ScalarProperty Name="IsUrl" ColumnName="IsUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Roles">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Roles">
+              <MappingFragment StoreEntitySet="PW_Roles">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleDesc" ColumnName="RoleDesc" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Subjects">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Subjects">
+              <MappingFragment StoreEntitySet="PW_Subjects">
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Teams">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Teams">
+              <MappingFragment StoreEntitySet="PW_Teams">
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="TeamDesc" ColumnName="TeamDesc" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

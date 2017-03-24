@@ -12,12 +12,14 @@ namespace ProjectWorkplace.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PW_Resources
+    public partial class PW_QuizTags
     {
-        public System.Guid ResourceID { get; set; }
-        public string ResourceName { get; set; }
-        public string ResourcePath { get; set; }
-        public string ResourceCategory { get; set; }
-        public bool IsUrl { get; set; }
+        public System.Guid QuizTagID { get; set; }
+        public System.Guid QuestionID { get; set; }
+        public System.Guid SubjectID { get; set; }
+        public bool IsActive { get; set; }
+    
+        public virtual PW_Questions PW_Questions { get; set; }
+        public virtual PW_Subjects PW_Subjects { get; set; }
     }
 }

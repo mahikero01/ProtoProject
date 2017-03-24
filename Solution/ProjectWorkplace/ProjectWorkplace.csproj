@@ -162,21 +162,59 @@
     <Compile Include="Controllers\PersonsController.cs" />
     <Compile Include="Controllers\PersonTeamsController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
+    <Compile Include="Controllers\QuizTagsController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\SubjectsController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProjectWorkplaceContext.cs" />
-    <Compile Include="Models\PW_Answers.cs" />
-    <Compile Include="Models\PW_Examinees.cs" />
-    <Compile Include="Models\PW_Persons.cs" />
-    <Compile Include="Models\PW_PersonTeams.cs" />
-    <Compile Include="Models\PW_Questions.cs" />
-    <Compile Include="Models\PW_Resources.cs" />
-    <Compile Include="Models\PW_Roles.cs" />
-    <Compile Include="Models\PW_Teams.cs" />
+    <Compile Include="Models\ProjectWorkplaceModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectWorkplaceModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProjectWorkplaceModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProjectWorkplaceModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectWorkplaceModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PW_Answers.cs">
+      <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PW_Examinees.cs">
+      <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PW_Persons.cs">
+      <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PW_PersonTeams.cs">
+      <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PW_Questions.cs">
+      <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PW_QuizTags.cs">
+      <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PW_Resources.cs">
+      <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PW_Roles.cs">
+      <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PW_Subjects.cs">
+      <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PW_Teams.cs">
+      <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -460,6 +498,30 @@
     <Content Include="node_modules\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="node_modules\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="node_modules\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\ProjectWorkplaceModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ProjectWorkplaceModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\ProjectWorkplaceModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ProjectWorkplaceModel.edmx</DependentUpon>
+      <LastGenOutput>ProjectWorkplaceModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ProjectWorkplaceModel.edmx.diagram">
+      <DependentUpon>ProjectWorkplaceModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ProjectWorkplaceModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ProjectWorkplaceModel.edmx</DependentUpon>
+      <LastGenOutput>ProjectWorkplaceModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

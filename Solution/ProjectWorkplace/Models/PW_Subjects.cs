@@ -12,14 +12,19 @@ namespace ProjectWorkplace.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PW_Answers
+    public partial class PW_Subjects
     {
-        public System.Guid AnswerID { get; set; }
-        public System.Guid QuestionID { get; set; }
-        public string AnswerDesc { get; set; }
-        public bool IsActive { get; set; }
-        public bool IsCorrect { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PW_Subjects()
+        {
+            this.PW_QuizTags = new HashSet<PW_QuizTags>();
+        }
     
-        public virtual PW_Questions PW_Questions { get; set; }
+        public System.Guid SubjectID { get; set; }
+        public string SubjectName { get; set; }
+        public bool IsActive { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PW_QuizTags> PW_QuizTags { get; set; }
     }
 }
