@@ -224,7 +224,7 @@
     <Content Include="app\app.component.js" />
     <Content Include="app\app.module.js" />
     <Content Include="app\app.routing.js" />
-    <Content Include="app\main.js" />
+    <Content Include="main.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -473,7 +473,10 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="styles.css" />
+    <Content Include="systemjs-angular-loader.js" />
+    <Content Include="systemjs.config.extras.js" />
     <Content Include="systemjs.config.js" />
+    <Content Include="systemjs.config.old.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

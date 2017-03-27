@@ -11,7 +11,7 @@
     // map tells the System loader where to look for things
     map: {
       // our app is within the app folder
-      'app': 'app',
+      app: 'app',
 
       // angular bundles
       '@angular/core': 'npm:@angular/core/bundles/core.umd.min.js',
@@ -22,23 +22,18 @@
       '@angular/http': 'npm:@angular/http/bundles/http.umd.min.js',
       '@angular/router': 'npm:@angular/router/bundles/router.umd.min.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.min.js',
-        //material
+      //material
       '@angular/material': 'npm:@angular/material/bundles/material.umd.js',
       'hammerjs': 'npm:hammerjs/hammer.min.js',
-
       // other libraries
-      'rxjs':                      'npm:rxjs',
+      'rxjs':                      'npm:rxjs'
       //'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
       app: {
-        defaultExtension: 'js',
-        meta: {
-          './*.js': {
-            loader: 'systemjs-angular-loader.js'
-          }
-        }
+        main: './main.js',
+        defaultExtension: 'js'
       },
       rxjs: {
         defaultExtension: 'js'
