@@ -476,7 +476,6 @@
     <Content Include="systemjs-angular-loader.js" />
     <Content Include="systemjs.config.extras.js" />
     <Content Include="systemjs.config.js" />
-    <Content Include="systemjs.config.old.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
