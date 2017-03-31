@@ -23,5 +23,6 @@ namespace ProjectWorkplace.Models
         public int Items { get; set; }
     
         public virtual PW_Persons PW_Persons { get; set; }
+        public virtual PW_Subjects PW_Subjects { get; set; }
     }
 }

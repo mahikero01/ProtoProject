@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ProjectWorkplaceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ProjectWorkplaceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="PW_Answers">
           <Key>
             <PropertyRef Name="AnswerID" />
@@ -127,6 +127,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PW_Examinees_PW_Subjects">
+          <End Role="PW_Subjects" Type="Self.PW_Subjects" Multiplicity="0..1" />
+          <End Role="PW_Examinees" Type="Self.PW_Examinees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Subjects">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="PW_Examinees">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PW_Persons_PW_Roles">
           <End Role="PW_Roles" Type="Self.PW_Roles" Multiplicity="1" />
           <End Role="PW_Persons" Type="Self.PW_Persons" Multiplicity="*" />
@@ -218,6 +230,10 @@
             <End Role="PW_Persons" EntitySet="PW_Persons" />
             <End Role="PW_Examinees" EntitySet="PW_Examinees" />
           </AssociationSet>
+          <AssociationSet Name="FK_PW_Examinees_PW_Subjects" Association="Self.FK_PW_Examinees_PW_Subjects">
+            <End Role="PW_Subjects" EntitySet="PW_Subjects" />
+            <End Role="PW_Examinees" EntitySet="PW_Examinees" />
+          </AssociationSet>
           <AssociationSet Name="FK_PW_Persons_PW_Roles" Association="Self.FK_PW_Persons_PW_Roles">
             <End Role="PW_Roles" EntitySet="PW_Roles" />
             <End Role="PW_Persons" EntitySet="PW_Persons" />
@@ -243,8 +259,7 @@
             <End Role="PW_QuizTags" EntitySet="PW_QuizTags" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProjectWorkplaceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -271,6 +286,7 @@
           <Property Name="Score" Type="Int32" Nullable="false" />
           <Property Name="Items" Type="Int32" Nullable="false" />
           <NavigationProperty Name="PW_Persons" Relationship="Self.FK_PW_Examinees_PW_Persons" FromRole="PW_Examinees" ToRole="PW_Persons" />
+          <NavigationProperty Name="PW_Subjects" Relationship="ProjectWorkplaceModel.FK_PW_Examinees_PW_Subjects" FromRole="PW_Examinees" ToRole="PW_Subjects" />
         </EntityType>
         <EntityType Name="PW_Persons">
           <Key>
@@ -352,6 +368,7 @@
           <Property Name="SubjectName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="PW_QuizTags" Relationship="Self.FK_PW_QuickTags_PW_Subjects" FromRole="PW_Subjects" ToRole="PW_QuizTags" />
+          <NavigationProperty Name="PW_Examinees" Relationship="ProjectWorkplaceModel.FK_PW_Examinees_PW_Subjects" FromRole="PW_Subjects" ToRole="PW_Examinees" />
         </EntityType>
         <EntityType Name="PW_Teams">
           <Key>
@@ -501,7 +518,23 @@
             <End Role="PW_Subjects" EntitySet="PW_Subjects" />
             <End Role="PW_QuizTags" EntitySet="PW_QuizTags" />
           </AssociationSet>
+          <AssociationSet Name="FK_PW_Examinees_PW_Subjects" Association="ProjectWorkplaceModel.FK_PW_Examinees_PW_Subjects">
+            <End Role="PW_Subjects" EntitySet="PW_Subjects" />
+            <End Role="PW_Examinees" EntitySet="PW_Examinees" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_PW_Examinees_PW_Subjects">
+          <End Type="ProjectWorkplaceModel.PW_Subjects" Role="PW_Subjects" Multiplicity="0..1" />
+          <End Type="ProjectWorkplaceModel.PW_Examinees" Role="PW_Examinees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Subjects">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="PW_Examinees">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

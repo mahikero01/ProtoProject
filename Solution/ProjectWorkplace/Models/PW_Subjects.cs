@@ -18,6 +18,7 @@ namespace ProjectWorkplace.Models
         public PW_Subjects()
         {
             this.PW_QuizTags = new HashSet<PW_QuizTags>();
+            this.PW_Examinees = new HashSet<PW_Examinees>();
         }
     
         public System.Guid SubjectID { get; set; }
@@ -26,5 +27,7 @@ namespace ProjectWorkplace.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PW_QuizTags> PW_QuizTags { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PW_Examinees> PW_Examinees { get; set; }
     }
 }
