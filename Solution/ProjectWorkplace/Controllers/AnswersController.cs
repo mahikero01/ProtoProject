@@ -25,16 +25,36 @@ namespace ProjectWorkplace.Controllers
 
         // GET: api/Answers/5
         [ResponseType(typeof(PW_Answers))]
-        public async Task<IHttpActionResult> GetPW_Answers(Guid id)
+        public List<PW_Answers_DTO> GetPW_Answers(Guid id)
         {
-            PW_Answers pW_Answers = await db.PW_Answers.FindAsync(id);
+            List<PW_Answers_DTO> pW_Answers = ( from l in db.PW_Answers
+                                                where l.QuestionID == id
+                                                select new PW_Answers_DTO { 
+                                                    AnswerDesc=l.AnswerDesc,
+                                                    AnswerID=l.AnswerID,
+                                                    IsActive=l.IsActive,
+                                                    IsCorrect=l.IsCorrect,
+                                                    QuestionID=l.QuestionID
+                                               }).ToList();
+                //await db.PW_Answers.FindAsync(id);
             if (pW_Answers == null)
             {
-                return NotFound();
+                return null;
             }
 
-            return Ok(pW_Answers);
+            return pW_Answers;
         }
+        //[ResponseType(typeof(PW_Answers))]
+        //public async Task<IHttpActionResult> GetPW_Answers(Guid id)
+        //{
+        //    PW_Answers pW_Answers = await db.PW_Answers.FindAsync(id);
+        //    if (pW_Answers == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return Ok(pW_Answers);
+        //}
 
         // PUT: api/Answers/5
         [ResponseType(typeof(void))]
