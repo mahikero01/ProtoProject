@@ -103,6 +103,22 @@
           <Property Name="TeamDesc" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PW_VW_QUESTIONS">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+            <PropertyRef Name="QuestionDesc" />
+            <PropertyRef Name="IsCommon" />
+            <PropertyRef Name="IsMultipleAns" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="QuestionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuestionDesc" Type="varchar(max)" Nullable="false" />
+          <Property Name="IsCommon" Type="bit" Nullable="false" />
+          <Property Name="IsMultipleAns" Type="bit" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
         <Association Name="FK_PW_Answers_PW_Questions">
           <End Role="PW_Questions" Type="Self.PW_Questions" Multiplicity="1" />
           <End Role="PW_Answers" Type="Self.PW_Answers" Multiplicity="*" />
@@ -222,6 +238,15 @@
           <EntitySet Name="PW_Roles" EntityType="Self.PW_Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PW_Subjects" EntityType="Self.PW_Subjects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PW_Teams" EntityType="Self.PW_Teams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_VW_QUESTIONS" EntityType="Self.PW_VW_QUESTIONS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PW_VW_QUESTIONS].[QuestionID] AS [QuestionID], 
+    [PW_VW_QUESTIONS].[QuestionDesc] AS [QuestionDesc], 
+    [PW_VW_QUESTIONS].[IsCommon] AS [IsCommon], 
+    [PW_VW_QUESTIONS].[IsMultipleAns] AS [IsMultipleAns], 
+    [PW_VW_QUESTIONS].[IsActive] AS [IsActive]
+    FROM [dbo].[PW_VW_QUESTIONS] AS [PW_VW_QUESTIONS]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_PW_Answers_PW_Questions" Association="Self.FK_PW_Answers_PW_Questions">
             <End Role="PW_Questions" EntitySet="PW_Questions" />
             <End Role="PW_Answers" EntitySet="PW_Answers" />
@@ -522,6 +547,7 @@
             <End Role="PW_Subjects" EntitySet="PW_Subjects" />
             <End Role="PW_Examinees" EntitySet="PW_Examinees" />
           </AssociationSet>
+          <EntitySet Name="PW_VW_QUESTIONS" EntityType="ProjectWorkplaceModel.PW_VW_QUESTIONS" />
         </EntityContainer>
         <Association Name="FK_PW_Examinees_PW_Subjects">
           <End Type="ProjectWorkplaceModel.PW_Subjects" Role="PW_Subjects" Multiplicity="0..1" />
@@ -535,6 +561,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="PW_VW_QUESTIONS">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+            <PropertyRef Name="QuestionDesc" />
+            <PropertyRef Name="IsCommon" />
+            <PropertyRef Name="IsMultipleAns" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="QuestionID" Type="Guid" Nullable="false" />
+          <Property Name="QuestionDesc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsCommon" Type="Boolean" Nullable="false" />
+          <Property Name="IsMultipleAns" Type="Boolean" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -646,6 +686,17 @@
                 <ScalarProperty Name="TeamID" ColumnName="TeamID" />
                 <ScalarProperty Name="TeamDesc" ColumnName="TeamDesc" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_VW_QUESTIONS">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_VW_QUESTIONS">
+              <MappingFragment StoreEntitySet="PW_VW_QUESTIONS">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsMultipleAns" ColumnName="IsMultipleAns" />
+                <ScalarProperty Name="IsCommon" ColumnName="IsCommon" />
+                <ScalarProperty Name="QuestionDesc" ColumnName="QuestionDesc" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

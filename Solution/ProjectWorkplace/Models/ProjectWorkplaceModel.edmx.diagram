@@ -25,6 +25,7 @@
         <AssociationConnector Association="ProjectWorkplaceModel.FK_PW_QuickTags_PW_Subjects" ManuallyRouted="false" />
         <AssociationConnector Association="ProjectWorkplaceModel.FK_PW_Examinees_PW_Subjects" ManuallyRouted="false" >
         </AssociationConnector>
+        <EntityTypeShape EntityType="ProjectWorkplaceModel.PW_VW_QUESTIONS" Width="1.5" PointX="0.5" PointY="5.125" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

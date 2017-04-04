@@ -163,6 +163,7 @@
     <Compile Include="Controllers\PersonTeamsController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\QuizTagsController.cs" />
+    <Compile Include="Controllers\RandQuestionsController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
@@ -213,6 +214,9 @@
       <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PW_Teams.cs">
+      <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PW_VW_QUESTIONS.cs">
       <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
