@@ -3,11 +3,142 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
-
-.ng-valid[required], .ng-valid.required {
-  border-left: 5px solid #42A948;
+.Maincontent{
+    height: 100vh;
 }
 
-.ng-invalid:not(form) {
-  border-left: 5px solid #a94442;
+#MainHeader{
+    padding: 0px; 
+    margin: 0px; 
+    height: 7%; 
+    background: #418173; 
+    padding: 0px; 
+    margin: 0px;
 }
+
+#MainBody{
+    padding: 0px; 
+    margin: 0px;
+    height: 93%
+}
+
+#BodySideNav{
+    
+    background:#196856; 
+    margin: 0px; 
+    display: block; 
+    height: 93vh; 
+    padding: 0px;
+    overflow-y: auto;
+}
+
+#BodyContent{
+    background: #f1f1f1;
+     margin: 0px; 
+     display: block; 
+     height: 93vh;
+      padding: 0px;
+}
+/*================================================================================*/
+/*Header CSSs*/
+#UserIcon{
+    text-decoration: none;
+    list-style-type: none; 
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    Color: #eee !important;
+    font-weight: bold;  
+    font-size: 20px;
+    padding-top: 15px; 
+}
+#UserDetail > a, #UserDetail{
+    /*text-decoration: none;*/
+    list-style-type: none; 
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    Color: #eee;
+    font-weight: bold;  
+    font-size: 18px;
+    padding-top: 17px !important; 
+}
+/*================================================================================*/
+.nav > li > div > div > a{
+    text-decoration: none;
+    list-style-type: none; 
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    Color: #eee;
+    font-weight: bold;  
+    font-size: 18px;
+}
+
+.nav > li > div > div{
+    text-align: left !important;
+}
+
+.nav > li > .row{
+    margin: 0px;
+    padding: 0px;
+}
+
+.SideNavList {
+    padding: 0; 
+    margin: 25px 0px 25px 25px;
+}
+
+.SideNavList > ul > li > a{
+    text-decoration: none;
+    list-style-type: none; 
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-weight: bold;  
+    font-size: 15px;
+}
+
+.nav > li > div:hover,
+.nav > li > div:focus{
+    background-color: #185c4c
+}
+
+#TriBtn1, #TriBtn2, #TriBtn3, #TriBtn4{
+    color: #fff; 
+    font-size: 20px; 
+    text-align: center;   
+     padding-top: 25px; 
+}
+
+#submenu1 > li > a,
+#submenu2 > li > a,
+#submenu3 > li > a,
+#submenu4 > li > a{
+    text-decoration: none;
+    list-style-type: none; 
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    Color: #eee;
+    font-weight: bold;  
+    font-size: 15px;
+    
+}
+
+#submenu1 > li > a:hover,
+#submenu1 > li > a:focus,
+#submenu2 > li > a:hover,
+#submenu2 > li > a:focus,
+#submenu3 > li > a:hover,
+#submenu3 > li > a:focus,
+#submenu4 > li > a:hover,
+#submenu4 > li > a:focus{
+    text-decoration: underline;
+    background-color: #185c4c
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

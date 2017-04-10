@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <!-- Polyfill(s) for older browsers -->
+    @Scripts.Render("~/bundles/polyfills")
+
+    <!-- jQuery -->
+    @Scripts.Render("~/bundles/jquery")
+
+    <!-- Bootstrap and Customm Style -->
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+    
+
+    @Scripts.Render("~/bundles/config")
+    @Scripts.Render("~/bundles/modernizr")
+    <script>
+        System.import('main.js').catch(function(err){ console.error(err); });
+    </script>
+</head>
+<body>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+</body>
+</html>

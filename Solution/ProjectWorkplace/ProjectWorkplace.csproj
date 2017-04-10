@@ -121,6 +121,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\components\01-avp\" />
+    <Folder Include="app\components\04-team\" />
+    <Folder Include="app\components\07-exam\" />
+    <Folder Include="app\components\08-knowmore\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
@@ -223,12 +227,37 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\about.component.html" />
-    <Content Include="app\about.component.js" />
     <Content Include="app\app.component.html" />
     <Content Include="app\app.component.js" />
     <Content Include="app\app.module.js" />
     <Content Include="app\app.routing.js" />
+    <Content Include="app\components\03-disoverview\disoverview.module.js" />
+    <Content Include="app\components\03-disoverview\disoverview.routing.js" />
+    <Content Include="app\components\03-disoverview\mv.component.html" />
+    <Content Include="app\components\03-disoverview\mv.component.js" />
+    <Content Include="app\components\03-disoverview\org.component.html" />
+    <Content Include="app\components\03-disoverview\org.component.js" />
+    <Content Include="app\components\03-disoverview\strategies.component.html" />
+    <Content Include="app\components\03-disoverview\strategies.component.js" />
+    <Content Include="app\components\05-dis-tools\distools.module.js" />
+    <Content Include="app\components\05-dis-tools\distools.routing.js" />
+    <Content Include="app\components\05-dis-tools\khronos.component.html" />
+    <Content Include="app\components\05-dis-tools\khronos.component.js" />
+    <Content Include="app\components\05-dis-tools\opt.component.html" />
+    <Content Include="app\components\05-dis-tools\opt.component.js" />
+    <Content Include="app\components\06-policy\policy.module.js" />
+    <Content Include="app\components\06-policy\policy.routing.js" />
+    <Content Include="app\components\06-policy\vl.component.html" />
+    <Content Include="app\components\06-policy\vl.component.js" />
+    <Content Include="app\components\06-policy\workrule.component.html" />
+    <Content Include="app\components\06-policy\workrule.component.js" />
+    <Content Include="app\components\viewer\photo-viewer.component.js" />
+    <Content Include="app\components\viewer\video-viewer.component.js" />
+    <Content Include="app\components\viewer\viewer.module.js" />
+    <Content Include="app\entities\answer.js" />
+    <Content Include="app\entities\question.js" />
+    <Content Include="app\services\answer.service.js" />
+    <Content Include="app\services\random-question.service.js" />
     <Content Include="main.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="favicon.ico" />
