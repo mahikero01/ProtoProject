@@ -256,6 +256,12 @@
     <Content Include="app\components\viewer\viewer.module.js" />
     <Content Include="app\entities\answer.js" />
     <Content Include="app\entities\question.js" />
+    <Content Include="app\resources\pic.png" />
+    <Content Include="app\resources\videoplayback.mp4" />
+    <Content Include="app\resources\Wildlife.mp4" />
+    <Content Include="app\resources\workplace\03 - Mission vision.jpg" />
+    <Content Include="app\resources\workplace\04 - orgChart.jpg" />
+    <Content Include="app\resources\workplace\05 - stratergies.jpg" />
     <Content Include="app\services\answer.service.js" />
     <Content Include="app\services\random-question.service.js" />
     <Content Include="main.js" />
@@ -558,6 +564,14 @@
       <DependentUpon>ProjectWorkplaceModel.edmx</DependentUpon>
       <LastGenOutput>ProjectWorkplaceModel.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\resources\workplace\16 - OPT doc.pdf" />
+    <Content Include="app\resources\workplace\18 - Khronos.pdf" />
+    <Content Include="app\resources\workplace\19 - WORK RULES.FINAL.doc" />
+    <Content Include="app\resources\workplace\19 - WORK RULES.FINAL.pdf" />
+    <Content Include="app\resources\workplace\20 - Vacation Leave.pdf" />
+    <Content Include="app\resources\workplace\resouces.zip" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
