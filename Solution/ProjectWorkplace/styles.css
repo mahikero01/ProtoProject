@@ -3,6 +3,8 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
+
+/*LA*/
 .Maincontent{
     height: 100vh;
 }
@@ -37,7 +39,7 @@ h1 {
      margin: 0px; 
      display: block; 
      height: 93vh;
-      padding: 0px;
+     padding: 0px;
 }
 /*================================================================================*/
 /*Header CSSs*/
@@ -50,95 +52,110 @@ h1 {
     font-size: 20px;
     padding-top: 15px; 
 }
-#UserDetail > a, #UserDetail{
+#UserDetails > div > a, #UserDetails{
     /*text-decoration: none;*/
     list-style-type: none; 
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     Color: #eee;
     font-weight: bold;  
     font-size: 18px;
-    padding-top: 17px !important; 
 }
+
+#BrandLogo, #WebsiteTitle, #UserDetails{
+    padding: 0px;
+    height: 100%
+}
+ #Logo{
+     width: 240px; 
+     height: 100%; 
+     padding: 10px 0 10px 25px;
+ }
+
+ #WebsiteTitle > div{
+     width: 100%; 
+     height: 100%; 
+     text-align: center;
+     padding-top: 17px
+ }
+ #Title{
+     font-size: 25px;
+     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+     Color: #eee;
+ }
+
+ #UserDetails > div{
+     width: 100%; 
+     height: 100%; 
+     text-align: right;
+     padding-right: 15px; 
+     padding-top: 23px;
+ }
+
+
 /*================================================================================*/
-.nav > li > div > div > a{
+
+/*Sidenav CSSs*/
+
+.list-group > .list-group-item {
     text-decoration: none;
     list-style-type: none; 
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     Color: #eee;
     font-weight: bold;  
     font-size: 18px;
+    background-color: #196856;
+    padding: 25px 0px 25px 25px;
 }
 
-.nav > li > div > div{
-    text-align: left !important;
+.list-group-item{
+    border: 0 none !important;
 }
 
-.nav > li > .row{
-    margin: 0px;
-    padding: 0px;
+.list-group-item:focus,
+.list-group-item:hover{
+    background: #00281F !important;
+    Color: #eee !important;
 }
 
-.SideNavList {
-    padding: 0; 
-    margin: 25px 0px 25px 25px;
+.list-group-item.subitem:focus,
+.list-group-item.subitem:hover{
+    background: #529082 !important;
+    Color: #eee !important;
 }
 
-.SideNavList > ul > li > a{
-    text-decoration: none;
-    list-style-type: none; 
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-    font-weight: bold;  
+.list-group-item.subsubItem:focus,
+.list-group-item.subsubItem:hover{
+    background: #2E7364 !important;
+    Color: #eee !important;
+}
+
+.list-group-item.subitem{
+    padding-left: 35px;  
     font-size: 15px;
+    background: #185c4c;
+    color: #eee;
+    font-weight: bold;  
 }
 
-.nav > li > div:hover,
-.nav > li > div:focus{
-    background-color: #185c4c
+.list-group-item.subsubItem{
+    padding-left: 55px;
+    background: #185c4c;
+    font-size: 13px;
+    color: #eee;
 }
 
 #TriBtn1, #TriBtn2, #TriBtn3, #TriBtn4{
     color: #fff; 
     font-size: 20px; 
-    text-align: center;   
-     padding-top: 25px; 
+    float: right;
+    padding-right: 15px; 
 }
 
-#submenu1 > li > a,
-#submenu2 > li > a,
-#submenu3 > li > a,
-#submenu4 > li > a{
-    text-decoration: none;
-    list-style-type: none; 
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-    Color: #eee;
-    font-weight: bold;  
-    font-size: 15px;
-    
+#TriBtn11, #TriBtn22, #TriBtn33, #TriBtn44{
+    color: #fff; 
+    text-align: center; 
+    float: right;
+    padding-right: 15px;
 }
-
-#submenu1 > li > a:hover,
-#submenu1 > li > a:focus,
-#submenu2 > li > a:hover,
-#submenu2 > li > a:focus,
-#submenu3 > li > a:hover,
-#submenu3 > li > a:focus,
-#submenu4 > li > a:hover,
-#submenu4 > li > a:focus{
-    text-decoration: underline;
-    background-color: #185c4c
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -1,0 +1,123 @@
+<div class="Maincontent">
+
+    <div class="row" id="MainHeader">
+        <div class="col-xs-12" > 
+            <div class="row" style="margin: 0px; padding: 0px">
+                <div id="UserDetails" class="col-xs-2" style="float: right">
+                    <div class="row" >
+                        <div id="UserIcon" class="col-xs-1">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </div>
+                        <div  id="UserDetail" class="col-xs-1">
+                            <a href="#"> Luissers </a>
+                        </div>                         
+                    </div>
+                </div>
+            </div>                
+        </div>
+    </div>
+    <div class="row" id="MainBody">
+        <div class="col-xs-3" id="BodySideNav"> 
+            <div id="Sidenav" >
+                    <ul class="nav" >
+                        <div style="padding: 15px 0px" ></div>
+                        <li>
+                            <div class="row" > 
+                                <div class="col-xs-11 SideNavList">
+                                    <a routerLink="/viewphoto">
+                                    DENMAR ONG'S VIDEO</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row"> 
+                                <div class="col-xs-11 SideNavList">
+                                    <a routerLink="/viewvideo">YOUR TEAM LEADER'S VIDEO</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row SideNavListCollapse" > 
+                                <div class="col-xs-9 SideNavList">
+                                    <a href="#" id="btn-1" data-toggle="collapse" data-target="#submenu1" aria-expanded="false">MBPS DIS OVERVIEW</a>
+                                    <ul class="nav collapse" id="submenu1" role="menu" aria-labelledby="btn-1">
+                                        <li><a routerLink="/mission-vision">MISSION AND VISION</a></li>
+                                        <li><a routerLink="/organization">ORGANIZATION</a></li>
+                                        <li><a routerLink="/strategies">STRATEGIES</a></li>
+                                        <li><a href="#">SERVICE CATALOGUE</a></li>
+                                        <li><a href="#">PROGRAM</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-1">
+                                    <span id="TriBtn1" class="glyphicon glyphicon-triangle-bottom"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row SideNavListCollapse" > 
+                                <div class="col-xs-9 SideNavList">
+                                    <a href="#" id="btn-2" data-toggle="collapse" data-target="#submenu2" aria-expanded="false">YOUR TEAM'S INFORMATION</a>
+                                    <ul class="nav collapse" id="submenu2" role="menu" aria-labelledby="btn-2">
+                                        <li><a href="#">TEAM INFOMATION AND ORGANIZATION CHART</a></li>
+                                        <li><a href="#">JOB MANAGEMENT PROGRAM</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-1">
+                                    <span id="TriBtn2" class="glyphicon glyphicon-triangle-bottom"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row SideNavListCollapse" > 
+                                <div class="col-xs-9 SideNavList">
+                                    <a href="#" id="btn-3" data-toggle="collapse" data-target="#submenu3" aria-expanded="false">STANDARD MBPS DIS TOOLS</a>
+                                    <ul class="nav collapse" id="submenu3" role="menu" aria-labelledby="btn-3">
+                                        <li><a routerLink="/opt">OPT</a></li>
+                                        <li><a href="#">WORKDAY</a></li>
+                                        <li><a routerLink="/khronos">KHRONOS</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-1">
+                                    <span id="TriBtn3" class="glyphicon glyphicon-triangle-bottom"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row SideNavListCollapse" > 
+                                <div class="col-xs-9 SideNavList">
+                                    <a href="#" id="btn-3" data-toggle="collapse" data-target="#submenu4" aria-expanded="false">WORK RULES, HOUSE RULES, AND LEAVE MANAGEMENT</a>
+                                    <ul class="nav collapse" id="submenu4" role="menu" aria-labelledby="btn-4">
+                                        <li><a routerLink="/work-rule">HOUSE RULES</a></li>
+                                        <li><a routerLink="/vacation-leave">LEAVE MANAGEMENT</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-1">
+                                    <span id="TriBtn4" class="glyphicon glyphicon-triangle-bottom"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row"> 
+                                <div class="col-xs-11 SideNavList">
+                                    <a href="#">TAKE EXAM</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row"> 
+                                <div class="col-xs-11 SideNavList">
+                                    <a href="#">KNOW MORE ABOUT DIS</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="col-xs-9" id="BodyContent"> 
+            <div style="height:100%;width:100%;position: absolute;">
+                <router-outlet></router-outlet>
+            </div>               
+        </div>        
+    </div>
+
+</div>
