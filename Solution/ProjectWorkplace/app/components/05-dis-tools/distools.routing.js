@@ -10,7 +10,7 @@ var router_1 = require("@angular/router");
 //component
 var opt_component_1 = require("./opt.component");
 var khronos_component_1 = require("./khronos.component");
-var distoolsRoutes = [
+var routes = [
     //paths
     { path: 'opt', component: opt_component_1.OptComponent },
     { path: 'khronos', component: khronos_component_1.KhronosComponent },
@@ -22,7 +22,7 @@ var DISToolsRouting = (function () {
 }());
 DISToolsRouting = __decorate([
     core_1.NgModule({
-        imports: [router_1.RouterModule.forChild(distoolsRoutes)],
+        imports: [router_1.RouterModule.forChild(routes)],
         exports: [router_1.RouterModule]
     })
 ], DISToolsRouting);

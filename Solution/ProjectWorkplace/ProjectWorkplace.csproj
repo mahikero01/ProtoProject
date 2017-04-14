@@ -281,11 +281,6 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="material-color\deeppurple-amber.css" />
-    <Content Include="material-color\icon.css" />
-    <Content Include="material-color\indigo-pink.css" />
-    <Content Include="material-color\pink-bluegrey.css" />
-    <Content Include="material-color\purple-green.css" />
     <Content Include="node_modules\%40angular\common\bundles\common.umd.min.js" />
     <Content Include="node_modules\%40angular\compiler\bundles\compiler.umd.min.js" />
     <Content Include="node_modules\%40angular\core\bundles\core.umd.min.js" />
@@ -524,9 +519,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="material-color\icons.woff2" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

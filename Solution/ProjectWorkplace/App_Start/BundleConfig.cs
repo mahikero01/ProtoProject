@@ -29,8 +29,8 @@ namespace ProjectWorkplace
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/node_modules/bootstrap/dist/css/bootstrap.min.css",
                       "~/styles.css",
-                      "~/material-color/icon.css",
-                      "~/material-color/deeppurple-amber.css"));
+                      //"~/material-color/icon.css",
+                      "~/node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/config").Include(
                         "~/systemjs.config.js"));

@@ -1,0 +1,9 @@
+/* MATERIAL */
+.quiz-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.quiz-radio-button {
+  margin: 5px;
+}

@@ -10,7 +10,7 @@ var router_1 = require("@angular/router");
 //component
 var vl_component_1 = require("./vl.component");
 var workrule_component_1 = require("./workrule.component");
-var distoolsRoutes = [
+var routes = [
     //paths
     { path: 'vacation-leave', component: vl_component_1.VLComponent },
     { path: 'work-rule', component: workrule_component_1.WorkRuleComponent },
@@ -22,7 +22,7 @@ var PolicyRouting = (function () {
 }());
 PolicyRouting = __decorate([
     core_1.NgModule({
-        imports: [router_1.RouterModule.forChild(distoolsRoutes)],
+        imports: [router_1.RouterModule.forChild(routes)],
         exports: [router_1.RouterModule]
     })
 ], PolicyRouting);

@@ -11,7 +11,7 @@ var router_1 = require("@angular/router");
 var mv_component_1 = require("./mv.component");
 var org_component_1 = require("./org.component");
 var strategies_component_1 = require("./strategies.component");
-var photosampleRoutes = [
+var routes = [
     //paths
     { path: 'mission-vision', component: mv_component_1.MVComponent },
     { path: 'organization', component: org_component_1.OrgComponent },
@@ -24,7 +24,7 @@ var DISOverviewRouting = (function () {
 }());
 DISOverviewRouting = __decorate([
     core_1.NgModule({
-        imports: [router_1.RouterModule.forChild(photosampleRoutes)],
+        imports: [router_1.RouterModule.forChild(routes)],
         exports: [router_1.RouterModule]
     })
 ], DISOverviewRouting);

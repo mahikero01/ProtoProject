@@ -6,12 +6,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
+var common_1 = require("@angular/common");
 var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
 //ComponentModules
 var disoverview_module_1 = require("./components/03-disoverview/disoverview.module");
 var distools_module_1 = require("./components/05-dis-tools/distools.module");
 var policy_module_1 = require("./components/06-policy/policy.module");
+var exam_module_1 = require("./components/07-exam/exam.module");
 //routing
 var app_routing_1 = require("./app.routing");
 var AppModule = (function () {
@@ -22,10 +24,12 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule,
+            common_1.CommonModule,
             //SynchronizationModule, 
             disoverview_module_1.DISOverviewModule,
             distools_module_1.DISToolsModule,
             policy_module_1.PolicyModule,
+            exam_module_1.ExamModule,
             app_routing_1.AppRouting
         ],
         declarations: [app_component_1.AppComponent],

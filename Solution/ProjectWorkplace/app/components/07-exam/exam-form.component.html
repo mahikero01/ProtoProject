@@ -1,0 +1,8 @@
+  {{question.QuestionDesc}}
+  <md-radio-group class="quiz-radio-group" [(ngModel)]="answer">
+      <md-radio-button class="quiz-radio-button" *ngFor="let ans of answers" [value]="ans.IsCorrect">
+        {{ans.AnswerDesc}}
+      </md-radio-button>
+     
+    </md-radio-group>
+  <div class="quiz-selected-value">Your favorite season is: {{answer}}</div>

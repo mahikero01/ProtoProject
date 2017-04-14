@@ -23,7 +23,8 @@
       '@angular/router': 'npm:@angular/router/bundles/router.umd.min.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.min.js',
         //material
-      '@angular/material': 'npm:@angular/material/bundles/material.umd.js',
+      '@angular/material': 'npm:@angular/material/bundles/material.umd.min.js',
+      '@angular/animations': 'npm:@angular/animations/bundles/animations.umd.min.js',
       'hammerjs': 'npm:hammerjs/hammer.min.js',
 
       // other libraries
