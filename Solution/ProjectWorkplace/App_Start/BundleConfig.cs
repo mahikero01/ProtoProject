@@ -11,8 +11,7 @@ namespace ProjectWorkplace
             bundles.Add(new ScriptBundle("~/bundles/polyfills").Include(
                         "~/node_modules/core-js/client/shim.min.js",
                         "~/node_modules/zone.js/dist/zone.min.js",
-                        "~/node_modules/systemjs/dist/system.js",
-                        "~/node_modules/hammerjs/hammer.min.js"));
+                        "~/node_modules/systemjs/dist/system.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/node_modules/jquery/dist/jquery.min.js"));
@@ -29,8 +28,9 @@ namespace ProjectWorkplace
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/node_modules/bootstrap/dist/css/bootstrap.min.css",
                       "~/styles.css",
-                      //"~/material-color/icon.css",
-                      "~/node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"));
+                      "~/material-color/icon.css",
+                      "~/node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+                      ));
 
             bundles.Add(new ScriptBundle("~/bundles/config").Include(
                         "~/systemjs.config.js"));

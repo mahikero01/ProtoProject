@@ -206,6 +206,7 @@
     <Compile Include="Models\PW_Questions.cs">
       <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PW_Questions_DTO.cs" />
     <Compile Include="Models\PW_QuizTags.cs">
       <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
     </Compile>

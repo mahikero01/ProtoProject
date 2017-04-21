@@ -10,6 +10,8 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var material_1 = require("@angular/material");
+// import { BrowserModule} from '@angular/platform-browser';
+// import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 var exam_component_1 = require("./exam.component");
 var exam_form_component_1 = require("./exam-form.component");
 var exam_routing_1 = require("./exam.routing");
@@ -23,7 +25,9 @@ var ExamModule = (function () {
 ExamModule = __decorate([
     core_1.NgModule({
         imports: [
+            //BrowserModule,
             common_1.CommonModule,
+            //NoopAnimationsModule,
             forms_1.FormsModule,
             material_1.MaterialModule,
             exam_routing_1.ExamRouting

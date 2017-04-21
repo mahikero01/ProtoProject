@@ -1,23 +1,13 @@
-
+<button class="btn btn-default btn-sm" [disabled]="!checkAnswers()" (click)="initUserSync()" type="button" >Get Users</button>
+    
 <div class="panel panel-default" *ngFor="let q of questions">
 
     <div class="panel-heading" >{{q.QuestionDesc}}</div>
     <div class="panel-body">
-        <exam-form [question]="q"> </exam-form>
+       
     </div>
+    <exam-form [question]="q" (getAnswer)="q.Answer"> </exam-form>
+    
+    {{q.Answer}}
     <br />
 </div>
-<!--
-<input type="radio" [ngModel]="{checked: sample == 'male'}" (ngModelChange)="sample='male'"  name="sex" value="male" />Male<br>
-<input type="radio" [ngModel]="{checked:sample == 'female'}"(ngModelChange)="sample='female'" name="sex" value="female" />Female
-
-{{sample}}-->
-
-
-  <md-radio-group class="quiz-radio-group" [(ngModel)]="favoriteSeason">
-      <md-radio-button class="quiz-radio-button" *ngFor="let season of seasons" [value]="season">
-        {{season}}
-      </md-radio-button>
-     
-    </md-radio-group>
-  <div class="quiz-selected-value">Your favorite season is: {{favoriteSeason}}</div>

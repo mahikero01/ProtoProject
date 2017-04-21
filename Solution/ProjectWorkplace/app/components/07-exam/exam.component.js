@@ -13,15 +13,16 @@ var random_question_service_1 = require("../../services/random-question.service"
 var ExamComponent = (function () {
     function ExamComponent(randomQuestionService) {
         this.randomQuestionService = randomQuestionService;
-        this.sample = 'sample1';
         this.questions = [];
-        this.seasons = [
-            'Winter',
-            'Spring',
-            'Summer',
-            'Autumn',
-        ];
     }
+    ExamComponent.prototype.checkAnswers = function () {
+        var ctr = 0;
+        for (var _i = 0, _a = this.questions; _i < _a.length; _i++) {
+            var question = _a[_i];
+            ctr = +question.Answer == 0 ? 1 : 0;
+        }
+        return ctr == 0 ? true : false;
+    };
     ExamComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.randomQuestionService.getQuestions()
@@ -32,8 +33,7 @@ var ExamComponent = (function () {
 ExamComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        templateUrl: 'exam.component.html',
-        styleUrls: ['exam.css'],
+        templateUrl: 'exam.component.html'
     }),
     __metadata("design:paramtypes", [random_question_service_1.RandomQuestionService])
 ], ExamComponent);

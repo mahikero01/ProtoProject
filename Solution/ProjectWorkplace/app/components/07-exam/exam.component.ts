@@ -4,24 +4,22 @@ import { RandomQuestionService } from '../../services/random-question.service';
 import { Question } from '../../entities/question';
 @Component({
     moduleId: module.id,
-    templateUrl:'exam.component.html',
-    styleUrls: ['exam.css'],
+    templateUrl:'exam.component.html'
 })
 export class ExamComponent implements OnInit { 
-    sample:string='sample1';
-    favoriteSeason: string;
     questions:Question[]=[];
 
     constructor(
         public randomQuestionService: RandomQuestionService
     ){ }
     
-    seasons = [
-        'Winter',
-        'Spring',
-        'Summer',
-        'Autumn',
-    ];
+    checkAnswers():boolean{
+        var ctr:number=0;
+        for (let question of this.questions) {
+           ctr =+ question.Answer==0 ? 1 : 0;
+        }
+        return ctr==0 ? true : false;
+    }
 
     ngOnInit(){
         this.randomQuestionService.getQuestions()

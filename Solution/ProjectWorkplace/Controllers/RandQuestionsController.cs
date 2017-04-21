@@ -17,9 +17,18 @@ namespace ProjectWorkplace.Controllers
         private ProjectWorkplaceContext db = new ProjectWorkplaceContext();
 
         // GET api/RandQuestions
-        public IQueryable<PW_VW_QUESTIONS> GetPW_VW_QUESTIONS()
+        public IQueryable<PW_Questions_DTO> GetPW_VW_QUESTIONS()
         {
-            return db.PW_VW_QUESTIONS;
+            //return db.PW_VW_QUESTIONS;
+            return from i in db.PW_VW_QUESTIONS
+                   select new PW_Questions_DTO
+                   {
+                       IsActive = i.IsActive,
+                       IsCommon = i.IsCommon,
+                       IsMultipleAns = i.IsMultipleAns,
+                       QuestionDesc = i.QuestionDesc,
+                       QuestionID = i.QuestionID
+                   };
         }
 
         // GET api/RandQuestions/5
