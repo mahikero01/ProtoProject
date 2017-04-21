@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ExamComponent } from './exam.component';
+import { ExamFormComponent } from './exam-form.component';
 import { ExamRouting } from './exam.routing';
 
 import { RandomQuestionService } from '../../services/random-question.service';
@@ -17,7 +18,8 @@ import { AnswerService } from '../../services/answer.service';
         ExamRouting
     ],
     declarations: [
-        ExamComponent
+        ExamComponent,
+        ExamFormComponent
     ],
     providers: [
         RandomQuestionService,

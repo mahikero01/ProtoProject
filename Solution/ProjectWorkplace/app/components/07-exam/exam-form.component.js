@@ -40,7 +40,8 @@ ExamFormComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: "exam-form",
-        templateUrl: 'exam.component.html'
+        templateUrl: 'exam.component.html',
+        styleUrls: ['exam.css'],
     }),
     __metadata("design:paramtypes", [answer_service_1.AnswerService])
 ], ExamFormComponent);

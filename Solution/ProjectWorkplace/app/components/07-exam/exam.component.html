@@ -3,7 +3,7 @@
 
     <div class="panel-heading" >{{q.QuestionDesc}}</div>
     <div class="panel-body">
-        <exam-form> </exam-form>
+        <exam-form [question]="q"> </exam-form>
     </div>
     <br />
 </div>
@@ -12,7 +12,7 @@
 <input type="radio" [ngModel]="{checked:sample == 'female'}"(ngModelChange)="sample='female'" name="sex" value="female" />Female
 
 {{sample}}-->
-<!--
+
 
   <md-radio-group class="quiz-radio-group" [(ngModel)]="favoriteSeason">
       <md-radio-button class="quiz-radio-button" *ngFor="let season of seasons" [value]="season">
@@ -20,4 +20,4 @@
       </md-radio-button>
      
     </md-radio-group>
-  <div class="quiz-selected-value">Your favorite season is: {{favoriteSeason}}</div>-->
+  <div class="quiz-selected-value">Your favorite season is: {{favoriteSeason}}</div>
