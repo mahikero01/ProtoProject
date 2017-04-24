@@ -14,19 +14,21 @@ var ExamComponent = (function () {
     function ExamComponent(randomQuestionService) {
         this.randomQuestionService = randomQuestionService;
         this.questions = [];
+        this.canSubmit = false;
     }
-    ExamComponent.prototype.checkAnswers = function () {
-        var ctr = 0;
-        for (var _i = 0, _a = this.questions; _i < _a.length; _i++) {
-            var question = _a[_i];
-            ctr = +question.Answer == 0 ? 1 : 0;
-        }
-        return ctr == 0 ? true : false;
-    };
     ExamComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.randomQuestionService.getQuestions()
             .then(function (rq) { return _this.questions = rq; });
+    };
+    ExamComponent.prototype.checkAnswers = function () {
+        var ctr = 0;
+        for (var _i = 0, _a = this.questions; _i < _a.length; _i++) {
+            var question = _a[_i];
+            //console.log(question.Answer);
+            ctr = ctr + (question.Answer == 0 ? 1 : 0);
+        }
+        this.canSubmit = ctr == 0;
     };
     return ExamComponent;
 }());

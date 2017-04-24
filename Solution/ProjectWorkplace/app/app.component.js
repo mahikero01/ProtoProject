@@ -11,7 +11,7 @@ var AppComponent = (function () {
         this.name = 'Angular';
     }
     AppComponent.prototype.changeArrow = function (myElem) {
-        console.log(document.getElementById(myElem).className);
+        //console.log(document.getElementById(myElem).className);
         if (document.getElementById(myElem).className == "glyphicon glyphicon-triangle-bottom") {
             document.getElementById(myElem).className = "glyphicon glyphicon-triangle-top";
         }

@@ -16,14 +16,16 @@ var answer_service_1 = require("../../services/answer.service");
 var ExamFormComponent = (function () {
     function ExamFormComponent(answerService) {
         this.answerService = answerService;
-        this.counterChange = new core_1.EventEmitter();
+        this.answerChange = new core_1.EventEmitter();
+        this.sample = new core_1.EventEmitter();
         this.answer = '';
         this.answers = [];
     }
     ExamFormComponent.prototype.getAnswer = function (ans) {
         var userAnswer = ans == true ? 1 : -1;
         this.question.Answer = userAnswer;
-        this.counterChange.emit(this.question);
+        this.answerChange.emit(this.question);
+        this.sample.emit('complete');
     };
     ExamFormComponent.prototype.getAnswers = function () {
         var _this = this;
@@ -45,7 +47,11 @@ __decorate([
 __decorate([
     core_1.Output(),
     __metadata("design:type", Object)
-], ExamFormComponent.prototype, "counterChange", void 0);
+], ExamFormComponent.prototype, "answerChange", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], ExamFormComponent.prototype, "sample", void 0);
 ExamFormComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
