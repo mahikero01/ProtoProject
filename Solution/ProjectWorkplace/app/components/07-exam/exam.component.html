@@ -11,9 +11,7 @@
         </div>
         <exam-form [question]="q" (getAnswer)="q.Answer" (sample)="checkAnswers()"
         > </exam-form>
-        
-        {{q.Answer}}
-        <br />
+
     </div>
     <button class="btn btn-default btn-sm" type="button" [disabled]="!canSubmit">Submit</button>
 </div>
