@@ -10,18 +10,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var random_question_service_1 = require("../../services/random-question.service");
+var router_1 = require("@angular/router");
+var examinees_1 = require("../../entities/examinees");
+var angular2_uuid_1 = require("angular2-uuid");
 var ExamComponent = (function () {
-    function ExamComponent(randomQuestionService) {
+    function ExamComponent(randomQuestionService, route, router) {
         this.randomQuestionService = randomQuestionService;
+        this.route = route;
+        this.router = router;
         this.questions = [];
         this.canSubmit = false;
         this.score = 0;
+        this.viewScore = false;
+        this.examinee = new examinees_1.Examinees(angular2_uuid_1.UUID.UUID(), angular2_uuid_1.UUID.UUID(), 0, '', new Date(), 0, 0);
+        this.username = '';
+        this.getExamineeInfo();
     }
     ExamComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.randomQuestionService.getQuestions()
             .then(function (rq) { return _this.questions = rq; });
     };
+    //check answers if it is ready to submit
     ExamComponent.prototype.checkAnswers = function () {
         this.score = 0;
         var ctr = 0;
@@ -33,6 +43,17 @@ var ExamComponent = (function () {
         }
         this.canSubmit = ctr == 0;
     };
+    //submits the score
+    ExamComponent.prototype.submitScore = function () {
+        this.viewScore = true;
+        //service for posting score to PW_Examiners
+    };
+    ExamComponent.prototype.getExamineeInfo = function () {
+        var _this = this;
+        this.route.params.subscribe(function (params) {
+            _this.username = params['id'];
+        });
+    };
     return ExamComponent;
 }());
 ExamComponent = __decorate([
@@ -40,6 +61,8 @@ ExamComponent = __decorate([
         moduleId: module.id,
         templateUrl: 'exam.component.html'
     }),
-    __metadata("design:paramtypes", [random_question_service_1.RandomQuestionService])
+    __metadata("design:paramtypes", [random_question_service_1.RandomQuestionService,
+        router_1.ActivatedRoute,
+        router_1.Router])
 ], ExamComponent);
 exports.ExamComponent = ExamComponent;

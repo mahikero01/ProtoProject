@@ -5,7 +5,7 @@ import { ExamComponent } from './exam.component';
 
 const routes: Routes = [
     //paths
-    { path : 'Quiz', component: ExamComponent },
+    { path : 'Quiz/:id', component: ExamComponent },
     // { path : 'khronos', component: KhronosComponent },
 ];
 

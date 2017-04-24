@@ -9,10 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var auth_1 = require("./entities/auth");
 var AuthUserComponent = (function () {
-    function AuthUserComponent() {
+    function AuthUserComponent(router) {
+        this.router = router;
     }
+    AuthUserComponent.prototype.gotoDetail = function () {
+        this.router.navigate(['/Quiz', this.user.userName]);
+    };
     return AuthUserComponent;
 }());
 __decorate([
@@ -24,6 +29,7 @@ AuthUserComponent = __decorate([
         moduleId: module.id,
         selector: 'auth-user',
         templateUrl: 'auth-user.html'
-    })
+    }),
+    __metadata("design:paramtypes", [router_1.Router])
 ], AuthUserComponent);
 exports.AuthUserComponent = AuthUserComponent;

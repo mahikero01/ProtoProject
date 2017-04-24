@@ -11,7 +11,7 @@ var router_1 = require("@angular/router");
 var exam_component_1 = require("./exam.component");
 var routes = [
     //paths
-    { path: 'Quiz', component: exam_component_1.ExamComponent },
+    { path: 'Quiz/:id', component: exam_component_1.ExamComponent },
 ];
 var ExamRouting = (function () {
     function ExamRouting() {

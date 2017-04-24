@@ -1,8 +1,8 @@
-<div>
+<div [hidden]="!viewScore">
     your score is {{score}}
 </div>
 
-<div>
+<div [hidden]="viewScore">
     <div class="panel panel-default" *ngFor="let q of questions">
 
         <div class="panel-heading" >{{q.QuestionDesc}}</div>
