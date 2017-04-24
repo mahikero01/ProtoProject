@@ -15,6 +15,7 @@ var ExamComponent = (function () {
         this.randomQuestionService = randomQuestionService;
         this.questions = [];
         this.canSubmit = false;
+        this.score = 0;
     }
     ExamComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -22,11 +23,13 @@ var ExamComponent = (function () {
             .then(function (rq) { return _this.questions = rq; });
     };
     ExamComponent.prototype.checkAnswers = function () {
+        this.score = 0;
         var ctr = 0;
         for (var _i = 0, _a = this.questions; _i < _a.length; _i++) {
             var question = _a[_i];
             //console.log(question.Answer);
             ctr = ctr + (question.Answer == 0 ? 1 : 0);
+            this.score = this.score + (question.Answer == 1 ? 1 : 0);
         }
         this.canSubmit = ctr == 0;
     };
