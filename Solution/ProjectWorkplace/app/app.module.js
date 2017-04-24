@@ -18,6 +18,8 @@ var policy_module_1 = require("./components/06-policy/policy.module");
 var exam_module_1 = require("./components/07-exam/exam.module");
 //routing
 var app_routing_1 = require("./app.routing");
+//services
+var auth_service_1 = require("./services/auth.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -35,7 +37,8 @@ AppModule = __decorate([
             app_routing_1.AppRouting
         ],
         declarations: [app_component_1.AppComponent, non_auth_1.NonAuthComponent, auth_user_1.AuthUserComponent],
-        bootstrap: [app_component_1.AppComponent]
+        bootstrap: [app_component_1.AppComponent],
+        providers: [auth_service_1.AuthService]
     })
 ], AppModule);
 exports.AppModule = AppModule;

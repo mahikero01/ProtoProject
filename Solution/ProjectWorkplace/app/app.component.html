@@ -1,2 +1,2 @@
-<auth-user [hidden]="!isAuth"></auth-user>
-<non-auth [hidden]="isAuth"></non-auth>
+<auth-user [hidden]="!auth.isAuthenticated" [user]="auth"></auth-user>
+<non-auth [hidden]="auth.isAuthenticated"></non-auth>
