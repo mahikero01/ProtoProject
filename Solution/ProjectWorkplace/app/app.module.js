@@ -9,6 +9,8 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
+var non_auth_1 = require("./non-auth");
+var auth_user_1 = require("./auth-user");
 //ComponentModules
 var disoverview_module_1 = require("./components/03-disoverview/disoverview.module");
 var distools_module_1 = require("./components/05-dis-tools/distools.module");
@@ -32,7 +34,7 @@ AppModule = __decorate([
             exam_module_1.ExamModule,
             app_routing_1.AppRouting
         ],
-        declarations: [app_component_1.AppComponent],
+        declarations: [app_component_1.AppComponent, non_auth_1.NonAuthComponent, auth_user_1.AuthUserComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
