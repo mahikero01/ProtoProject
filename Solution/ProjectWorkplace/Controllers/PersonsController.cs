@@ -36,6 +36,31 @@ namespace ProjectWorkplace.Controllers
             return Ok(pW_Persons);
         }
 
+        [Route("api/Persons/GetPW_Person")]
+        [ResponseType(typeof(PW_Persons_DTO))]
+        public PW_Persons_DTO GetPW_Person(String username)
+        {
+            var a = from i in db.PW_Persons
+                    where i.Username == username
+                    select new PW_Persons_DTO
+                    {
+                        FirstName=i.FirstName,
+                        IsActive=i.IsActive,
+                        Lastname=i.Lastname,
+                        PersonID=i.PersonID,
+                        RoleID=i.RoleID,
+                        Username=i.Username,
+                        WorkDayNum=i.WorkDayNum
+                    };
+
+            if (a.Count() == 0 || a == null)
+            {
+                return null;
+            }
+
+            return a.First();
+        }
+
         // PUT: api/Persons/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutPW_Persons(Guid id, PW_Persons pW_Persons)

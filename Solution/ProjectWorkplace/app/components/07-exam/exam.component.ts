@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RandomQuestionService } from '../../services/random-question.service';
+import { PersonService } from '../../services/person.service';
+import { ExamineeService } from '../../services/examinee.service';
 import { ActivatedRoute,  Params, Router } from '@angular/router';
 import { Question } from '../../entities/question';
-import { Examinees } from '../../entities/examinees';
+import { Examinee } from '../../entities/examinee';
 import { UUID } from 'angular2-uuid';
 
 @Component({
@@ -14,20 +16,25 @@ export class ExamComponent implements OnInit {
     canSubmit:boolean=false;
     score:number = 0;
     viewScore:boolean=false;
-    examinee:Examinees=new Examinees( UUID.UUID(), UUID.UUID(),0,'',new Date(),0,0);
+    examinee:Examinee=new Examinee( UUID.UUID(), UUID.UUID(),0,'696bc6f9-d758-452e-b0d1-d40ebbcfd342',new Date(),0,0);
     username:string='';
+
     constructor(
         public randomQuestionService: RandomQuestionService,
+        public personService: PersonService,
+        public examineeService: ExamineeService,
         private route: ActivatedRoute,
         private router: Router
     ){ 
-        this.getExamineeInfo();
     }
-    
 
     ngOnInit(){
         this.randomQuestionService.getQuestions()
-            .then(rq=>this.questions=rq);
+            .then(rq=>{
+                this.questions=rq;
+                this.getExamineeInfo();
+                this.getExamDetail();
+            });
     }
     //check answers if it is ready to submit
     checkAnswers():void{
@@ -43,12 +50,19 @@ export class ExamComponent implements OnInit {
     //submits the score
     submitScore():void{
         this.viewScore=true;
+        this.examinee.DateCompleted=new Date();
+        this.examinee.Score=this.score;
         //service for posting score to PW_Examiners
-
+        this.examineeService.postExaminee(this.examinee);
     }
 
     getExamineeInfo(){
         this.route.params.subscribe(params => {
-            this.username = params['id'];});    
+            this.username = params['id'];}); 
+        this.personService.getPerson(this.username)
+            .then( p => this.examinee.PersonID = p.PersonID )   
+    }
+    getExamDetail(){
+        this.examinee.Items= this.questions.length;
     }
 }

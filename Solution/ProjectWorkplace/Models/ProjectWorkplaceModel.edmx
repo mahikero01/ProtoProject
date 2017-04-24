@@ -21,7 +21,7 @@
           </Key>
           <Property Name="ExamineeID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CodeNum" Type="int" Nullable="false" />
+          <Property Name="CodeNum" Type="int" />
           <Property Name="SubjectID" Type="uniqueidentifier" />
           <Property Name="DateCompleted" Type="datetime2" Precision="7" />
           <Property Name="Score" Type="int" Nullable="false" />
@@ -299,20 +299,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <Property Name="IsCorrect" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="PW_Questions" Relationship="Self.FK_PW_Answers_PW_Questions" FromRole="PW_Answers" ToRole="PW_Questions" />
         </EntityType>
-        <EntityType Name="PW_Examinees">
-          <Key>
-            <PropertyRef Name="ExamineeID" />
-          </Key>
-          <Property Name="ExamineeID" Type="Guid" Nullable="false" />
-          <Property Name="PersonID" Type="Guid" Nullable="false" />
-          <Property Name="CodeNum" Type="Int32" Nullable="false" />
-          <Property Name="SubjectID" Type="Guid" />
-          <Property Name="DateCompleted" Type="DateTime" Precision="7" />
-          <Property Name="Score" Type="Int32" Nullable="false" />
-          <Property Name="Items" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PW_Persons" Relationship="Self.FK_PW_Examinees_PW_Persons" FromRole="PW_Examinees" ToRole="PW_Persons" />
-          <NavigationProperty Name="PW_Subjects" Relationship="ProjectWorkplaceModel.FK_PW_Examinees_PW_Subjects" FromRole="PW_Examinees" ToRole="PW_Subjects" />
-        </EntityType>
         <EntityType Name="PW_Persons">
           <Key>
             <PropertyRef Name="PersonID" />
@@ -324,10 +310,10 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <Property Name="WorkDayNum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="RoleID" Type="Int32" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="PW_Examinees" Relationship="Self.FK_PW_Examinees_PW_Persons" FromRole="PW_Persons" ToRole="PW_Examinees" />
           <NavigationProperty Name="PW_Roles" Relationship="Self.FK_PW_Persons_PW_Roles" FromRole="PW_Persons" ToRole="PW_Roles" />
           <NavigationProperty Name="PW_PersonTeams" Relationship="Self.FK_PW_PersonTeams_PW_Persons" FromRole="PW_Persons" ToRole="PW_PersonTeams" />
           <NavigationProperty Name="PW_PersonTeams1" Relationship="Self.FK_PW_PersonTeams_PW_Persons1" FromRole="PW_Persons" ToRole="PW_PersonTeams" />
+          <NavigationProperty Name="PW_Examinees" Relationship="ProjectWorkplaceModel.FK_PW_Examinees_PW_Persons" FromRole="PW_Persons" ToRole="PW_Examinees" />
         </EntityType>
         <EntityType Name="PW_PersonTeams">
           <Key>
@@ -416,18 +402,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PW_Examinees_PW_Persons">
-          <End Role="PW_Persons" Type="Self.PW_Persons" Multiplicity="1" />
-          <End Role="PW_Examinees" Type="Self.PW_Examinees" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PW_Persons">
-              <PropertyRef Name="PersonID" />
-            </Principal>
-            <Dependent Role="PW_Examinees">
-              <PropertyRef Name="PersonID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PW_Persons_PW_Roles">
           <End Role="PW_Roles" Type="Self.PW_Roles" Multiplicity="1" />
           <End Role="PW_Persons" Type="Self.PW_Persons" Multiplicity="*" />
@@ -502,7 +476,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
         </Association>
         <EntityContainer Name="ProjectWorkplaceContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="PW_Answers" EntityType="Self.PW_Answers" />
-          <EntitySet Name="PW_Examinees" EntityType="Self.PW_Examinees" />
           <EntitySet Name="PW_Persons" EntityType="Self.PW_Persons" />
           <EntitySet Name="PW_PersonTeams" EntityType="Self.PW_PersonTeams" />
           <EntitySet Name="PW_Questions" EntityType="Self.PW_Questions" />
@@ -514,10 +487,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <AssociationSet Name="FK_PW_Answers_PW_Questions" Association="Self.FK_PW_Answers_PW_Questions">
             <End Role="PW_Questions" EntitySet="PW_Questions" />
             <End Role="PW_Answers" EntitySet="PW_Answers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PW_Examinees_PW_Persons" Association="Self.FK_PW_Examinees_PW_Persons">
-            <End Role="PW_Persons" EntitySet="PW_Persons" />
-            <End Role="PW_Examinees" EntitySet="PW_Examinees" />
           </AssociationSet>
           <AssociationSet Name="FK_PW_Persons_PW_Roles" Association="Self.FK_PW_Persons_PW_Roles">
             <End Role="PW_Roles" EntitySet="PW_Roles" />
@@ -543,24 +512,17 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
             <End Role="PW_Subjects" EntitySet="PW_Subjects" />
             <End Role="PW_QuizTags" EntitySet="PW_QuizTags" />
           </AssociationSet>
+          <EntitySet Name="PW_VW_QUESTIONS" EntityType="ProjectWorkplaceModel.PW_VW_QUESTIONS" />
+          <EntitySet Name="PW_Examinees" EntityType="ProjectWorkplaceModel.PW_Examinees" />
+          <AssociationSet Name="FK_PW_Examinees_PW_Persons" Association="ProjectWorkplaceModel.FK_PW_Examinees_PW_Persons">
+            <End Role="PW_Persons" EntitySet="PW_Persons" />
+            <End Role="PW_Examinees" EntitySet="PW_Examinees" />
+          </AssociationSet>
           <AssociationSet Name="FK_PW_Examinees_PW_Subjects" Association="ProjectWorkplaceModel.FK_PW_Examinees_PW_Subjects">
             <End Role="PW_Subjects" EntitySet="PW_Subjects" />
             <End Role="PW_Examinees" EntitySet="PW_Examinees" />
           </AssociationSet>
-          <EntitySet Name="PW_VW_QUESTIONS" EntityType="ProjectWorkplaceModel.PW_VW_QUESTIONS" />
         </EntityContainer>
-        <Association Name="FK_PW_Examinees_PW_Subjects">
-          <End Type="ProjectWorkplaceModel.PW_Subjects" Role="PW_Subjects" Multiplicity="0..1" />
-          <End Type="ProjectWorkplaceModel.PW_Examinees" Role="PW_Examinees" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PW_Subjects">
-              <PropertyRef Name="SubjectID" />
-            </Principal>
-            <Dependent Role="PW_Examinees">
-              <PropertyRef Name="SubjectID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="PW_VW_QUESTIONS">
           <Key>
             <PropertyRef Name="QuestionID" />
@@ -575,6 +537,44 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <Property Name="IsMultipleAns" Type="Boolean" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
+        <EntityType Name="PW_Examinees">
+          <Key>
+            <PropertyRef Name="ExamineeID" />
+          </Key>
+          <Property Name="ExamineeID" Type="Guid" Nullable="false" />
+          <Property Name="PersonID" Type="Guid" Nullable="false" />
+          <Property Name="CodeNum" Type="Int32" />
+          <Property Name="SubjectID" Type="Guid" />
+          <Property Name="DateCompleted" Type="DateTime" Precision="7" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="Items" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PW_Persons" Relationship="ProjectWorkplaceModel.FK_PW_Examinees_PW_Persons" FromRole="PW_Examinees" ToRole="PW_Persons" />
+          <NavigationProperty Name="PW_Subjects" Relationship="ProjectWorkplaceModel.FK_PW_Examinees_PW_Subjects" FromRole="PW_Examinees" ToRole="PW_Subjects" />
+        </EntityType>
+        <Association Name="FK_PW_Examinees_PW_Persons">
+          <End Type="ProjectWorkplaceModel.PW_Persons" Role="PW_Persons" Multiplicity="1" />
+          <End Type="ProjectWorkplaceModel.PW_Examinees" Role="PW_Examinees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Persons">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PW_Examinees">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_Examinees_PW_Subjects">
+          <End Type="ProjectWorkplaceModel.PW_Subjects" Role="PW_Subjects" Multiplicity="0..1" />
+          <End Type="ProjectWorkplaceModel.PW_Examinees" Role="PW_Examinees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Subjects">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="PW_Examinees">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -589,19 +589,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
                 <ScalarProperty Name="AnswerDesc" ColumnName="AnswerDesc" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="IsCorrect" ColumnName="IsCorrect" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PW_Examinees">
-            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Examinees">
-              <MappingFragment StoreEntitySet="PW_Examinees">
-                <ScalarProperty Name="ExamineeID" ColumnName="ExamineeID" />
-                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
-                <ScalarProperty Name="CodeNum" ColumnName="CodeNum" />
-                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
-                <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
-                <ScalarProperty Name="Score" ColumnName="Score" />
-                <ScalarProperty Name="Items" ColumnName="Items" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -697,6 +684,19 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
                 <ScalarProperty Name="IsCommon" ColumnName="IsCommon" />
                 <ScalarProperty Name="QuestionDesc" ColumnName="QuestionDesc" />
                 <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Examinees">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Examinees">
+              <MappingFragment StoreEntitySet="PW_Examinees">
+                <ScalarProperty Name="Items" ColumnName="Items" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="CodeNum" ColumnName="CodeNum" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="ExamineeID" ColumnName="ExamineeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

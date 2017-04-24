@@ -13,5 +13,6 @@
         > </exam-form>
 
     </div>
-    <button class="btn btn-default btn-sm" type="button" [disabled]="!canSubmit">Submit</button>
+    <button class="btn btn-default btn-sm" type="button" 
+        [disabled]="!canSubmit" (click)="submitScore()">Submit</button>
 </div>

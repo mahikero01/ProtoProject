@@ -17,6 +17,8 @@ var exam_form_component_1 = require("./exam-form.component");
 var exam_routing_1 = require("./exam.routing");
 var random_question_service_1 = require("../../services/random-question.service");
 var answer_service_1 = require("../../services/answer.service");
+var person_service_1 = require("../../services/person.service");
+var examinee_service_1 = require("../../services/examinee.service");
 var ExamModule = (function () {
     function ExamModule() {
     }
@@ -38,7 +40,9 @@ ExamModule = __decorate([
         ],
         providers: [
             random_question_service_1.RandomQuestionService,
-            answer_service_1.AnswerService
+            answer_service_1.AnswerService,
+            person_service_1.PersonService,
+            examinee_service_1.ExamineeService
         ]
     })
 ], ExamModule);

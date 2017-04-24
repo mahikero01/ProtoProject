@@ -29,7 +29,6 @@
       '@angular/animations/browser': 'npm:@angular/animations/bundles/animations-browser.umd.min.js',
       'hammerjs': 'npm:hammerjs/hammer.min.js',
       //uuid
-
       'angular2-uuid': 'npm:angular2-uuid/index.js',
       // other libraries
       'rxjs':                      'npm:rxjs',

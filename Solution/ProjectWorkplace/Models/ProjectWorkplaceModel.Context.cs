@@ -26,7 +26,6 @@ namespace ProjectWorkplace.Models
         }
     
         public virtual DbSet<PW_Answers> PW_Answers { get; set; }
-        public virtual DbSet<PW_Examinees> PW_Examinees { get; set; }
         public virtual DbSet<PW_Persons> PW_Persons { get; set; }
         public virtual DbSet<PW_PersonTeams> PW_PersonTeams { get; set; }
         public virtual DbSet<PW_Questions> PW_Questions { get; set; }
@@ -36,6 +35,6 @@ namespace ProjectWorkplace.Models
         public virtual DbSet<PW_Subjects> PW_Subjects { get; set; }
         public virtual DbSet<PW_Teams> PW_Teams { get; set; }
         public virtual DbSet<PW_VW_QUESTIONS> PW_VW_QUESTIONS { get; set; }
-
+        public virtual DbSet<PW_Examinees> PW_Examinees { get; set; }
     }
 }

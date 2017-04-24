@@ -11,6 +11,8 @@ import { ExamRouting } from './exam.routing';
 
 import { RandomQuestionService } from '../../services/random-question.service';
 import { AnswerService } from '../../services/answer.service';
+import { PersonService } from '../../services/person.service';
+import { ExamineeService } from '../../services/examinee.service';
 @NgModule({
     imports: [
         //BrowserModule,
@@ -26,7 +28,9 @@ import { AnswerService } from '../../services/answer.service';
     ],
     providers: [
         RandomQuestionService,
-        AnswerService
+        AnswerService,
+        PersonService,
+        ExamineeService
     ]
 })
 

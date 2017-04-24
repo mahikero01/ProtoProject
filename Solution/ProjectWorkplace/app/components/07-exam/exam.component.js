@@ -10,26 +10,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var random_question_service_1 = require("../../services/random-question.service");
+var person_service_1 = require("../../services/person.service");
+var examinee_service_1 = require("../../services/examinee.service");
 var router_1 = require("@angular/router");
-var examinees_1 = require("../../entities/examinees");
+var examinee_1 = require("../../entities/examinee");
 var angular2_uuid_1 = require("angular2-uuid");
 var ExamComponent = (function () {
-    function ExamComponent(randomQuestionService, route, router) {
+    function ExamComponent(randomQuestionService, personService, examineeService, route, router) {
         this.randomQuestionService = randomQuestionService;
+        this.personService = personService;
+        this.examineeService = examineeService;
         this.route = route;
         this.router = router;
         this.questions = [];
         this.canSubmit = false;
         this.score = 0;
         this.viewScore = false;
-        this.examinee = new examinees_1.Examinees(angular2_uuid_1.UUID.UUID(), angular2_uuid_1.UUID.UUID(), 0, '', new Date(), 0, 0);
+        this.examinee = new examinee_1.Examinee(angular2_uuid_1.UUID.UUID(), angular2_uuid_1.UUID.UUID(), 0, '696bc6f9-d758-452e-b0d1-d40ebbcfd342', new Date(), 0, 0);
         this.username = '';
-        this.getExamineeInfo();
     }
     ExamComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.randomQuestionService.getQuestions()
-            .then(function (rq) { return _this.questions = rq; });
+            .then(function (rq) {
+            _this.questions = rq;
+            _this.getExamineeInfo();
+            _this.getExamDetail();
+        });
     };
     //check answers if it is ready to submit
     ExamComponent.prototype.checkAnswers = function () {
@@ -46,13 +53,21 @@ var ExamComponent = (function () {
     //submits the score
     ExamComponent.prototype.submitScore = function () {
         this.viewScore = true;
+        this.examinee.DateCompleted = new Date();
+        this.examinee.Score = this.score;
         //service for posting score to PW_Examiners
+        this.examineeService.postExaminee(this.examinee);
     };
     ExamComponent.prototype.getExamineeInfo = function () {
         var _this = this;
         this.route.params.subscribe(function (params) {
             _this.username = params['id'];
         });
+        this.personService.getPerson(this.username)
+            .then(function (p) { return _this.examinee.PersonID = p.PersonID; });
+    };
+    ExamComponent.prototype.getExamDetail = function () {
+        this.examinee.Items = this.questions.length;
     };
     return ExamComponent;
 }());
@@ -62,6 +77,8 @@ ExamComponent = __decorate([
         templateUrl: 'exam.component.html'
     }),
     __metadata("design:paramtypes", [random_question_service_1.RandomQuestionService,
+        person_service_1.PersonService,
+        examinee_service_1.ExamineeService,
         router_1.ActivatedRoute,
         router_1.Router])
 ], ExamComponent);

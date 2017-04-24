@@ -16,7 +16,7 @@ namespace ProjectWorkplace.Models
     {
         public System.Guid ExamineeID { get; set; }
         public System.Guid PersonID { get; set; }
-        public int CodeNum { get; set; }
+        public Nullable<int> CodeNum { get; set; }
         public Nullable<System.Guid> SubjectID { get; set; }
         public Nullable<System.DateTime> DateCompleted { get; set; }
         public int Score { get; set; }
