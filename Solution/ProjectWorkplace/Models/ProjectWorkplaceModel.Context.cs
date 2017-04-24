@@ -36,5 +36,6 @@ namespace ProjectWorkplace.Models
         public virtual DbSet<PW_Subjects> PW_Subjects { get; set; }
         public virtual DbSet<PW_Teams> PW_Teams { get; set; }
         public virtual DbSet<PW_VW_QUESTIONS> PW_VW_QUESTIONS { get; set; }
+
     }
 }

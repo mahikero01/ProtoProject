@@ -28,7 +28,9 @@
       '@angular/animations': 'npm:@angular/animations/bundles/animations.umd.min.js',
       '@angular/animations/browser': 'npm:@angular/animations/bundles/animations-browser.umd.min.js',
       'hammerjs': 'npm:hammerjs/hammer.min.js',
+      //uuid
 
+      'angular2-uuid': 'npm:angular2-uuid/index.js',
       // other libraries
       'rxjs':                      'npm:rxjs',
       //'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
