@@ -6,11 +6,15 @@ import { MVComponent } from './mv.component';
 import { OrgComponent } from './org.component';
 import { StrategiesComponent } from './strategies.component';
 
+
+import { SCComponent } from './sc.component';
 import { DISOverviewRouting } from './disoverview.routing';
 import { ViewerModule } from '../viewer/viewer.module';
-//import { PhotoViewerComponent } from '../photo-viewer/photo-viewer.component';
+/* ngx-bootstrap */
+import { CarouselModule } from 'ngx-bootstrap';
 @NgModule({
     imports: [
+        CarouselModule.forRoot(),
         CommonModule,
         FormsModule,
         ViewerModule,
@@ -19,7 +23,9 @@ import { ViewerModule } from '../viewer/viewer.module';
     declarations: [
         MVComponent,
         OrgComponent,
-        StrategiesComponent
+        StrategiesComponent,
+
+        SCComponent,
     ],
     providers: [
     ]

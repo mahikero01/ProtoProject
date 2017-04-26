@@ -11,9 +11,11 @@ var forms_1 = require("@angular/forms");
 var mv_component_1 = require("./mv.component");
 var org_component_1 = require("./org.component");
 var strategies_component_1 = require("./strategies.component");
+var sc_component_1 = require("./sc.component");
 var disoverview_routing_1 = require("./disoverview.routing");
 var viewer_module_1 = require("../viewer/viewer.module");
-//import { PhotoViewerComponent } from '../photo-viewer/photo-viewer.component';
+/* ngx-bootstrap */
+var ngx_bootstrap_1 = require("ngx-bootstrap");
 var DISOverviewModule = (function () {
     function DISOverviewModule() {
     }
@@ -22,6 +24,7 @@ var DISOverviewModule = (function () {
 DISOverviewModule = __decorate([
     core_1.NgModule({
         imports: [
+            ngx_bootstrap_1.CarouselModule.forRoot(),
             common_1.CommonModule,
             forms_1.FormsModule,
             viewer_module_1.ViewerModule,
@@ -30,7 +33,8 @@ DISOverviewModule = __decorate([
         declarations: [
             mv_component_1.MVComponent,
             org_component_1.OrgComponent,
-            strategies_component_1.StrategiesComponent
+            strategies_component_1.StrategiesComponent,
+            sc_component_1.SCComponent,
         ],
         providers: []
     })
