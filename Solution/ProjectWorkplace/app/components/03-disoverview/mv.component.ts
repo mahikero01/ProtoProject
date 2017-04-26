@@ -4,5 +4,5 @@ import { Component } from '@angular/core';
     templateUrl:`mv.component.html`
 })
 export class MVComponent  { 
-    path:string = 'resources/workplace/03 - Mission vision.jpg';
+    path:string = 'resources/workplace/03 - Mission vision.png';
 }
