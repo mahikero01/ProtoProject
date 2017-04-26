@@ -24,7 +24,7 @@
                     <div class="list-group">
                         <a href="#" class="list-group-item" data-parent="#MainMenu">AVP VIDEO</a>                                        
                         <a routerLink="/Team-Leader" class="list-group-item" data-parent="#MainMenu">TL VIDEO</a>
-                        <a href="#demo1" id="btn-1" class="list-group-item" data-toggle="collapse" data-parent="#MainMenu" (click)="changeArrow('TriBtn1')">MBPS DIS OVERVIEW <i id="TriBtn1" class="glyphicon glyphicon-triangle-bottom"></i></a>
+                        <a href="#demo1" id="btn-1" class="list-group-item" data-toggle="collapse" data-parent="#MainMenu" (click)="changeArrow('TriBtn1'); routeWOUserName('mission-vision');">MBPS DIS OVERVIEW <i id="TriBtn1" class="glyphicon glyphicon-triangle-bottom"></i></a>
                         <div class="collapse" id="demo1">
                             <a routerLink="/mission-vision" href="javascript:;" class="list-group-item subitem" >DIS MISSION VISION</a>
                             <a routerLink="/organization" href="javascript:;" class="list-group-item subitem" >ORG CHART</a>
@@ -49,18 +49,18 @@
                                 <a href="#" class="list-group-item subsubItem" data-parent="#SubMenu1" >TEAM TOOLS</a>
                             </div>
                         </div>
-                        <a href="#demo3" class="list-group-item" id="btn-3" data-toggle="collapse" data-parent="#MainMenu"  (click)="changeArrow('TriBtn3')">MBPS DIS TOOLS<i id="TriBtn3" class="glyphicon glyphicon-triangle-bottom"></i></a>
+                        <a href="#demo3" class="list-group-item" id="btn-3" data-toggle="collapse" data-parent="#MainMenu"  (click)="changeArrow('TriBtn3'); routeWOUserName('opt');">MBPS DIS TOOLS<i id="TriBtn3" class="glyphicon glyphicon-triangle-bottom"></i></a>
                         <div class="collapse" id="demo3">
                             <a routerLink="/opt" href="javascript:;" class="list-group-item subitem">OPT</a>
                             <a href="javascript:;" class="list-group-item subitem">WORKDAY</a>
                             <a routerLink="/khronos" href="javascript:;" class="list-group-item subitem">KHRONOS</a>
                         </div>
-                        <a href="#demo4" class="list-group-item" id="btn-4" data-toggle="collapse" data-parent="#MainMenu"  (click)="changeArrow('TriBtn4')">POLICY<i id="TriBtn4" class="glyphicon glyphicon-triangle-bottom"></i></a>
+                        <a href="#demo4" class="list-group-item" id="btn-4" data-toggle="collapse" data-parent="#MainMenu"  (click)="changeArrow('TriBtn4'); routeWOUserName('work-rule');">POLICY<i id="TriBtn4" class="glyphicon glyphicon-triangle-bottom"></i></a>
                         <div class="collapse" id="demo4">
                             <a routerLink="/work-rule" href="javascript:;" class="list-group-item subitem" >HOUSE RULES</a>
                             <a routerLink="/vacation-leave" href="javascript:;" class="list-group-item subitem" >VACATION LEAVE</a>
                         </div>
-                        <a (click)="gotoDetail()" class="list-group-item" data-parent="#MainMenu">TAKE EXAM</a>                                        
+                        <a (click)="routeWithUserName('Quiz')" class="list-group-item" data-parent="#MainMenu">TAKE EXAM</a>                                        
                         <a href="#" class="list-group-item" data-parent="#MainMenu">KNOW MORE ABOUT DIS</a>
                     </div>
                 </div>

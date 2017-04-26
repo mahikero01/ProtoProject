@@ -15,8 +15,19 @@ var AuthUserComponent = (function () {
     function AuthUserComponent(router) {
         this.router = router;
     }
-    AuthUserComponent.prototype.gotoDetail = function () {
-        this.router.navigate(['/Quiz', this.user.userName]);
+    AuthUserComponent.prototype.routeWithUserName = function (path) {
+        this.router.navigate(['/' + path, this.user.userName]);
+    };
+    AuthUserComponent.prototype.routeWOUserName = function (path) {
+        this.router.navigate(['/' + path]);
+    };
+    AuthUserComponent.prototype.changeArrow = function (myElem) {
+        //console.log(document.getElementById(myElem).className);
+        if (document.getElementById(myElem).className == "glyphicon glyphicon-triangle-bottom") {
+            document.getElementById(myElem).className = "glyphicon glyphicon-triangle-top";
+        }
+        else
+            document.getElementById(myElem).className = "glyphicon glyphicon-triangle-bottom";
     };
     return AuthUserComponent;
 }());

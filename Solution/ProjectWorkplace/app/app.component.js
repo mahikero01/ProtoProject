@@ -19,14 +19,6 @@ var AppComponent = (function () {
         this.authService.getAuthorization()
             .then(function (auth) { return _this.auth = auth; });
     }
-    AppComponent.prototype.changeArrow = function (myElem) {
-        //console.log(document.getElementById(myElem).className);
-        if (document.getElementById(myElem).className == "glyphicon glyphicon-triangle-bottom") {
-            document.getElementById(myElem).className = "glyphicon glyphicon-triangle-top";
-        }
-        else
-            document.getElementById(myElem).className = "glyphicon glyphicon-triangle-bottom";
-    };
     return AppComponent;
 }());
 AppComponent = __decorate([
