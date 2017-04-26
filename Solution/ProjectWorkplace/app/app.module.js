@@ -12,6 +12,7 @@ var app_component_1 = require("./app.component");
 var non_auth_1 = require("./non-auth");
 var auth_user_1 = require("./auth-user");
 //ComponentModules
+var tl_module_1 = require("./components/02-tl/tl.module");
 var disoverview_module_1 = require("./components/03-disoverview/disoverview.module");
 var distools_module_1 = require("./components/05-dis-tools/distools.module");
 var policy_module_1 = require("./components/06-policy/policy.module");
@@ -29,7 +30,7 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule,
             common_1.CommonModule,
-            //SynchronizationModule, 
+            tl_module_1.TLModule,
             disoverview_module_1.DISOverviewModule,
             distools_module_1.DISToolsModule,
             policy_module_1.PolicyModule,
