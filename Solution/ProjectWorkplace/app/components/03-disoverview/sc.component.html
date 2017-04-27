@@ -2,7 +2,7 @@
     <slide *ngFor="let slide of slides">
         <img [src]="slide.image">
         
-        <div class="carousel-caption" style="background-color:grey">            
+        <div [hidden]="slides.length == 1" class="carousel-caption" style="background-color:grey">            
             {{activeSlideIndex+1}} of {{slides.length}}
         </div>
     </slide>
