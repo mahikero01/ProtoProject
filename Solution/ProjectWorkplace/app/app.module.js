@@ -14,6 +14,7 @@ var auth_user_1 = require("./auth-user");
 //ComponentModules
 var tl_module_1 = require("./components/02-tl/tl.module");
 var disoverview_module_1 = require("./components/03-disoverview/disoverview.module");
+var team_module_1 = require("./components/04-team/team.module");
 var distools_module_1 = require("./components/05-dis-tools/distools.module");
 var policy_module_1 = require("./components/06-policy/policy.module");
 var exam_module_1 = require("./components/07-exam/exam.module");
@@ -32,6 +33,7 @@ AppModule = __decorate([
             common_1.CommonModule,
             tl_module_1.TLModule,
             disoverview_module_1.DISOverviewModule,
+            team_module_1.TeamModule,
             distools_module_1.DISToolsModule,
             policy_module_1.PolicyModule,
             exam_module_1.ExamModule,

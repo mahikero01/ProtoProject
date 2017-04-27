@@ -39,14 +39,14 @@
                                 <a href="#" class="list-group-item subsubItem" data-parent="#SubMenu1" >MOTIVATE</a>
                             </div>
                         </div>
-                        <a href="#demo2"  id="btn-2" class="list-group-item" data-toggle="collapse" data-parent="#MainMenu"  (click)="changeArrow('TriBtn2')">TEAM OVERVIEW <i id="TriBtn2" class="glyphicon glyphicon-triangle-bottom"></i></a>
+                        <a href="#demo2"  id="btn-2" class="list-group-item" data-toggle="collapse" data-parent="#MainMenu"  (click)="changeArrow('TriBtn2'); routeWOUserName('Team-Org');">TEAM OVERVIEW <i id="TriBtn2" class="glyphicon glyphicon-triangle-bottom"></i></a>
                         <div class="collapse" id="demo2">
-                            <a href="javascript:;" class="list-group-item subitem" >TEAM ORG CHART</a>
-                            <a href="#SubMenu2" id="btn-22" class="list-group-item subitem" data-toggle="collapse" data-parent="#SubMenu2" (click)="changeArrow('TriBtn22')">JOB MANAGEMENT PROGRAM<i id="TriBtn22" class="glyphicon glyphicon-triangle-bottom"></i></a>
+                            <a routerLink="/Team-Org" href="javascript:;" class="list-group-item subitem" >TEAM ORG CHART</a>
+                            <a href="#SubMenu2" id="btn-22" class="list-group-item subitem" data-toggle="collapse" data-parent="#SubMenu2" (click)="changeArrow('TriBtn22'); routeWOUserName('Team-Services');">JOB MANAGEMENT PROGRAM<i id="TriBtn22" class="glyphicon glyphicon-triangle-bottom"></i></a>
                             <div class="collapse list-group-submenu" id="SubMenu2">
-                                <a href="#" class="list-group-item subsubItem" data-parent="#SubMenu1" >TEAM SERVICES</a>
-                                <a href="#" class="list-group-item subsubItem" data-parent="#SubMenu1">TEAM APPLICATIONS</a>
-                                <a href="#" class="list-group-item subsubItem" data-parent="#SubMenu1" >TEAM TOOLS</a>
+                                <a routerLink="/Team-Services"class="list-group-item subsubItem" data-parent="#SubMenu1" >TEAM SERVICES</a>
+                                <a routerLink="/Team-Apps"class="list-group-item subsubItem" data-parent="#SubMenu1">TEAM APPLICATIONS</a>
+                                <a routerLink="/Team-JobDesc" class="list-group-item subsubItem" data-parent="#SubMenu1" >TEAM JOB DESCRIPTION</a>
                             </div>
                         </div>
                         <a href="#demo3" class="list-group-item" id="btn-3" data-toggle="collapse" data-parent="#MainMenu"  (click)="changeArrow('TriBtn3'); routeWOUserName('opt');">MBPS DIS TOOLS<i id="TriBtn3" class="glyphicon glyphicon-triangle-bottom"></i></a>
