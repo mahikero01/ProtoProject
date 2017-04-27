@@ -35,12 +35,12 @@ h1 {
 }
 
 #BodyContent{
-    
-    background: #f1f1f1;
-     margin: 0px; 
-     display: block; 
-     height: 93vh;
-     padding: 0px;
+    background: #f1f1f1; 
+    display: block; 
+    height: 93vh;
+    padding: 0px 15px;
+    margin: 0px;
+	
 }
 /*================================================================================*/
 /*Header CSSs*/
