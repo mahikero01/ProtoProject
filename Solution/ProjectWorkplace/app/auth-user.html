@@ -8,14 +8,14 @@
                 </a>
                 <!--DIS Overview-->
                 <!--This button displays when in large screen mode-->
-                <a href="#" class="list-group-item accordion-toggle logo-lg" data-toggle="collapse" data-target="#disoverwiew" data-parent="#accordion">
+                <a (click)="routeWOUserName('mission-vision');" class="list-group-item accordion-toggle logo-lg" data-toggle="collapse" data-target="#disoverwiew" data-parent="#accordion">
                     <span class="logo-lg"><i class="fa fa-university"></i> DIS Overview</span>
                 </a>
                 <div id="disoverwiew" class="sublinks collapse">
-                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> DIS Mission - Vision</a>
-                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Organizational Chart</a>
-                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Strategies</a>
-                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Service Catalogue</a>
+                    <a routerLink="/mission-vision" class="list-group-item small"><i class="fa fa-circle-thin"></i> DIS Mission - Vision</a>
+                    <a routerLink="/organization" class="list-group-item small"><i class="fa fa-circle-thin"></i> Organizational Chart</a>
+                    <a routerLink="/strategies" class="list-group-item small"><i class="fa fa-circle-thin"></i> Strategies</a>
+                    <a routerLink="/service-catalogue" class="list-group-item small"><i class="fa fa-circle-thin"></i> Service Catalogue</a>
                     <a href="#" class="list-group-item small accordion-toggle" data-toggle="collapse" data-target="#programs_lg"><i class="fa fa-circle-thin"></i> Programs</a>
                     <div id="programs_lg" class="sublinks collapse">
                         <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Aspire</a>
