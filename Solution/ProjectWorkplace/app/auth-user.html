@@ -51,16 +51,16 @@
                 <!--DIS Overview-->
                 <!--Team Overview-->
                 <!--This button displays when in large screen mode-->
-                <a href="#" class="list-group-item accordion-toggle logo-lg" data-toggle="collapse" data-target="#teamoverwiew" data-parent="#accordion">
+                <a (click)="routeWOUserName('Team-Org');" class="list-group-item accordion-toggle logo-lg" data-toggle="collapse" data-target="#teamoverwiew" data-parent="#accordion">
                     <span class="logo-lg"><i class="fa fa-users"></i> Team Overview</span>
                 </a>
                 <div id="teamoverwiew" class="sublinks collapse">
-                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Team Org Chart</a>
-                    <a href="#" class="list-group-item small accordion-toggle" data-toggle="collapse" data-target="#jobmgtprog_lg"><i class="fa fa-circle-thin"></i> Team Information</a>
+                    <a routerLink="/Team-Org" class="list-group-item small"><i class="fa fa-circle-thin"></i> Team Org Chart</a>
+                    <a (click)="routeWOUserName('Team-Services');" class="list-group-item small accordion-toggle" data-toggle="collapse" data-target="#jobmgtprog_lg"><i class="fa fa-circle-thin"></i> Team Information</a>
                     <div id="jobmgtprog_lg" class="sublinks collapse">
-                        <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Job Management Program</a>
-                        <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Services</a>
-                        <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Tools and Applications</a>
+                        <a routerLink="/Team-JobDesc" class="list-group-item small"><i class="fa fa-circle-thin"></i> Job Management Program</a>
+                        <a routerLink="/Team-Services" class="list-group-item small"><i class="fa fa-circle-thin"></i> Services</a>
+                        <a routerLink="/Team-Apps"class="list-group-item small"><i class="fa fa-circle-thin"></i> Tools and Applications</a>
                     </div>
                 </div>
                 <!--This button displays when in small screen mode-->
