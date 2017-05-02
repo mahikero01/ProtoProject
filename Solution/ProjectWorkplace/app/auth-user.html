@@ -1,76 +1,196 @@
-<div class="Maincontent">
-
-    <div class="row" id="MainHeader">   
-        <div id="BrandLogo" class="col-xs-4">
-            <img id="Logo" src="Resources/Images/Manulife_Logo.png" alt="">
-        </div>
-        <div id="WebsiteTitle" class="col-xs-4">
-            <div class="row">
-                <span id="Title">Workplace</span>
-            </div>
-        </div>
-        <div id="UserDetails" class="col-xs-4">
-            <div class="row">
-                <span class="glyphicon glyphicon-user"></span>
-                <a href="#"> {{user.userName}} </a>
-            </div>
-        </div>           
-    </div>
-    <div class="row" id="MainBody">
-        <div class="col-xs-3" id="BodySideNav"> 
-            <div id="Sidenav" >
-                
-                <div id="MainMenu">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item" data-parent="#MainMenu">AVP VIDEO</a>                                        
-                        <a routerLink="/Team-Leader" class="list-group-item" data-parent="#MainMenu">TL VIDEO</a>
-                        <a href="#demo1" id="btn-1" class="list-group-item" data-toggle="collapse" data-parent="#MainMenu" (click)="changeArrow('TriBtn1'); routeWOUserName('mission-vision');">MBPS DIS OVERVIEW <i id="TriBtn1" class="glyphicon glyphicon-triangle-bottom"></i></a>
-                        <div class="collapse" id="demo1">
-                            <a routerLink="/mission-vision" href="javascript:;" class="list-group-item subitem" >DIS MISSION VISION</a>
-                            <a routerLink="/organization" href="javascript:;" class="list-group-item subitem" >ORG CHART</a>
-                            <a routerLink="/strategies" href="javascript:;" class="list-group-item subitem" >STRATEGIES</a>
-                            <a routerLink="/service-catalogue" href="javascript:;" class="list-group-item subitem" >SERVICE CATALOGUE</a>
-                            <a href="#SubMenu1" id="btn-11" class="list-group-item subitem" data-toggle="collapse" data-parent="#SubMenu1" (click)="changeArrow('TriBtn11')">PROGRAMS<i id="TriBtn11" class="glyphicon glyphicon-triangle-bottom"></i></a>
-                            <div class="collapse list-group-submenu" id="SubMenu1">
-                                <a href="#" class="list-group-item subsubItem" data-parent="#SubMenu1" >ASPIRE</a>
-                                <a href="#" class="list-group-item subsubItem" data-parent="#SubMenu1" >CARES</a>
-                                <a href="#" class="list-group-item subsubItem" data-parent="#SubMenu1" >CAREERS</a>
-                                <a href="#" class="list-group-item subsubItem" data-parent="#SubMenu1" >DIGERATI</a>
-                                <a href="#" class="list-group-item subsubItem" data-parent="#SubMenu1" >MOTIVATE</a>
-                            </div>
-                        </div>
-                        <a href="#demo2"  id="btn-2" class="list-group-item" data-toggle="collapse" data-parent="#MainMenu"  (click)="changeArrow('TriBtn2'); routeWOUserName('Team-Org');">TEAM OVERVIEW <i id="TriBtn2" class="glyphicon glyphicon-triangle-bottom"></i></a>
-                        <div class="collapse" id="demo2">
-                            <a routerLink="/Team-Org" href="javascript:;" class="list-group-item subitem" >TEAM ORG CHART</a>
-                            <a href="#SubMenu2" id="btn-22" class="list-group-item subitem" data-toggle="collapse" data-parent="#SubMenu2" (click)="changeArrow('TriBtn22'); routeWOUserName('Team-Services');">JOB MANAGEMENT PROGRAM<i id="TriBtn22" class="glyphicon glyphicon-triangle-bottom"></i></a>
-                            <div class="collapse list-group-submenu" id="SubMenu2">
-                                <a routerLink="/Team-Services"class="list-group-item subsubItem" data-parent="#SubMenu1" >TEAM SERVICES</a>
-                                <a routerLink="/Team-Apps"class="list-group-item subsubItem" data-parent="#SubMenu1">TEAM APPLICATIONS</a>
-                                <a routerLink="/Team-JobDesc" class="list-group-item subsubItem" data-parent="#SubMenu1" >TEAM JOB DESCRIPTION</a>
-                            </div>
-                        </div>
-                        <a href="#demo3" class="list-group-item" id="btn-3" data-toggle="collapse" data-parent="#MainMenu"  (click)="changeArrow('TriBtn3'); routeWOUserName('opt');">MBPS DIS TOOLS<i id="TriBtn3" class="glyphicon glyphicon-triangle-bottom"></i></a>
-                        <div class="collapse" id="demo3">
-                            <a routerLink="/opt" href="javascript:;" class="list-group-item subitem">OPT</a>
-                            <a href="javascript:;" class="list-group-item subitem">WORKDAY</a>
-                            <a routerLink="/khronos" href="javascript:;" class="list-group-item subitem">KHRONOS</a>
-                        </div>
-                        <a href="#demo4" class="list-group-item" id="btn-4" data-toggle="collapse" data-parent="#MainMenu"  (click)="changeArrow('TriBtn4'); routeWOUserName('work-rule');">POLICY<i id="TriBtn4" class="glyphicon glyphicon-triangle-bottom"></i></a>
-                        <div class="collapse" id="demo4">
-                            <a routerLink="/work-rule" href="javascript:;" class="list-group-item subitem" >HOUSE RULES</a>
-                            <a routerLink="/vacation-leave" href="javascript:;" class="list-group-item subitem" >VACATION LEAVE</a>
-                        </div>
-                        <a (click)="routeWithUserName('Quiz')" class="list-group-item" data-parent="#MainMenu">TAKE EXAM</a>                                        
-                        <a href="#" class="list-group-item" data-parent="#MainMenu">KNOW MORE ABOUT DIS</a>
+<div class="wrapper">
+    <div class="sidebar-wrapper">
+        <div id="accordion">
+            <div class="panel list-group">
+                <a href="#" class="list-group-item brand">
+                    <span class="logo-mini"><img src="ResourcesImages/Manulife_Logo_Small.png"></span>
+                    <span class="logo-lg"><img src="Resources/Images/Manulife_Logo.png"></span>
+                </a>
+                <!--DIS Overview-->
+                <!--This button displays when in large screen mode-->
+                <a href="#" class="list-group-item accordion-toggle logo-lg" data-toggle="collapse" data-target="#disoverwiew" data-parent="#accordion">
+                    <span class="logo-lg"><i class="fa fa-university"></i> DIS Overview</span>
+                </a>
+                <div id="disoverwiew" class="sublinks collapse">
+                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> DIS Mission - Vision</a>
+                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Organizational Chart</a>
+                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Strategies</a>
+                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Service Catalogue</a>
+                    <a href="#" class="list-group-item small accordion-toggle" data-toggle="collapse" data-target="#programs_lg"><i class="fa fa-circle-thin"></i> Programs</a>
+                    <div id="programs_lg" class="sublinks collapse">
+                        <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Aspire</a>
+                        <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Cares</a>
+                        <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Careers</a>
+                        <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Digerati</a>
+                        <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Motivate</a>
                     </div>
+                </div>
+                <!--This button displays when in small screen mode-->
+                <div class="dropdown">
+                    <a href="#" class="list-group-item logo-mini">
+                        <i class="fa fa-university fa-lg"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">DIS Overview</li>
+                        <li><a href="#"><i class="fa fa-circle-thin"></i> DIS Mission - Vision</a></li>
+                        <li><a href="#"><i class="fa fa-circle-thin"></i> Organizational Chart</a></li>
+                        <li><a href="#"><i class="fa fa-circle-thin"></i> Strategies</a></li>
+                        <li><a href="#"><i class="fa fa-circle-thin"></i> Service Catalogue</a></li>
+                        <li class="dropdown">
+                            <a href="#"><i class="fa fa-circle-thin"></i> Programs<span class="glyphicon glyphicon-chevron-right pull-right" style="padding-top:2px;"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fa fa-circle-thin"></i> Aspire</a></li>
+                                <li><a href="#"><i class="fa fa-circle-thin"></i> Cares</a></li>
+                                <li><a href="#"><i class="fa fa-circle-thin"></i> Careers</a></li>
+                                <li><a href="#"><i class="fa fa-circle-thin"></i> Digerati</a></li>
+                                <li><a href="#"><i class="fa fa-circle-thin"></i> Motivate</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!--DIS Overview-->
+                <!--Team Overview-->
+                <!--This button displays when in large screen mode-->
+                <a href="#" class="list-group-item accordion-toggle logo-lg" data-toggle="collapse" data-target="#teamoverwiew" data-parent="#accordion">
+                    <span class="logo-lg"><i class="fa fa-users"></i> Team Overview</span>
+                </a>
+                <div id="teamoverwiew" class="sublinks collapse">
+                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Team Org Chart</a>
+                    <a href="#" class="list-group-item small accordion-toggle" data-toggle="collapse" data-target="#jobmgtprog_lg"><i class="fa fa-circle-thin"></i> Team Information</a>
+                    <div id="jobmgtprog_lg" class="sublinks collapse">
+                        <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Job Management Program</a>
+                        <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Services</a>
+                        <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Tools and Applications</a>
+                    </div>
+                </div>
+                <!--This button displays when in small screen mode-->
+                <div class="dropdown">
+                    <a href="#" class="list-group-item logo-mini">
+                        <i class="fa fa-users fa-lg"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">Team Overview</li>
+                        <li><a href="#"><i class="fa fa-circle-thin"></i> Team Org Chart</a></li>
+                        <li class="dropdown">
+                            <a href="#"><i class="fa fa-circle-thin"></i> Team Information<span class="glyphicon glyphicon-chevron-right pull-right" style="padding-top:2px;"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fa fa-circle-thin"></i> Job Management Program</a></li>
+                                <li><a href="#"><i class="fa fa-circle-thin"></i> Services</a></li>
+                                <li><a href="#"><i class="fa fa-circle-thin"></i> Tools and Applications</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!--Team Overview-->
+                <!--Leaders Video-->
+                <!--This button displays when in large screen mode-->
+                <a href="#" class="list-group-item accordion-toggle logo-lg" data-toggle="collapse" data-target="#leadvideo" data-parent="#accordion">
+                    <i class="fa fa-film"></i> Leaders' Video
+                </a>
+                <div id="leadvideo" class="sublinks collapse">
+                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> AVP Video</a>
+                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Manager Video</a>
+                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> TL Video</a>
+                </div>
+                <!--This button displays when in small screen mode-->
+                <div class="dropdown">
+                    <a href="#" class="list-group-item logo-mini">
+                        <i class="fa fa-film fa-lg"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">Leaders' Video</li>
+                        <li><a href="#"><i class="fa fa-circle-thin"></i> AVP Video</a></li>
+                        <li><a href="#"><i class="fa fa-circle-thin"></i> Manager Video</a></li>
+                        <li><a href="#"><i class="fa fa-circle-thin"></i> TL Video</a></li>
+                    </ul>
+                </div>
+                <!--Leaders Video-->
+                <!--DIS Tools-->
+                <!--This button displays when in large screen mode-->
+                <a href="#" class="list-group-item accordion-toggle logo-lg" data-toggle="collapse" data-target="#distools" data-parent="#accordion">
+                    <i class="fa fa-wrench"></i> DIS Tools
+                </a>
+                <div id="distools" class="sublinks collapse">
+                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> OPT</a>
+                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> WorkDay</a>
+                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Khronos</a>
+                </div>
+                <!--This button displays when in small screen mode-->
+                <div class="dropdown">
+                    <a href="#" class="list-group-item logo-mini">
+                        <i class="fa fa-wrench fa-lg"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">DIS Tools</li>
+                        <li><a href="#"><i class="fa fa-circle-thin"></i> OPT</a></li>
+                        <li><a href="#"><i class="fa fa-circle-thin"></i> WorkDay</a></li>
+                        <li><a href="#"><i class="fa fa-circle-thin"></i> Khronos</a></li>
+                    </ul>
+                </div>
+                <!--DIS Tools-->
+                <!--Policies-->
+                <!--This button displays when in large screen mode-->
+                <a href="#" class="list-group-item accordion-toggle logo-lg" data-toggle="collapse" data-target="#policies" data-parent="#accordion">
+                    <i class="fa fa-book"></i> Policies
+                </a>
+                <div id="policies" class="sublinks collapse">
+                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> House Rules</a>
+                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Vacation Leave</a>
+                </div>
+                <!--This button displays when in small screen mode-->
+                <div class="dropdown">
+                    <a href="#" class="list-group-item logo-mini">
+                        <i class="fa fa-book fa-lg"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">Policies</li>
+                        <li><a href="#"><i class="fa fa-circle-thin"></i> House Rules</a></li>
+                        <li><a href="#"><i class="fa fa-circle-thin"></i> Vacation Leave</a></li>
+                    </ul>
+                </div>
+                <!--Policies-->
+                <!--Exam-->
+                <!--This button displays when in large screen mode-->
+                <a href="#" class="list-group-item logo-lg" data-toggle="collapse" data-target="#exam" data-parent="#accordion">
+                    <i class="fa fa-edit"></i> Take the Exam
+                </a>
+                <!--This button displays when in small screen mode-->
+                <div class="dropdown">
+                    <a href="#" class="list-group-item logo-mini">
+                        <i class="fa fa-edit fa-lg"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">Take the Exam</li>
+                    </ul>
+                </div>
+                <!--Exam-->
+            </div>
+        </div>
+    </div>
+    <div class="page-content-wrapper">
+        <nav class="navbar navbar-green navbar-fixed-top" role="navigation">
+            <div class="navbar-center navbar-brand "><a href="#" class="navbar-brand">WorkPlace</a></div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><i class="fa fa-user-circle"></i>{{user.userName}}</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!--Put all contents here inside div text-center-->
+        <div class="main-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb">
+                            <li>DIS Overview</li>
+                            <li class="active">Mission and Vision</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <router-outlet></router-outlet>
                 </div>
             </div>
         </div>
-        <div class="col-xs-9" id="BodyContent" > 
-            <div style=" height:99%;width:99%;position: absolute; float:none">
-				<router-outlet></router-outlet>
-            </div>             
-        </div>        
     </div>
-
 </div>

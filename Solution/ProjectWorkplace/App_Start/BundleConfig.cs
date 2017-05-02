@@ -27,9 +27,11 @@ namespace ProjectWorkplace
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/node_modules/bootstrap/dist/css/bootstrap.min.css",
-                      "~/styles.css",
+                      //"~/styles.css",
                       "~/material-color/icon.css",
-                      "~/node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+                      "~/node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+                      "~/Styles/SideNav.css",
+                      "~/Styles/Site.css"
                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/config").Include(
