@@ -8,13 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var WorkRuleComponent = (function () {
     function WorkRuleComponent() {
+        this.path = 'resources/workplace/19 - WORK RULES.FINAL.pdf';
     }
     return WorkRuleComponent;
 }());
 WorkRuleComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        templateUrl: "workrule.component.html"
+        template: "\n        <view-pdf [srcString]=\"path\">\n        </view-pdf>\n    "
     })
 ], WorkRuleComponent);
 exports.WorkRuleComponent = WorkRuleComponent;

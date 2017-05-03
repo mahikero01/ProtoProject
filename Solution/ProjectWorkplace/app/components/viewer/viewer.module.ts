@@ -8,6 +8,7 @@ import { PhotoViewerComponent } from './photo-viewer.component';
 import { VideoViewerComponent } from './video-viewer.component';
 @NgModule({
     imports: [
+        
         CommonModule,
         FormsModule,
         

@@ -9,9 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var platform_browser_1 = require("@angular/platform-browser");
 //entities
 var PDFComponent = (function () {
-    function PDFComponent() {
+    function PDFComponent(sanitizer) {
+        this.sanitizer = sanitizer;
         this.page = 1;
     }
     return PDFComponent;
@@ -24,7 +26,8 @@ PDFComponent = __decorate([
     core_1.Component({
         //moduleId: module.id,
         selector: 'view-pdf',
-        template: "\n\n        <pdf-viewer [src]=\"srcString\" \n                    [page]=\"page\" \n                    [show-all]=\"true\"\n                    [original-size]=\"false\" \n                    style=\"display: block;\"\n        ></pdf-viewer>\n    ",
-    })
+        template: "\n\n        \n        <div width=\"100%\" height=\"600px\">\n            <embed [src]=\"sanitizer.bypassSecurityTrustResourceUrl(srcString)\" width=\"100%\" height=\"600px\" type=\"application/pdf\"   > \n        </div>\n    ",
+    }),
+    __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
 ], PDFComponent);
 exports.PDFComponent = PDFComponent;

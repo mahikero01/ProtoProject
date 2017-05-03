@@ -8,13 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var VLComponent = (function () {
     function VLComponent() {
+        this.path = 'resources/workplace/20 - Vacation Leave.pdf';
     }
     return VLComponent;
 }());
 VLComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        templateUrl: "vl.component.html"
+        template: "\n        <view-pdf [srcString]=\"path\">\n        </view-pdf>\n    "
     })
 ], VLComponent);
 exports.VLComponent = VLComponent;

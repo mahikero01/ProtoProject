@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 @Component({
     moduleId: module.id,
-    templateUrl:`vl.component.html`
+    template:`
+        <view-pdf [srcString]="path">
+        </view-pdf>
+    `
 })
 export class VLComponent  { 
+    path:string = 'resources/workplace/20 - Vacation Leave.pdf';
 }
