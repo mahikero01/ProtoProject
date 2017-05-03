@@ -23,7 +23,7 @@ PhotoViewerComponent = __decorate([
     core_1.Component({
         //moduleId: module.id,
         selector: 'view-img',
-        template: "<img [src]=\"srcString\" />",
+        template: "<img class=\"content-img\" [src]=\"srcString\" />",
     })
 ], PhotoViewerComponent);
 exports.PhotoViewerComponent = PhotoViewerComponent;

@@ -3,7 +3,7 @@ import { Component,Input } from '@angular/core';
 @Component({
     //moduleId: module.id,
     selector: 'view-img',
-    template: `<img [src]="srcString" />`,
+    template: `<img class="content-img" [src]="srcString" />`,
     // templateUrl: 'sync-main.component.html',
 })
 export class PhotoViewerComponent  { 

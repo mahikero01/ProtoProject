@@ -32,6 +32,9 @@
       'angular2-uuid': 'npm:angular2-uuid/index.js',
         //ngx-bootstrap
       'ngx-bootstrap': 'npm:ngx-bootstrap/bundles/ngx-bootstrap.umd.min.js',
+        //pdf viewer
+      'ng2-pdf-viewer': 'node_modules/ng2-pdf-viewer',
+      'pdfjs-dist': 'node_modules/pdfjs-dist',
       // other libraries
       'rxjs':                      'npm:rxjs',
       //'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
@@ -48,7 +51,9 @@
       },
       rxjs: {
         defaultExtension: 'js'
-      }
+      },
+      'ng2-pdf-viewer': { main: 'dist/index.js', defaultExtension: 'js' },
+      'pdfjs-dist': { defaultExtension: 'js' }
     }
   });
 })(this);

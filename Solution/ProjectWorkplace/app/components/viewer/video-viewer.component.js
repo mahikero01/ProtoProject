@@ -23,7 +23,7 @@ VideoViewerComponent = __decorate([
     core_1.Component({
         //moduleId: module.id,
         selector: 'view-vid',
-        template: "\n    <video controls width=\"100%\" height=\"99%\">\n        <source [src]=\"srcString\">\n        <source [src]=\"srcString\">\n        Your browser does not support the video tag.\n    </video>\n        ",
+        template: "\n    <video controls class=\"content-img\" width=\"100%\" height=\"99%\">\n        <source [src]=\"srcString\">\n        Your browser does not support the video tag.\n    </video>\n        ",
     })
 ], VideoViewerComponent);
 exports.VideoViewerComponent = VideoViewerComponent;

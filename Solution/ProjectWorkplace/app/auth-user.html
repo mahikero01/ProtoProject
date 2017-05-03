@@ -60,23 +60,23 @@
                     <div id="jobmgtprog_lg" class="sublinks collapse">
                         <a routerLink="/Team-JobDesc" class="list-group-item small"><i class="fa fa-circle-thin"></i> Job Management Program</a>
                         <a routerLink="/Team-Services" class="list-group-item small"><i class="fa fa-circle-thin"></i> Services</a>
-                        <a routerLink="/Team-Apps"class="list-group-item small"><i class="fa fa-circle-thin"></i> Tools and Applications</a>
+                        <a routerLink="/Team-Apps" class="list-group-item small"><i class="fa fa-circle-thin"></i> Tools and Applications</a>
                     </div>
                 </div>
                 <!--This button displays when in small screen mode-->
                 <div class="dropdown">
-                    <a href="#" class="list-group-item logo-mini">
+                    <a (click)="routeWOUserName('Team-Org');" class="list-group-item logo-mini">
                         <i class="fa fa-users fa-lg"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-header">Team Overview</li>
-                        <li><a href="#"><i class="fa fa-circle-thin"></i> Team Org Chart</a></li>
+                        <li (click)="routeWOUserName('Team-Org');" class="dropdown-header">Team Overview</li>
+                        <li><a routerLink="/Team-Org"><i class="fa fa-circle-thin"></i> Team Org Chart</a></li>
                         <li class="dropdown">
-                            <a href="#"><i class="fa fa-circle-thin"></i> Team Information<span class="glyphicon glyphicon-chevron-right pull-right" style="padding-top:2px;"></span></a>
+                            <a (click)="routeWOUserName('Team-Services');"><i class="fa fa-circle-thin"></i> Team Information<span class="glyphicon glyphicon-chevron-right pull-right" style="padding-top:2px;"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#"><i class="fa fa-circle-thin"></i> Job Management Program</a></li>
-                                <li><a href="#"><i class="fa fa-circle-thin"></i> Services</a></li>
-                                <li><a href="#"><i class="fa fa-circle-thin"></i> Tools and Applications</a></li>
+                                <li><a routerLink="/Team-JobDesc"><i class="fa fa-circle-thin"></i> Job Management Program</a></li>
+                                <li><a routerLink="/Team-Services"><i class="fa fa-circle-thin"></i> Services</a></li>
+                                <li><a routerLink="/Team-Apps"><i class="fa fa-circle-thin"></i> Tools and Applications</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -90,7 +90,7 @@
                 <div id="leadvideo" class="sublinks collapse">
                     <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> AVP Video</a>
                     <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Manager Video</a>
-                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> TL Video</a>
+                    <a routerLink="/Team-Leader" class="list-group-item small"><i class="fa fa-circle-thin"></i> TL Video</a>
                 </div>
                 <!--This button displays when in small screen mode-->
                 <div class="dropdown">
@@ -101,66 +101,66 @@
                         <li class="dropdown-header">Leaders' Video</li>
                         <li><a href="#"><i class="fa fa-circle-thin"></i> AVP Video</a></li>
                         <li><a href="#"><i class="fa fa-circle-thin"></i> Manager Video</a></li>
-                        <li><a href="#"><i class="fa fa-circle-thin"></i> TL Video</a></li>
+                        <li><a routerLink="/Team-Leader"><i class="fa fa-circle-thin"></i> TL Video</a></li>
                     </ul>
                 </div>
                 <!--Leaders Video-->
                 <!--DIS Tools-->
                 <!--This button displays when in large screen mode-->
-                <a href="#" class="list-group-item accordion-toggle logo-lg" data-toggle="collapse" data-target="#distools" data-parent="#accordion">
+                <a (click)="routeWOUserName('opt');" class="list-group-item accordion-toggle logo-lg" data-toggle="collapse" data-target="#distools" data-parent="#accordion">
                     <i class="fa fa-wrench"></i> DIS Tools
                 </a>
                 <div id="distools" class="sublinks collapse">
-                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> OPT</a>
+                    <a routerLink="/opt" class="list-group-item small"><i class="fa fa-circle-thin"></i> OPT</a>
                     <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> WorkDay</a>
-                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Khronos</a>
+                    <a routerLink="/khronos" class="list-group-item small"><i class="fa fa-circle-thin"></i> Khronos</a>
                 </div>
                 <!--This button displays when in small screen mode-->
                 <div class="dropdown">
-                    <a href="#" class="list-group-item logo-mini">
+                    <a (click)="routeWOUserName('opt');" class="list-group-item logo-mini">
                         <i class="fa fa-wrench fa-lg"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-header">DIS Tools</li>
-                        <li><a href="#"><i class="fa fa-circle-thin"></i> OPT</a></li>
+                        <li (click)="routeWOUserName('opt');" class="dropdown-header">DIS Tools</li>
+                        <li><a routerLink="/opt"><i class="fa fa-circle-thin"></i> OPT</a></li>
                         <li><a href="#"><i class="fa fa-circle-thin"></i> WorkDay</a></li>
-                        <li><a href="#"><i class="fa fa-circle-thin"></i> Khronos</a></li>
+                        <li><a routerLink="/khronos"><i class="fa fa-circle-thin"></i> Khronos</a></li>
                     </ul>
                 </div>
                 <!--DIS Tools-->
                 <!--Policies-->
                 <!--This button displays when in large screen mode-->
-                <a href="#" class="list-group-item accordion-toggle logo-lg" data-toggle="collapse" data-target="#policies" data-parent="#accordion">
+                <a (click)="routeWOUserName('work-rule');" class="list-group-item accordion-toggle logo-lg" data-toggle="collapse" data-target="#policies" data-parent="#accordion">
                     <i class="fa fa-book"></i> Policies
                 </a>
                 <div id="policies" class="sublinks collapse">
-                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> House Rules</a>
-                    <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Vacation Leave</a>
+                    <a routerLink="/work-rule" class="list-group-item small"><i class="fa fa-circle-thin"></i> House Rules</a>
+                    <a routerLink="/vacation-leave" class="list-group-item small"><i class="fa fa-circle-thin"></i> Vacation Leave</a>
                 </div>
                 <!--This button displays when in small screen mode-->
                 <div class="dropdown">
-                    <a href="#" class="list-group-item logo-mini">
+                    <a click="routeWOUserName('work-rule');" class="list-group-item logo-mini">
                         <i class="fa fa-book fa-lg"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-header">Policies</li>
-                        <li><a href="#"><i class="fa fa-circle-thin"></i> House Rules</a></li>
-                        <li><a href="#"><i class="fa fa-circle-thin"></i> Vacation Leave</a></li>
+                        <li (click)="routeWOUserName('work-rule');" class="dropdown-header">Policies</li>
+                        <li><a routerLink="/work-rule"><i class="fa fa-circle-thin"></i> House Rules</a></li>
+                        <li><a routerLink="/vacation-leave"><i class="fa fa-circle-thin"></i> Vacation Leave</a></li>
                     </ul>
                 </div>
                 <!--Policies-->
                 <!--Exam-->
                 <!--This button displays when in large screen mode-->
-                <a href="#" class="list-group-item logo-lg" data-toggle="collapse" data-target="#exam" data-parent="#accordion">
+                <a (click)="routeWithUserName('Quiz')" class="list-group-item logo-lg" data-toggle="collapse" data-target="#exam" data-parent="#accordion">
                     <i class="fa fa-edit"></i> Take the Exam
                 </a>
                 <!--This button displays when in small screen mode-->
                 <div class="dropdown">
-                    <a href="#" class="list-group-item logo-mini">
+                    <a (click)="routeWithUserName('Quiz')"  class="list-group-item logo-mini">
                         <i class="fa fa-edit fa-lg"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-header">Take the Exam</li>
+                        <li (click)="routeWithUserName('Quiz')" class="dropdown-header">Take the Exam</li>
                     </ul>
                 </div>
                 <!--Exam-->
@@ -188,7 +188,7 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <router-outlet class="content-img"></router-outlet>
+                    <router-outlet class=" overflow:scroll;"></router-outlet>
                 </div>
             </div>
         </div>

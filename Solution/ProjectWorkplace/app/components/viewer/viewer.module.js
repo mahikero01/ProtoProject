@@ -9,6 +9,8 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 //import { MyCommonModule } from '../common-components/mycommon.module';
+var ng2_pdf_viewer_1 = require("ng2-pdf-viewer");
+var pdf_viewer_component_1 = require("./pdf-viewer.component");
 var photo_viewer_component_1 = require("./photo-viewer.component");
 var video_viewer_component_1 = require("./video-viewer.component");
 var ViewerModule = (function () {
@@ -23,11 +25,15 @@ ViewerModule = __decorate([
             forms_1.FormsModule,
         ],
         declarations: [
+            ng2_pdf_viewer_1.PdfViewerComponent,
+            pdf_viewer_component_1.PDFComponent,
             photo_viewer_component_1.PhotoViewerComponent,
             video_viewer_component_1.VideoViewerComponent,
         ],
         providers: [],
         exports: [
+            pdf_viewer_component_1.PDFComponent,
+            ng2_pdf_viewer_1.PdfViewerComponent,
             photo_viewer_component_1.PhotoViewerComponent,
             video_viewer_component_1.VideoViewerComponent,
         ]

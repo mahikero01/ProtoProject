@@ -8,13 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var KhronosComponent = (function () {
     function KhronosComponent() {
+        this.path = 'resources/workplace/18 - Khronos.pdf';
     }
     return KhronosComponent;
 }());
 KhronosComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        templateUrl: "khronos.component.html"
+        template: "\n        <view-pdf [srcString] =\"path\">\n        </view-pdf>\n    "
     })
 ], KhronosComponent);
 exports.KhronosComponent = KhronosComponent;
