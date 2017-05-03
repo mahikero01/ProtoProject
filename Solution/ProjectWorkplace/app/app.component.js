@@ -16,9 +16,18 @@ var AppComponent = (function () {
         var _this = this;
         this.authService = authService;
         this.auth = new auth_1.Auth(false, '', '');
+        this.viewPage = 0;
         this.authService.getAuthorization()
-            .then(function (auth) { return _this.auth = auth; });
+            .then(function (auth) {
+            _this.auth = auth;
+            if (_this.auth.isAuthenticated == false) {
+                _this.viewPage = 2;
+            }
+        });
     }
+    AppComponent.prototype.changeView = function () {
+        this.viewPage = 1;
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([

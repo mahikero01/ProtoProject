@@ -11,6 +11,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
 var non_auth_1 = require("./non-auth");
 var auth_user_1 = require("./auth-user");
+var welcome_1 = require("./welcome");
 //ComponentModules
 var tl_module_1 = require("./components/02-tl/tl.module");
 var disoverview_module_1 = require("./components/03-disoverview/disoverview.module");
@@ -39,7 +40,7 @@ AppModule = __decorate([
             exam_module_1.ExamModule,
             app_routing_1.AppRouting
         ],
-        declarations: [app_component_1.AppComponent, non_auth_1.NonAuthComponent, auth_user_1.AuthUserComponent],
+        declarations: [app_component_1.AppComponent, non_auth_1.NonAuthComponent, auth_user_1.AuthUserComponent, welcome_1.WelcomeComponent],
         bootstrap: [app_component_1.AppComponent],
         providers: [auth_service_1.AuthService]
     })

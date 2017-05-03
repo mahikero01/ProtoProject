@@ -4,14 +4,13 @@ import { Component,Input } from '@angular/core';
     //moduleId: module.id,
     selector: 'view-pdf',
     template: `
-    <div class="text-center">
+
         <pdf-viewer [src]="srcString" 
                     [page]="page" 
                     [show-all]="true"
                     [original-size]="false" 
-                    style="display: inherit;"
+                    style="display: block;"
         ></pdf-viewer>
-    </div>
     `,
     // templateUrl: 'sync-main.component.html',
     // resources/workplace/18 - Khronos.pdf" type="application/pdf

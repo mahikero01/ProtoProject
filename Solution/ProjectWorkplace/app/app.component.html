@@ -1,2 +1,3 @@
-<auth-user [hidden]="!auth.isAuthenticated" [user]="auth"></auth-user>
-<non-auth [hidden]="auth.isAuthenticated"></non-auth>
+<welcome-user [hidden]="viewPage!=0" (cv)="changeView();"></welcome-user>
+<auth-user [hidden]="viewPage!=1" [user]="auth"></auth-user>
+<non-auth [hidden]="viewPage!=2"></non-auth>

@@ -8,11 +8,21 @@ import { Auth } from './entities/auth';
 })
 export class AppComponent {
     auth:Auth=new Auth(false,'','');
-    
+    viewPage:number=0;
+
     constructor(
         public authService: AuthService
     ){ 
         this.authService.getAuthorization()
-            .then(auth => this.auth =auth );
+            .then(auth => {
+                this.auth =auth;
+                if(this.auth.isAuthenticated==false){
+                    this.viewPage=2;
+                }
+            });
+    }
+
+    changeView(){
+        this.viewPage=1;
     }
 }
