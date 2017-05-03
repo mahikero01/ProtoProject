@@ -87,6 +87,8 @@ body {
 .content-img {
     width: 80%;
     height: auto;
+    -webkit-box-shadow: 0 12px 18px rgba(0, 0, 0, .175);
+            box-shadow: 0 12px 18px rgba(0, 0, 0, .175);
 }
 
 .navbar-fixed-top {
@@ -117,4 +119,6 @@ body {
 
 .breadcrumb {
     background-color: #fefefe;
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, .175);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, .175);
 }

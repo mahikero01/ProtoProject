@@ -30,6 +30,7 @@ namespace ProjectWorkplace
                       //"~/styles.css",
                       "~/material-color/icon.css",
                       "~/node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+                      "~/Styles/font-awesome.min.css",
                       "~/Styles/SideNav.css",
                       "~/Styles/Site.css"
                       ));
