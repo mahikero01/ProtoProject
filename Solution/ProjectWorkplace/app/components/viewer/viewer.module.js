@@ -13,6 +13,7 @@ var ng2_pdf_viewer_1 = require("ng2-pdf-viewer");
 var pdf_viewer_component_1 = require("./pdf-viewer.component");
 var photo_viewer_component_1 = require("./photo-viewer.component");
 var video_viewer_component_1 = require("./video-viewer.component");
+var ng2_lazyload_image_1 = require("ng2-lazyload-image");
 var ViewerModule = (function () {
     function ViewerModule() {
     }
@@ -23,6 +24,7 @@ ViewerModule = __decorate([
         imports: [
             common_1.CommonModule,
             forms_1.FormsModule,
+            ng2_lazyload_image_1.LazyLoadImageModule
         ],
         declarations: [
             ng2_pdf_viewer_1.PdfViewerComponent,

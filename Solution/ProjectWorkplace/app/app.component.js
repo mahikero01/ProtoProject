@@ -26,7 +26,10 @@ var AppComponent = (function () {
         });
     }
     AppComponent.prototype.changeView = function () {
-        this.viewPage = 1;
+        if (this.auth.isAuthenticated)
+            this.viewPage = 1;
+        else
+            this.viewPage = 2;
     };
     return AppComponent;
 }());

@@ -9,9 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var platform_browser_1 = require("@angular/platform-browser");
 //entities
 var PhotoViewerComponent = (function () {
-    function PhotoViewerComponent() {
+    function PhotoViewerComponent(sanitizer) {
+        this.sanitizer = sanitizer;
     }
     return PhotoViewerComponent;
 }());
@@ -23,7 +25,9 @@ PhotoViewerComponent = __decorate([
     core_1.Component({
         //moduleId: module.id,
         selector: 'view-img',
-        template: "<img class=\"content-img\" [src]=\"srcString\" />",
-    })
+        // template: `<img class="content-img" [src]="sanitizer.bypassSecurityTrustUrl(srcString)" />`,
+        template: "<img class=\"content-img\" [lazyLoad]=\"srcString\" />",
+    }),
+    __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
 ], PhotoViewerComponent);
 exports.PhotoViewerComponent = PhotoViewerComponent;

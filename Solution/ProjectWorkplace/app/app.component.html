@@ -1,3 +1,3 @@
-<welcome-user [hidden]="viewPage!=0" (cv)="changeView();"></welcome-user>
-<auth-user [hidden]="viewPage!=1" [user]="auth"></auth-user>
-<non-auth [hidden]="viewPage!=2"></non-auth>
+<welcome-user *ngIf="viewPage==0" (cv)="changeView();"></welcome-user>
+<auth-user *ngIf="viewPage==1" [user]="auth"></auth-user>
+<non-auth *ngIf="viewPage==2"></non-auth>

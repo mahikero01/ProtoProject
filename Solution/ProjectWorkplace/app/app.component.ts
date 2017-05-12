@@ -11,7 +11,7 @@ export class AppComponent {
     viewPage:number=0;
 
     constructor(
-        public authService: AuthService
+        public authService: AuthService,
     ){ 
         this.authService.getAuthorization()
             .then(auth => {
@@ -23,6 +23,7 @@ export class AppComponent {
     }
 
     changeView(){
-        this.viewPage=1;
+        if(this.auth.isAuthenticated) this.viewPage=1;
+        else this.viewPage=2;
     }
 }

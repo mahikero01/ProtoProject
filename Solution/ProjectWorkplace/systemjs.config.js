@@ -33,8 +33,10 @@
         //ngx-bootstrap
       'ngx-bootstrap': 'npm:ngx-bootstrap/bundles/ngx-bootstrap.umd.min.js',
         //pdf viewer
-      'ng2-pdf-viewer': 'node_modules/ng2-pdf-viewer',
-      'pdfjs-dist': 'node_modules/pdfjs-dist',
+      'ng2-pdf-viewer': 'npm:ng2-pdf-viewer',
+      'pdfjs-dist': 'npm:pdfjs-dist',
+      'ng2-lazyload-image': 'npm:ng2-lazyload-image/',
+        // other libraries
       // other libraries
       'rxjs':                      'npm:rxjs',
       //'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
@@ -53,7 +55,9 @@
         defaultExtension: 'js'
       },
       'ng2-pdf-viewer': { main: 'dist/index.js', defaultExtension: 'js' },
-      'pdfjs-dist': { defaultExtension: 'js' }
+      'pdfjs-dist': { defaultExtension: 'js' },
+
+      'ng2-lazyload-image': { main: '/index.js', defaultExtension: 'js' }
     }
   });
 })(this);
