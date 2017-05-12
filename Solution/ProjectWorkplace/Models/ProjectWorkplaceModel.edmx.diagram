@@ -4,10 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6c17f3d0794849f4b56e95beeffec515" Name="Diagram1">
+      <Diagram DiagramId="6c17f3d0794849f4b56e95beeffec515" Name="Diagram1" ZoomLevel="92">
         <EntityTypeShape EntityType="ProjectWorkplaceModel.PW_Answers" Width="1.5" PointX="4" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectWorkplaceModel.PW_Persons" Width="1.5" PointX="4" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProjectWorkplaceModel.PW_PersonTeams" Width="1.5" PointX="5.75" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectWorkplaceModel.PW_Questions" Width="1.5" PointX="2.25" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectWorkplaceModel.PW_QuizTags" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectWorkplaceModel.PW_Resources" Width="1.5" PointX="9.625" PointY="0.625" IsExpanded="true" />
@@ -16,15 +15,16 @@
         <EntityTypeShape EntityType="ProjectWorkplaceModel.PW_Teams" Width="1.5" PointX="7.375" PointY="1.625" IsExpanded="true" />
         <AssociationConnector Association="ProjectWorkplaceModel.FK_PW_Answers_PW_Questions" ManuallyRouted="false" />
         <AssociationConnector Association="ProjectWorkplaceModel.FK_PW_Persons_PW_Roles" ManuallyRouted="false" />
-        <AssociationConnector Association="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Persons" ManuallyRouted="false" />
-        <AssociationConnector Association="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Persons1" ManuallyRouted="false" />
-        <AssociationConnector Association="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Teams" ManuallyRouted="false" />
         <AssociationConnector Association="ProjectWorkplaceModel.FK_PW_QuickTags_PW_Questions" ManuallyRouted="false" />
         <AssociationConnector Association="ProjectWorkplaceModel.FK_PW_QuickTags_PW_Subjects" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ProjectWorkplaceModel.PW_VW_QUESTIONS" Width="1.5" PointX="0.5" PointY="5.125" />
         <EntityTypeShape EntityType="ProjectWorkplaceModel.PW_Examinees" Width="1.5" PointX="2.25" PointY="2.75" />
         <AssociationConnector Association="ProjectWorkplaceModel.FK_PW_Examinees_PW_Persons" />
         <AssociationConnector Association="ProjectWorkplaceModel.FK_PW_Examinees_PW_Subjects" />
+        <EntityTypeShape EntityType="ProjectWorkplaceModel.PW_PersonTeams" Width="1.5" PointX="5.75" PointY="1.5" />
+        <AssociationConnector Association="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Persons" />
+        <AssociationConnector Association="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Persons1" />
+        <AssociationConnector Association="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Teams" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

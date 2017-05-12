@@ -17,9 +17,9 @@ namespace ProjectWorkplace.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PW_Persons()
         {
+            this.PW_Examinees = new HashSet<PW_Examinees>();
             this.PW_PersonTeams = new HashSet<PW_PersonTeams>();
             this.PW_PersonTeams1 = new HashSet<PW_PersonTeams>();
-            this.PW_Examinees = new HashSet<PW_Examinees>();
         }
     
         public System.Guid PersonID { get; set; }
@@ -32,10 +32,10 @@ namespace ProjectWorkplace.Models
     
         public virtual PW_Roles PW_Roles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PW_Examinees> PW_Examinees { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PW_PersonTeams> PW_PersonTeams { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PW_PersonTeams> PW_PersonTeams1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PW_Examinees> PW_Examinees { get; set; }
     }
 }

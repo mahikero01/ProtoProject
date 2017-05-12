@@ -16,8 +16,8 @@ namespace ProjectWorkplace.Models
     {
         public System.Guid PersonTeamID { get; set; }
         public System.Guid PersonID { get; set; }
-        public System.Guid TeamID { get; set; }
-        public System.Guid LeaderID { get; set; }
+        public Nullable<System.Guid> TeamID { get; set; }
+        public Nullable<System.Guid> LeaderID { get; set; }
         public System.DateTime EffectiveDate { get; set; }
         public bool IsActive { get; set; }
     

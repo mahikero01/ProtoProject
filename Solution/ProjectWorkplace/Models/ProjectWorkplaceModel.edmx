@@ -45,8 +45,8 @@
           </Key>
           <Property Name="PersonTeamID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="TeamID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="LeaderID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TeamID" Type="uniqueidentifier" />
+          <Property Name="LeaderID" Type="uniqueidentifier" />
           <Property Name="EffectiveDate" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
@@ -180,7 +180,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PW_PersonTeams_PW_Persons1">
-          <End Role="PW_Persons" Type="Self.PW_Persons" Multiplicity="1" />
+          <End Role="PW_Persons" Type="Self.PW_Persons" Multiplicity="0..1" />
           <End Role="PW_PersonTeams" Type="Self.PW_PersonTeams" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PW_Persons">
@@ -192,7 +192,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PW_PersonTeams_PW_Teams">
-          <End Role="PW_Teams" Type="Self.PW_Teams" Multiplicity="1" />
+          <End Role="PW_Teams" Type="Self.PW_Teams" Multiplicity="0..1" />
           <End Role="PW_PersonTeams" Type="Self.PW_PersonTeams" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PW_Teams">
@@ -311,23 +311,9 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <Property Name="RoleID" Type="Int32" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="PW_Roles" Relationship="Self.FK_PW_Persons_PW_Roles" FromRole="PW_Persons" ToRole="PW_Roles" />
-          <NavigationProperty Name="PW_PersonTeams" Relationship="Self.FK_PW_PersonTeams_PW_Persons" FromRole="PW_Persons" ToRole="PW_PersonTeams" />
-          <NavigationProperty Name="PW_PersonTeams1" Relationship="Self.FK_PW_PersonTeams_PW_Persons1" FromRole="PW_Persons" ToRole="PW_PersonTeams" />
           <NavigationProperty Name="PW_Examinees" Relationship="ProjectWorkplaceModel.FK_PW_Examinees_PW_Persons" FromRole="PW_Persons" ToRole="PW_Examinees" />
-        </EntityType>
-        <EntityType Name="PW_PersonTeams">
-          <Key>
-            <PropertyRef Name="PersonTeamID" />
-          </Key>
-          <Property Name="PersonTeamID" Type="Guid" Nullable="false" />
-          <Property Name="PersonID" Type="Guid" Nullable="false" />
-          <Property Name="TeamID" Type="Guid" Nullable="false" />
-          <Property Name="LeaderID" Type="Guid" Nullable="false" />
-          <Property Name="EffectiveDate" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="PW_Persons" Relationship="Self.FK_PW_PersonTeams_PW_Persons" FromRole="PW_PersonTeams" ToRole="PW_Persons" />
-          <NavigationProperty Name="PW_Persons1" Relationship="Self.FK_PW_PersonTeams_PW_Persons1" FromRole="PW_PersonTeams" ToRole="PW_Persons" />
-          <NavigationProperty Name="PW_Teams" Relationship="Self.FK_PW_PersonTeams_PW_Teams" FromRole="PW_PersonTeams" ToRole="PW_Teams" />
+          <NavigationProperty Name="PW_PersonTeams" Relationship="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Persons" FromRole="PW_Persons" ToRole="PW_PersonTeams" />
+          <NavigationProperty Name="PW_PersonTeams1" Relationship="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Persons1" FromRole="PW_Persons" ToRole="PW_PersonTeams" />
         </EntityType>
         <EntityType Name="PW_Questions">
           <Key>
@@ -388,7 +374,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <Property Name="TeamID" Type="Guid" Nullable="false" />
           <Property Name="TeamDesc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="PW_PersonTeams" Relationship="Self.FK_PW_PersonTeams_PW_Teams" FromRole="PW_Teams" ToRole="PW_PersonTeams" />
+          <NavigationProperty Name="PW_PersonTeams" Relationship="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Teams" FromRole="PW_Teams" ToRole="PW_PersonTeams" />
         </EntityType>
         <Association Name="FK_PW_Answers_PW_Questions">
           <End Role="PW_Questions" Type="Self.PW_Questions" Multiplicity="1" />
@@ -411,42 +397,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
             </Principal>
             <Dependent Role="PW_Persons">
               <PropertyRef Name="RoleID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PW_PersonTeams_PW_Persons">
-          <End Role="PW_Persons" Type="Self.PW_Persons" Multiplicity="1" />
-          <End Role="PW_PersonTeams" Type="Self.PW_PersonTeams" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PW_Persons">
-              <PropertyRef Name="PersonID" />
-            </Principal>
-            <Dependent Role="PW_PersonTeams">
-              <PropertyRef Name="PersonID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PW_PersonTeams_PW_Persons1">
-          <End Role="PW_Persons" Type="Self.PW_Persons" Multiplicity="1" />
-          <End Role="PW_PersonTeams" Type="Self.PW_PersonTeams" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PW_Persons">
-              <PropertyRef Name="PersonID" />
-            </Principal>
-            <Dependent Role="PW_PersonTeams">
-              <PropertyRef Name="LeaderID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PW_PersonTeams_PW_Teams">
-          <End Role="PW_Teams" Type="Self.PW_Teams" Multiplicity="1" />
-          <End Role="PW_PersonTeams" Type="Self.PW_PersonTeams" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PW_Teams">
-              <PropertyRef Name="TeamID" />
-            </Principal>
-            <Dependent Role="PW_PersonTeams">
-              <PropertyRef Name="TeamID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -477,7 +427,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
         <EntityContainer Name="ProjectWorkplaceContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="PW_Answers" EntityType="Self.PW_Answers" />
           <EntitySet Name="PW_Persons" EntityType="Self.PW_Persons" />
-          <EntitySet Name="PW_PersonTeams" EntityType="Self.PW_PersonTeams" />
           <EntitySet Name="PW_Questions" EntityType="Self.PW_Questions" />
           <EntitySet Name="PW_QuizTags" EntityType="Self.PW_QuizTags" />
           <EntitySet Name="PW_Resources" EntityType="Self.PW_Resources" />
@@ -491,18 +440,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <AssociationSet Name="FK_PW_Persons_PW_Roles" Association="Self.FK_PW_Persons_PW_Roles">
             <End Role="PW_Roles" EntitySet="PW_Roles" />
             <End Role="PW_Persons" EntitySet="PW_Persons" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PW_PersonTeams_PW_Persons" Association="Self.FK_PW_PersonTeams_PW_Persons">
-            <End Role="PW_Persons" EntitySet="PW_Persons" />
-            <End Role="PW_PersonTeams" EntitySet="PW_PersonTeams" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PW_PersonTeams_PW_Persons1" Association="Self.FK_PW_PersonTeams_PW_Persons1">
-            <End Role="PW_Persons" EntitySet="PW_Persons" />
-            <End Role="PW_PersonTeams" EntitySet="PW_PersonTeams" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PW_PersonTeams_PW_Teams" Association="Self.FK_PW_PersonTeams_PW_Teams">
-            <End Role="PW_Teams" EntitySet="PW_Teams" />
-            <End Role="PW_PersonTeams" EntitySet="PW_PersonTeams" />
           </AssociationSet>
           <AssociationSet Name="FK_PW_QuickTags_PW_Questions" Association="Self.FK_PW_QuickTags_PW_Questions">
             <End Role="PW_Questions" EntitySet="PW_Questions" />
@@ -521,6 +458,19 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <AssociationSet Name="FK_PW_Examinees_PW_Subjects" Association="ProjectWorkplaceModel.FK_PW_Examinees_PW_Subjects">
             <End Role="PW_Subjects" EntitySet="PW_Subjects" />
             <End Role="PW_Examinees" EntitySet="PW_Examinees" />
+          </AssociationSet>
+          <EntitySet Name="PW_PersonTeams" EntityType="ProjectWorkplaceModel.PW_PersonTeams" />
+          <AssociationSet Name="FK_PW_PersonTeams_PW_Persons" Association="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Persons">
+            <End Role="PW_Persons" EntitySet="PW_Persons" />
+            <End Role="PW_PersonTeams" EntitySet="PW_PersonTeams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_PersonTeams_PW_Persons1" Association="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Persons1">
+            <End Role="PW_Persons" EntitySet="PW_Persons" />
+            <End Role="PW_PersonTeams" EntitySet="PW_PersonTeams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_PersonTeams_PW_Teams" Association="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Teams">
+            <End Role="PW_Teams" EntitySet="PW_Teams" />
+            <End Role="PW_PersonTeams" EntitySet="PW_PersonTeams" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="PW_VW_QUESTIONS">
@@ -575,6 +525,56 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="PW_PersonTeams">
+          <Key>
+            <PropertyRef Name="PersonTeamID" />
+          </Key>
+          <Property Name="PersonTeamID" Type="Guid" Nullable="false" />
+          <Property Name="PersonID" Type="Guid" Nullable="false" />
+          <Property Name="TeamID" Type="Guid" />
+          <Property Name="LeaderID" Type="Guid" />
+          <Property Name="EffectiveDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PW_Persons" Relationship="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Persons" FromRole="PW_PersonTeams" ToRole="PW_Persons" />
+          <NavigationProperty Name="PW_Persons1" Relationship="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Persons1" FromRole="PW_PersonTeams" ToRole="PW_Persons" />
+          <NavigationProperty Name="PW_Teams" Relationship="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Teams" FromRole="PW_PersonTeams" ToRole="PW_Teams" />
+        </EntityType>
+        <Association Name="FK_PW_PersonTeams_PW_Persons">
+          <End Type="ProjectWorkplaceModel.PW_Persons" Role="PW_Persons" Multiplicity="1" />
+          <End Type="ProjectWorkplaceModel.PW_PersonTeams" Role="PW_PersonTeams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Persons">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PW_PersonTeams">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_PersonTeams_PW_Persons1">
+          <End Type="ProjectWorkplaceModel.PW_Persons" Role="PW_Persons" Multiplicity="0..1" />
+          <End Type="ProjectWorkplaceModel.PW_PersonTeams" Role="PW_PersonTeams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Persons">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PW_PersonTeams">
+              <PropertyRef Name="LeaderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_PersonTeams_PW_Teams">
+          <End Type="ProjectWorkplaceModel.PW_Teams" Role="PW_Teams" Multiplicity="0..1" />
+          <End Type="ProjectWorkplaceModel.PW_PersonTeams" Role="PW_PersonTeams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Teams">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="PW_PersonTeams">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -601,18 +601,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="WorkDayNum" ColumnName="WorkDayNum" />
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PW_PersonTeams">
-            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_PersonTeams">
-              <MappingFragment StoreEntitySet="PW_PersonTeams">
-                <ScalarProperty Name="PersonTeamID" ColumnName="PersonTeamID" />
-                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
-                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
-                <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
-                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -697,6 +685,18 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
                 <ScalarProperty Name="CodeNum" ColumnName="CodeNum" />
                 <ScalarProperty Name="PersonID" ColumnName="PersonID" />
                 <ScalarProperty Name="ExamineeID" ColumnName="ExamineeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_PersonTeams">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_PersonTeams">
+              <MappingFragment StoreEntitySet="PW_PersonTeams">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+                <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="PersonTeamID" ColumnName="PersonTeamID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
