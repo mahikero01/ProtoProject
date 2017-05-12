@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
     templateUrl:`khronos.component.html`
 })
 export class KhronosComponent  { 
-    path:string = 'resources/workplace/18 - Khronos.pdf';
+    path:string = 'resources/workplace/04DIS TOOLS/03Khronos.pdf';
     breadcrumbs =['DIS Tools' ,'Khronos'];
 }

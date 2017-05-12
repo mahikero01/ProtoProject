@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var KhronosComponent = (function () {
     function KhronosComponent() {
-        this.path = 'resources/workplace/18 - Khronos.pdf';
+        this.path = 'resources/workplace/04DIS TOOLS/03Khronos.pdf';
         this.breadcrumbs = ['DIS Tools', 'Khronos'];
     }
     return KhronosComponent;

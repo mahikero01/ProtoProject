@@ -17,7 +17,7 @@ var routes = [
     { path: 'mission-vision', component: mv_component_1.MVComponent },
     { path: 'organization', component: org_component_1.OrgComponent },
     { path: 'strategies', component: strategies_component_1.StrategiesComponent },
-    { path: 'service-catalogue', component: sc_component_1.SCComponent },
+    { path: 'Functional-Tower', component: sc_component_1.SCComponent },
 ];
 var DISOverviewRouting = (function () {
     function DISOverviewRouting() {

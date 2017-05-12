@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var StrategiesComponent = (function () {
     function StrategiesComponent() {
-        this.path = 'resources/workplace/05 - strategies/DISStrategies.pptx.png';
+        this.path = 'resources/workplace/01DIS OVERVIEW/03-Strategies.png';
         this.breadcrumbs = ['DIS Overview', 'Strategies'];
     }
     return StrategiesComponent;

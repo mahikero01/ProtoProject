@@ -17,7 +17,7 @@ var TeamOrgComponent = (function () {
     }
     TeamOrgComponent.prototype.addSlide = function (filename) {
         this.slides.push({
-            image: "resources/workplace/04 - Team/Gian Karlo Villaluz/" + filename
+            image: "resources/workplace/02TEAM OVERVIEW/Gian Karlo Villaluz/" + filename
         });
     };
     return TeamOrgComponent;

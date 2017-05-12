@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var WorkRuleComponent = (function () {
     function WorkRuleComponent() {
-        this.path = 'resources/workplace/19 - WORK RULES.FINAL.pdf';
+        this.path = 'resources/workplace/05POLICIES/WORK RULES.pdf';
         this.breadcrumbs = ['Policies', 'House Rules'];
     }
     return WorkRuleComponent;

@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
     templateUrl:'vl.component.html'
 })
 export class VLComponent  { 
-    path:string = 'resources/workplace/20 - Vacation Leave.pdf';
+    path:string = 'resources/workplace/05POLICIES/VACATION LEAVE.pdf';
     breadcrumbs =['Policies' ,'Vacation Leave'];
 }

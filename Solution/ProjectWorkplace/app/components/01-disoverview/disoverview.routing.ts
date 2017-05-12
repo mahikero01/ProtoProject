@@ -12,7 +12,7 @@ const routes: Routes = [
     { path : 'mission-vision', component: MVComponent },
     { path : 'organization', component: OrgComponent },
     { path : 'strategies', component: StrategiesComponent },
-    { path : 'service-catalogue', component: SCComponent },
+    { path : 'Functional-Tower', component: SCComponent },
 
 ];
 

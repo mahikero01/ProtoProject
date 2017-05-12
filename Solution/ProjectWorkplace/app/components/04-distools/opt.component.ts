@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
     //templateUrl:`opt.component.html`
 })
 export class OptComponent  { 
-    path:string = 'resources/workplace/16 - OPT doc.pdf';
+    path:string = 'resources/workplace/04DIS TOOLS/01OPT.pdf';
     breadcrumbs =['DIS Tools' ,'OPT'];
 }

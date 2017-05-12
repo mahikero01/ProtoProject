@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
     templateUrl:`strategies.component.html`
 })
 export class StrategiesComponent  { 
-    path:string = 'resources/workplace/05 - strategies/DISStrategies.pptx.png';
+    path:string = 'resources/workplace/01DIS OVERVIEW/03-Strategies.png';
     breadcrumbs =['DIS Overview' ,'Strategies'];
 }

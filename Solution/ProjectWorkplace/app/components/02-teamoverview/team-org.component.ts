@@ -12,7 +12,7 @@ export class TeamOrgComponent  {
 
     addSlide(filename:string): void {
         this.slides.push({
-            image: `resources/workplace/04 - Team/Gian Karlo Villaluz/${ filename }`
+            image: `resources/workplace/02TEAM OVERVIEW/Gian Karlo Villaluz/${ filename }`
         });
     }
     breadcrumbs =['Team Overview','Team Organization Chart'];

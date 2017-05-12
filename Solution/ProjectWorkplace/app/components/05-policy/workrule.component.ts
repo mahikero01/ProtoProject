@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
     templateUrl:'workrule.component.html'
 })
 export class WorkRuleComponent  { 
-    path:string = 'resources/workplace/19 - WORK RULES.FINAL.pdf';
+    path:string = 'resources/workplace/05POLICIES/WORK RULES.pdf';
     breadcrumbs =['Policies' ,'House Rules'];
 }
