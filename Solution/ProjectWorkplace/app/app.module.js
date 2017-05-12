@@ -13,12 +13,12 @@ var non_auth_1 = require("./non-auth");
 var auth_user_1 = require("./auth-user");
 var welcome_1 = require("./welcome");
 //ComponentModules
-var tl_module_1 = require("./components/02-tl/tl.module");
-var disoverview_module_1 = require("./components/03-disoverview/disoverview.module");
-var team_module_1 = require("./components/04-team/team.module");
-var distools_module_1 = require("./components/05-dis-tools/distools.module");
-var policy_module_1 = require("./components/06-policy/policy.module");
-var exam_module_1 = require("./components/07-exam/exam.module");
+var disoverview_module_1 = require("./components/01-disoverview/disoverview.module");
+var team_module_1 = require("./components/02-teamoverview/team.module");
+var leaders_module_1 = require("./components/03-leaders/leaders.module");
+var distools_module_1 = require("./components/04-distools/distools.module");
+var policy_module_1 = require("./components/05-policy/policy.module");
+var exam_module_1 = require("./components/06-exam/exam.module");
 //routing
 var app_routing_1 = require("./app.routing");
 //services
@@ -32,7 +32,7 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule,
             common_1.CommonModule,
-            tl_module_1.TLModule,
+            leaders_module_1.LeadersModule,
             disoverview_module_1.DISOverviewModule,
             team_module_1.TeamModule,
             distools_module_1.DISToolsModule,
