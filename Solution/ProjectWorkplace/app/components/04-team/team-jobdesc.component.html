@@ -1,9 +1,20 @@
-<carousel [interval]="10000" [noWrap]="noWrapSlides" [(activeSlide)]="activeSlideIndex">
-    <slide *ngFor="let slide of slides">
-        <img [src]="slide.image">
-        
-        <div [hidden]="slides.length == 1" class="carousel-caption" style="background-color:grey">            
-            {{activeSlideIndex+1}} of {{slides.length}}
-        </div>
-    </slide>
-</carousel>  
+ <div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li>DIS Overview</li>
+            <li class="active">Mission and Vision</li>
+        </ol>
+    </div>
+</div>
+
+<div class="text-center">
+    <carousel [interval]="10000" [noWrap]="noWrapSlides" [(activeSlide)]="activeSlideIndex">
+        <slide *ngFor="let slide of slides">
+            <img [src]="slide.image">
+            
+            <div [hidden]="slides.length == 1" class="carousel-caption" style="background-color:grey">            
+                {{activeSlideIndex+1}} of {{slides.length}}
+            </div>
+        </slide>
+    </carousel>  
+</div>

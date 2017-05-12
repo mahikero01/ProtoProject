@@ -1,18 +1,29 @@
-<div [hidden]="!viewScore">
-    your score is {{score}}
+<div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li>DIS Overview</li>
+            <li class="active">Mission and Vision</li>
+        </ol>
+    </div>
 </div>
 
-<div [hidden]="viewScore">
-    <div class="panel panel-default" *ngFor="let q of questions">
-
-        <div class="panel-heading" >{{q.QuestionDesc}}</div>
-        <div class="panel-body">
-        
-        </div>
-        <exam-form [question]="q" (getAnswer)="q.Answer" (sample)="checkAnswers()"
-        > </exam-form>
-
+<div class="text-center">
+    <div [hidden]="!viewScore">
+        your score is {{score}}
     </div>
-    <button class="btn btn-default btn-sm" type="button" 
-        [disabled]="!canSubmit" (click)="submitScore()">Submit</button>
+
+    <div [hidden]="viewScore">
+        <div class="panel panel-default" *ngFor="let q of questions">
+
+            <div class="panel-heading" >{{q.QuestionDesc}}</div>
+            <div class="panel-body">
+            
+            </div>
+            <exam-form [question]="q" (getAnswer)="q.Answer" (sample)="checkAnswers()"
+            > </exam-form>
+
+        </div>
+        <button class="btn btn-default btn-sm" type="button" 
+            [disabled]="!canSubmit" (click)="submitScore()">Submit</button>
+    </div>
 </div>
