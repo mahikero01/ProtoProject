@@ -6,12 +6,12 @@
     </div>
 </div>
 
-<div class="text-center">
-    <div [hidden]="!viewScore">
+<div >
+    <div *ngIf="viewScore">
         your score is {{score}}
     </div>
 
-    <div [hidden]="viewScore">
+    <div *ngIf="!viewScore">
         <div class="panel panel-default" *ngFor="let q of questions">
 
             <div class="panel-heading" >{{q.QuestionDesc}}</div>

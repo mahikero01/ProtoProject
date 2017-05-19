@@ -1,7 +1,8 @@
 <div *ngFor="let ans of answers">
-    <input type="radio" [name]="question.QuestionID" 
+    &nbsp; <input type="radio" [name]="question.QuestionID" 
             [value]="ans.IsCorrect"
             (change)="getAnswer(ans.IsCorrect)"
             />
     {{ans.AnswerDesc}}
 </div>
+<br />
