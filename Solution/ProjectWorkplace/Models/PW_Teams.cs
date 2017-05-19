@@ -18,6 +18,7 @@ namespace ProjectWorkplace.Models
         public PW_Teams()
         {
             this.PW_PersonTeams = new HashSet<PW_PersonTeams>();
+            this.PW_TeamResources = new HashSet<PW_TeamResources>();
         }
     
         public System.Guid TeamID { get; set; }
@@ -26,5 +27,7 @@ namespace ProjectWorkplace.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PW_PersonTeams> PW_PersonTeams { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PW_TeamResources> PW_TeamResources { get; set; }
     }
 }

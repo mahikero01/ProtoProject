@@ -14,10 +14,19 @@ namespace ProjectWorkplace.Models
     
     public partial class PW_Resources
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PW_Resources()
+        {
+            this.PW_TeamResources = new HashSet<PW_TeamResources>();
+        }
+    
         public System.Guid ResourceID { get; set; }
         public string ResourceName { get; set; }
         public string ResourcePath { get; set; }
         public string ResourceCategory { get; set; }
         public bool IsUrl { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PW_TeamResources> PW_TeamResources { get; set; }
     }
 }

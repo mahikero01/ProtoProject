@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using ProjectWorkplace.Models;
+using System.Web;
 
 namespace ProjectWorkplace.Controllers
 {
@@ -23,6 +24,20 @@ namespace ProjectWorkplace.Controllers
             return db.PW_Resources;
         }
 
+        public PW_TeamResource_DTO GetPW_Resources(string resourceCategory)
+        {
+            string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
+            //username only
+            string currentUsername = currentDomainUser.Remove(0, currentDomainUser.IndexOf('\\') + 1);
+
+            var a = db.PW_GetResourcePath(currentUsername, resourceCategory);
+            
+            return (a.Count() > 0) ?
+                new PW_TeamResource_DTO { ResourcePath = a.First() } :
+                new PW_TeamResource_DTO { ResourcePath = "" };
+                
+        }
+        
         // GET: api/Resources/5
         [ResponseType(typeof(PW_Resources))]
         public async Task<IHttpActionResult> GetPW_Resources(Guid id)
@@ -35,7 +50,7 @@ namespace ProjectWorkplace.Controllers
 
             return Ok(pW_Resources);
         }
-
+        
         // PUT: api/Resources/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutPW_Resources(Guid id, PW_Resources pW_Resources)

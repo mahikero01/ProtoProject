@@ -95,6 +95,18 @@
           <Property Name="SubjectName" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_TeamResources' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PW_TeamResources">
+          <Key>
+            <PropertyRef Name="TeamResourceID" />
+            <PropertyRef Name="TeamID" />
+            <PropertyRef Name="ResourceID" />
+          </Key>
+          <Property Name="TeamResourceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeamID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ResourceID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
         <EntityType Name="PW_Teams">
           <Key>
             <PropertyRef Name="TeamID" />
@@ -227,6 +239,34 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PW_TeamResources_PW_Resources">
+          <End Role="PW_Resources" Type="Self.PW_Resources" Multiplicity="1" />
+          <End Role="PW_TeamResources" Type="Self.PW_TeamResources" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Resources">
+              <PropertyRef Name="ResourceID" />
+            </Principal>
+            <Dependent Role="PW_TeamResources">
+              <PropertyRef Name="ResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_TeamResources_PW_Teams">
+          <End Role="PW_Teams" Type="Self.PW_Teams" Multiplicity="1" />
+          <End Role="PW_TeamResources" Type="Self.PW_TeamResources" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Teams">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="PW_TeamResources">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="PW_GetResourcePath" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="resourceCategory" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="ProjectWorkplaceModelStoreContainer">
           <EntitySet Name="PW_Answers" EntityType="Self.PW_Answers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PW_Examinees" EntityType="Self.PW_Examinees" Schema="dbo" store:Type="Tables" />
@@ -238,6 +278,13 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <EntitySet Name="PW_Roles" EntityType="Self.PW_Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PW_Subjects" EntityType="Self.PW_Subjects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PW_Teams" EntityType="Self.PW_Teams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_TeamResources" EntityType="Self.PW_TeamResources" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PW_TeamResources].[TeamResourceID] AS [TeamResourceID], 
+    [PW_TeamResources].[TeamID] AS [TeamID], 
+    [PW_TeamResources].[ResourceID] AS [ResourceID]
+    FROM [dbo].[PW_TeamResources] AS [PW_TeamResources]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="PW_VW_QUESTIONS" EntityType="Self.PW_VW_QUESTIONS" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [PW_VW_QUESTIONS].[QuestionID] AS [QuestionID], 
@@ -282,6 +329,14 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <AssociationSet Name="FK_PW_QuickTags_PW_Subjects" Association="Self.FK_PW_QuickTags_PW_Subjects">
             <End Role="PW_Subjects" EntitySet="PW_Subjects" />
             <End Role="PW_QuizTags" EntitySet="PW_QuizTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_TeamResources_PW_Resources" Association="Self.FK_PW_TeamResources_PW_Resources">
+            <End Role="PW_Resources" EntitySet="PW_Resources" />
+            <End Role="PW_TeamResources" EntitySet="PW_TeamResources" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_TeamResources_PW_Teams" Association="Self.FK_PW_TeamResources_PW_Teams">
+            <End Role="PW_Teams" EntitySet="PW_Teams" />
+            <End Role="PW_TeamResources" EntitySet="PW_TeamResources" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -338,16 +393,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <NavigationProperty Name="PW_Questions" Relationship="Self.FK_PW_QuickTags_PW_Questions" FromRole="PW_QuizTags" ToRole="PW_Questions" />
           <NavigationProperty Name="PW_Subjects" Relationship="Self.FK_PW_QuickTags_PW_Subjects" FromRole="PW_QuizTags" ToRole="PW_Subjects" />
         </EntityType>
-        <EntityType Name="PW_Resources">
-          <Key>
-            <PropertyRef Name="ResourceID" />
-          </Key>
-          <Property Name="ResourceID" Type="Guid" Nullable="false" />
-          <Property Name="ResourceName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ResourcePath" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ResourceCategory" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="IsUrl" Type="Boolean" Nullable="false" />
-        </EntityType>
         <EntityType Name="PW_Roles">
           <Key>
             <PropertyRef Name="RoleID" />
@@ -366,15 +411,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="PW_QuizTags" Relationship="Self.FK_PW_QuickTags_PW_Subjects" FromRole="PW_Subjects" ToRole="PW_QuizTags" />
           <NavigationProperty Name="PW_Examinees" Relationship="ProjectWorkplaceModel.FK_PW_Examinees_PW_Subjects" FromRole="PW_Subjects" ToRole="PW_Examinees" />
-        </EntityType>
-        <EntityType Name="PW_Teams">
-          <Key>
-            <PropertyRef Name="TeamID" />
-          </Key>
-          <Property Name="TeamID" Type="Guid" Nullable="false" />
-          <Property Name="TeamDesc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="PW_PersonTeams" Relationship="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Teams" FromRole="PW_Teams" ToRole="PW_PersonTeams" />
         </EntityType>
         <Association Name="FK_PW_Answers_PW_Questions">
           <End Role="PW_Questions" Type="Self.PW_Questions" Multiplicity="1" />
@@ -429,10 +465,8 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <EntitySet Name="PW_Persons" EntityType="Self.PW_Persons" />
           <EntitySet Name="PW_Questions" EntityType="Self.PW_Questions" />
           <EntitySet Name="PW_QuizTags" EntityType="Self.PW_QuizTags" />
-          <EntitySet Name="PW_Resources" EntityType="Self.PW_Resources" />
           <EntitySet Name="PW_Roles" EntityType="Self.PW_Roles" />
           <EntitySet Name="PW_Subjects" EntityType="Self.PW_Subjects" />
-          <EntitySet Name="PW_Teams" EntityType="Self.PW_Teams" />
           <AssociationSet Name="FK_PW_Answers_PW_Questions" Association="Self.FK_PW_Answers_PW_Questions">
             <End Role="PW_Questions" EntitySet="PW_Questions" />
             <End Role="PW_Answers" EntitySet="PW_Answers" />
@@ -468,11 +502,26 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
             <End Role="PW_Persons" EntitySet="PW_Persons" />
             <End Role="PW_PersonTeams" EntitySet="PW_PersonTeams" />
           </AssociationSet>
+          <EntitySet Name="PW_Resources" EntityType="ProjectWorkplaceModel.PW_Resources" />
+          <EntitySet Name="PW_Teams" EntityType="ProjectWorkplaceModel.PW_Teams" />
           <AssociationSet Name="FK_PW_PersonTeams_PW_Teams" Association="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Teams">
             <End Role="PW_Teams" EntitySet="PW_Teams" />
             <End Role="PW_PersonTeams" EntitySet="PW_PersonTeams" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="PW_TeamResources" EntityType="ProjectWorkplaceModel.PW_TeamResources" />
+          <AssociationSet Name="FK_PW_TeamResources_PW_Resources" Association="ProjectWorkplaceModel.FK_PW_TeamResources_PW_Resources">
+            <End Role="PW_Resources" EntitySet="PW_Resources" />
+            <End Role="PW_TeamResources" EntitySet="PW_TeamResources" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PW_TeamResources_PW_Teams" Association="ProjectWorkplaceModel.FK_PW_TeamResources_PW_Teams">
+            <End Role="PW_Teams" EntitySet="PW_Teams" />
+            <End Role="PW_TeamResources" EntitySet="PW_TeamResources" />
+          </AssociationSet>
+          <FunctionImport Name="PW_GetResourcePath" ReturnType="Collection(String)">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="resourceCategory" Mode="In" Type="String" />
+          </FunctionImport>
+          </EntityContainer>
         <EntityType Name="PW_VW_QUESTIONS">
           <Key>
             <PropertyRef Name="QuestionID" />
@@ -563,6 +612,27 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="PW_Resources">
+          <Key>
+            <PropertyRef Name="ResourceID" />
+          </Key>
+          <Property Name="ResourceID" Type="Guid" Nullable="false" />
+          <Property Name="ResourceName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ResourcePath" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ResourceCategory" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="IsUrl" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PW_TeamResources" Relationship="ProjectWorkplaceModel.FK_PW_TeamResources_PW_Resources" FromRole="PW_Resources" ToRole="PW_TeamResources" />
+        </EntityType>
+        <EntityType Name="PW_Teams">
+          <Key>
+            <PropertyRef Name="TeamID" />
+          </Key>
+          <Property Name="TeamID" Type="Guid" Nullable="false" />
+          <Property Name="TeamDesc" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PW_PersonTeams" Relationship="ProjectWorkplaceModel.FK_PW_PersonTeams_PW_Teams" FromRole="PW_Teams" ToRole="PW_PersonTeams" />
+          <NavigationProperty Name="PW_TeamResources" Relationship="ProjectWorkplaceModel.FK_PW_TeamResources_PW_Teams" FromRole="PW_Teams" ToRole="PW_TeamResources" />
+        </EntityType>
         <Association Name="FK_PW_PersonTeams_PW_Teams">
           <End Type="ProjectWorkplaceModel.PW_Teams" Role="PW_Teams" Multiplicity="0..1" />
           <End Type="ProjectWorkplaceModel.PW_PersonTeams" Role="PW_PersonTeams" Multiplicity="*" />
@@ -575,7 +645,43 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <EntityType Name="PW_TeamResources">
+          <Key>
+            <PropertyRef Name="TeamResourceID" />
+            <PropertyRef Name="TeamID" />
+            <PropertyRef Name="ResourceID" />
+          </Key>
+          <Property Name="TeamResourceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeamID" Type="Guid" Nullable="false" />
+          <Property Name="ResourceID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="PW_Resources" Relationship="ProjectWorkplaceModel.FK_PW_TeamResources_PW_Resources" FromRole="PW_TeamResources" ToRole="PW_Resources" />
+          <NavigationProperty Name="PW_Teams" Relationship="ProjectWorkplaceModel.FK_PW_TeamResources_PW_Teams" FromRole="PW_TeamResources" ToRole="PW_Teams" />
+        </EntityType>
+        <Association Name="FK_PW_TeamResources_PW_Resources">
+          <End Type="ProjectWorkplaceModel.PW_Resources" Role="PW_Resources" Multiplicity="1" />
+          <End Type="ProjectWorkplaceModel.PW_TeamResources" Role="PW_TeamResources" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Resources">
+              <PropertyRef Name="ResourceID" />
+            </Principal>
+            <Dependent Role="PW_TeamResources">
+              <PropertyRef Name="ResourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PW_TeamResources_PW_Teams">
+          <End Type="ProjectWorkplaceModel.PW_Teams" Role="PW_Teams" Multiplicity="1" />
+          <End Type="ProjectWorkplaceModel.PW_TeamResources" Role="PW_TeamResources" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PW_Teams">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="PW_TeamResources">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -626,17 +732,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PW_Resources">
-            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Resources">
-              <MappingFragment StoreEntitySet="PW_Resources">
-                <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
-                <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
-                <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
-                <ScalarProperty Name="ResourceCategory" ColumnName="ResourceCategory" />
-                <ScalarProperty Name="IsUrl" ColumnName="IsUrl" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="PW_Roles">
             <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Roles">
               <MappingFragment StoreEntitySet="PW_Roles">
@@ -651,15 +746,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
               <MappingFragment StoreEntitySet="PW_Subjects">
                 <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
                 <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PW_Teams">
-            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Teams">
-              <MappingFragment StoreEntitySet="PW_Teams">
-                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
-                <ScalarProperty Name="TeamDesc" ColumnName="TeamDesc" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -700,6 +786,36 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="PW_Resources">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Resources">
+              <MappingFragment StoreEntitySet="PW_Resources">
+                <ScalarProperty Name="IsUrl" ColumnName="IsUrl" />
+                <ScalarProperty Name="ResourceCategory" ColumnName="ResourceCategory" />
+                <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
+                <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+                <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Teams">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Teams">
+              <MappingFragment StoreEntitySet="PW_Teams">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="TeamDesc" ColumnName="TeamDesc" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_TeamResources">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_TeamResources">
+              <MappingFragment StoreEntitySet="PW_TeamResources">
+                <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="TeamResourceID" ColumnName="TeamResourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PW_GetResourcePath" FunctionName="ProjectWorkplaceModel.Store.PW_GetResourcePath" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

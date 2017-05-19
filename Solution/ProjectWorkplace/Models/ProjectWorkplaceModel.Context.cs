@@ -12,6 +12,8 @@ namespace ProjectWorkplace.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class ProjectWorkplaceContext : DbContext
     {
@@ -29,12 +31,26 @@ namespace ProjectWorkplace.Models
         public virtual DbSet<PW_Persons> PW_Persons { get; set; }
         public virtual DbSet<PW_Questions> PW_Questions { get; set; }
         public virtual DbSet<PW_QuizTags> PW_QuizTags { get; set; }
-        public virtual DbSet<PW_Resources> PW_Resources { get; set; }
         public virtual DbSet<PW_Roles> PW_Roles { get; set; }
         public virtual DbSet<PW_Subjects> PW_Subjects { get; set; }
-        public virtual DbSet<PW_Teams> PW_Teams { get; set; }
         public virtual DbSet<PW_VW_QUESTIONS> PW_VW_QUESTIONS { get; set; }
         public virtual DbSet<PW_Examinees> PW_Examinees { get; set; }
         public virtual DbSet<PW_PersonTeams> PW_PersonTeams { get; set; }
+        public virtual DbSet<PW_Resources> PW_Resources { get; set; }
+        public virtual DbSet<PW_Teams> PW_Teams { get; set; }
+        public virtual DbSet<PW_TeamResources> PW_TeamResources { get; set; }
+    
+        public virtual ObjectResult<string> PW_GetResourcePath(string username, string resourceCategory)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var resourceCategoryParameter = resourceCategory != null ?
+                new ObjectParameter("resourceCategory", resourceCategory) :
+                new ObjectParameter("resourceCategory", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("PW_GetResourcePath", usernameParameter, resourceCategoryParameter);
+        }
     }
 }
