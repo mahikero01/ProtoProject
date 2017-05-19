@@ -10,10 +10,12 @@ var router_1 = require("@angular/router");
 //component
 var vl_component_1 = require("./vl.component");
 var workrule_component_1 = require("./workrule.component");
+var bereavement_component_1 = require("./bereavement.component");
 var routes = [
     //paths
     { path: 'vacation-leave', component: vl_component_1.VLComponent },
     { path: 'work-rule', component: workrule_component_1.WorkRuleComponent },
+    { path: 'bereavement-policy', component: bereavement_component_1.BereavementComponent }
 ];
 var PolicyRouting = (function () {
     function PolicyRouting() {

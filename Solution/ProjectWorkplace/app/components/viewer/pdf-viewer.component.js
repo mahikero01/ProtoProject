@@ -26,7 +26,7 @@ PDFComponent = __decorate([
     core_1.Component({
         //moduleId: module.id,
         selector: 'view-pdf',
-        template: "\n\n        \n        <div width=\"100%\" height=\"600px\">\n            <embed [src]=\"sanitizer.bypassSecurityTrustResourceUrl(srcString)\" width=\"100%\" height=\"600px\" type=\"application/pdf\"   > \n        </div>\n    ",
+        template: "\n\n        \n        <div width=\"100%\" height=\"700px\">\n            <embed [src]=\"sanitizer.bypassSecurityTrustResourceUrl(srcString)\" width=\"100%\" height=\"600px\" type=\"application/pdf\"   > \n        </div>\n    ",
     }),
     __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
 ], PDFComponent);

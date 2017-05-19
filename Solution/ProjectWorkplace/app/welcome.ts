@@ -3,7 +3,7 @@ import { Auth } from './entities/auth';
 @Component({
   moduleId: module.id,
   selector: 'welcome-user',
-  templateUrl: 'welcome.html'
+  templateUrl: 'welcome.html'                                                                   
 })
 export class WelcomeComponent  { 
   @Input() user:Auth;

@@ -9,6 +9,7 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var vl_component_1 = require("./vl.component");
+var bereavement_component_1 = require("./bereavement.component");
 var workrule_component_1 = require("./workrule.component");
 var viewer_module_1 = require("../viewer/viewer.module");
 var policy_routing_1 = require("./policy.routing");
@@ -29,6 +30,7 @@ PolicyModule = __decorate([
         declarations: [
             vl_component_1.VLComponent,
             workrule_component_1.WorkRuleComponent,
+            bereavement_component_1.BereavementComponent
         ],
         providers: []
     })
