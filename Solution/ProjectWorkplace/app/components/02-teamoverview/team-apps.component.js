@@ -20,10 +20,10 @@ var TeamAppsComponent = (function () {
         //     });
         // }
         this.breadcrumbs = ['Team Overview', 'Team Information', 'Tools and Applications'];
-        this.getSlides();
     }
     TeamAppsComponent.prototype.getSlides = function () {
         var _this = this;
+        this.slides = [];
         this.resourceService.getResourcePath('Team Apps')
             .then(function (res) {
             _this.slides.push({

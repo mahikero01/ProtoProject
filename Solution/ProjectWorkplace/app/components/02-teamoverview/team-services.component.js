@@ -15,10 +15,10 @@ var TeamServicesComponent = (function () {
         this.resourceService = resourceService;
         this.slides = [];
         this.breadcrumbs = ['Team Overview', 'Team Information', 'Services'];
-        this.getSlides();
     }
     TeamServicesComponent.prototype.getSlides = function () {
         var _this = this;
+        this.slides = [];
         this.resourceService.getResourcePath('Team Services')
             .then(function (res) {
             _this.slides.push({

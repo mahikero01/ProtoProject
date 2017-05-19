@@ -7,10 +7,9 @@ import { ResourceService } from '../../services/resource.service';
 export class TeamServicesComponent implements OnInit  { 
     slides: any[] = [];
 
-    public constructor( private resourceService : ResourceService ) {
-        this.getSlides()
-    }
+    public constructor( private resourceService : ResourceService ) {}
     getSlides(){
+        this.slides=[];
         this.resourceService.getResourcePath('Team Services')
             .then(res => {
                 this.slides.push({
