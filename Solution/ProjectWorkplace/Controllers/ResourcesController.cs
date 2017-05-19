@@ -24,7 +24,8 @@ namespace ProjectWorkplace.Controllers
             return db.PW_Resources;
         }
 
-        public PW_TeamResource_DTO GetPW_Resources(string resourceCategory)
+        [Route("api/Resources/GetResourcePath")]
+        public PW_TeamResource_DTO GetResourcePath(string resourceCategory)
         {
             string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
             //username only

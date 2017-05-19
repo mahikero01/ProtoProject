@@ -11,6 +11,8 @@ import { TeamRouting } from './team.routing';
 import { ViewerModule } from '../viewer/viewer.module';
 /* ngx-bootstrap */
 import { CarouselModule } from 'ngx-bootstrap';
+/*services */
+import { ResourceService } from '../../services/resource.service';
 //import { PhotoViewerComponent } from '../photo-viewer/photo-viewer.component';
 @NgModule({
     imports: [
@@ -27,6 +29,7 @@ import { CarouselModule } from 'ngx-bootstrap';
         TeamJobDescComponent
     ],
     providers: [
+        ResourceService
     ]
 })
 

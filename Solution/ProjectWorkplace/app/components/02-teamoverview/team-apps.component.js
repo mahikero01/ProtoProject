@@ -9,15 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var resource_service_1 = require("../../services/resource.service");
 var TeamAppsComponent = (function () {
-    function TeamAppsComponent() {
+    function TeamAppsComponent(resourceService) {
+        this.resourceService = resourceService;
         this.slides = [];
+        // addSlide(filename:string): void {
+        //     this.slides.push({
+        //         image: `resources/workplace/02TEAM OVERVIEW/Gian Karlo Villaluz/${ filename }`
+        //     });
+        // }
         this.breadcrumbs = ['Team Overview', 'Team Information', 'Tools and Applications'];
-        this.addSlide('ESD_ToolsAndApps.pptx.png');
     }
-    TeamAppsComponent.prototype.addSlide = function (filename) {
-        this.slides.push({
-            image: "resources/workplace/02TEAM OVERVIEW/Gian Karlo Villaluz/" + filename
+    TeamAppsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.resourceService.getResourcePath('Team Apps')
+            .then(function (res) {
+            _this.slides.push({
+                image: res.ResourcePath
+            });
         });
     };
     return TeamAppsComponent;
@@ -27,6 +37,6 @@ TeamAppsComponent = __decorate([
         moduleId: module.id,
         templateUrl: "team-apps.component.html"
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [resource_service_1.ResourceService])
 ], TeamAppsComponent);
 exports.TeamAppsComponent = TeamAppsComponent;

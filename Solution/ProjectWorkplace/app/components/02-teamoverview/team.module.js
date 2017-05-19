@@ -16,6 +16,8 @@ var team_routing_1 = require("./team.routing");
 var viewer_module_1 = require("../viewer/viewer.module");
 /* ngx-bootstrap */
 var ngx_bootstrap_1 = require("ngx-bootstrap");
+/*services */
+var resource_service_1 = require("../../services/resource.service");
 //import { PhotoViewerComponent } from '../photo-viewer/photo-viewer.component';
 var TeamModule = (function () {
     function TeamModule() {
@@ -37,7 +39,9 @@ TeamModule = __decorate([
             team_services_component_1.TeamServicesComponent,
             team_jobdesc_component_1.TeamJobDescComponent
         ],
-        providers: []
+        providers: [
+            resource_service_1.ResourceService
+        ]
     })
 ], TeamModule);
 exports.TeamModule = TeamModule;
