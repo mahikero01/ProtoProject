@@ -195,6 +195,9 @@
     <Compile Include="Models\PW_Examinees.cs">
       <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PW_GetResourcePath_Result.cs">
+      <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PW_Persons.cs">
       <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
     </Compile>

@@ -15,15 +15,20 @@ var TeamServicesComponent = (function () {
         this.resourceService = resourceService;
         this.slides = [];
         this.breadcrumbs = ['Team Overview', 'Team Information', 'Services'];
+        this.getSlides();
     }
-    TeamServicesComponent.prototype.ngOnInit = function () {
+    TeamServicesComponent.prototype.getSlides = function () {
         var _this = this;
-        this.resourceService.getResourcePath('Team Apps')
+        this.resourceService.getResourcePath('Team Services')
             .then(function (res) {
             _this.slides.push({
                 image: res.ResourcePath
             });
-        });
+        })
+            .catch(function (err) { console.log(err); });
+    };
+    TeamServicesComponent.prototype.ngOnInit = function () {
+        this.getSlides();
     };
     return TeamServicesComponent;
 }());

@@ -517,7 +517,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
             <End Role="PW_Teams" EntitySet="PW_Teams" />
             <End Role="PW_TeamResources" EntitySet="PW_TeamResources" />
           </AssociationSet>
-          <FunctionImport Name="PW_GetResourcePath" ReturnType="Collection(String)">
+          <FunctionImport Name="PW_GetResourcePath" ReturnType="Collection(ProjectWorkplaceModel.PW_GetResourcePath_Result)">
             <Parameter Name="username" Mode="In" Type="String" />
             <Parameter Name="resourceCategory" Mode="In" Type="String" />
           </FunctionImport>
@@ -681,6 +681,10 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="PW_GetResourcePath_Result">
+          <Property Type="String" Name="ResourcePath" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="ResourceCategory" Nullable="true" MaxLength="150" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -815,7 +819,14 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="PW_GetResourcePath" FunctionName="ProjectWorkplaceModel.Store.PW_GetResourcePath" />
+          <FunctionImportMapping FunctionImportName="PW_GetResourcePath" FunctionName="ProjectWorkplaceModel.Store.PW_GetResourcePath">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProjectWorkplaceModel.PW_GetResourcePath_Result">
+                <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
+                <ScalarProperty Name="ResourceCategory" ColumnName="ResourceCategory" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

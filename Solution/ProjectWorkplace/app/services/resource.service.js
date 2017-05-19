@@ -19,7 +19,7 @@ var ResourceService = (function () {
     }
     //pass the question id
     ResourceService.prototype.getResourcePath = function (resourceCategory) {
-        var url = this.apiUrl + "/GetResourcePath/?resourceCategory=%" + resourceCategory;
+        var url = this.apiUrl + "/GetResourcePath/?resourceCategory=" + resourceCategory;
         return this.http
             .get(url)
             .toPromise()

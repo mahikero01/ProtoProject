@@ -25,18 +25,17 @@ namespace ProjectWorkplace.Controllers
         }
 
         [Route("api/Resources/GetResourcePath")]
-        public PW_TeamResource_DTO GetResourcePath(string resourceCategory)
+        public PW_GetResourcePath_Result GetResourcePath(string resourceCategory)
         {
             string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
             //username only
             string currentUsername = currentDomainUser.Remove(0, currentDomainUser.IndexOf('\\') + 1);
 
-            var a = db.PW_GetResourcePath(currentUsername, resourceCategory);
-            
-            return (a.Count() > 0) ?
-                new PW_TeamResource_DTO { ResourcePath = a.First() } :
-                new PW_TeamResource_DTO { ResourcePath = "" };
-                
+            var a = db.PW_GetResourcePath(currentUsername, resourceCategory).ToList();
+
+            return (a.Count() > 0) ? a[0]  :
+                new PW_GetResourcePath_Result ();
+
         }
         
         // GET: api/Resources/5

@@ -10,7 +10,7 @@ export class ResourceService {
     constructor(private http: Http){}
     //pass the question id
     getResourcePath(resourceCategory: string): Promise<Resource> {
-        const url = `${this.apiUrl}/GetResourcePath/?resourceCategory=%${resourceCategory}`;
+        const url = `${this.apiUrl}/GetResourcePath/?resourceCategory=${resourceCategory}`;
         return this.http
                 .get(url)
                 .toPromise()

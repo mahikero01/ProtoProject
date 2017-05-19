@@ -20,15 +20,20 @@ var TeamAppsComponent = (function () {
         //     });
         // }
         this.breadcrumbs = ['Team Overview', 'Team Information', 'Tools and Applications'];
+        this.getSlides();
     }
-    TeamAppsComponent.prototype.ngOnInit = function () {
+    TeamAppsComponent.prototype.getSlides = function () {
         var _this = this;
         this.resourceService.getResourcePath('Team Apps')
             .then(function (res) {
             _this.slides.push({
                 image: res.ResourcePath
             });
-        });
+        })
+            .catch(function (err) { console.log(err); });
+    };
+    TeamAppsComponent.prototype.ngOnInit = function () {
+        this.getSlides();
     };
     return TeamAppsComponent;
 }());

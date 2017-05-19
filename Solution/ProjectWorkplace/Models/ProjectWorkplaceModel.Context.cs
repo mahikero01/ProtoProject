@@ -40,7 +40,7 @@ namespace ProjectWorkplace.Models
         public virtual DbSet<PW_Teams> PW_Teams { get; set; }
         public virtual DbSet<PW_TeamResources> PW_TeamResources { get; set; }
     
-        public virtual ObjectResult<string> PW_GetResourcePath(string username, string resourceCategory)
+        public virtual ObjectResult<PW_GetResourcePath_Result> PW_GetResourcePath(string username, string resourceCategory)
         {
             var usernameParameter = username != null ?
                 new ObjectParameter("username", username) :
@@ -50,7 +50,7 @@ namespace ProjectWorkplace.Models
                 new ObjectParameter("resourceCategory", resourceCategory) :
                 new ObjectParameter("resourceCategory", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("PW_GetResourcePath", usernameParameter, resourceCategoryParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PW_GetResourcePath_Result>("PW_GetResourcePath", usernameParameter, resourceCategoryParameter);
         }
     }
 }

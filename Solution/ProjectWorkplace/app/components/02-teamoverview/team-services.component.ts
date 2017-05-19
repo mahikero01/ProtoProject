@@ -7,15 +7,21 @@ import { ResourceService } from '../../services/resource.service';
 export class TeamServicesComponent implements OnInit  { 
     slides: any[] = [];
 
-    public constructor( private resourceService : ResourceService ) {}
-
-    ngOnInit(){
-        this.resourceService.getResourcePath('Team Apps')
+    public constructor( private resourceService : ResourceService ) {
+        this.getSlides()
+    }
+    getSlides(){
+        this.resourceService.getResourcePath('Team Services')
             .then(res => {
                 this.slides.push({
                     image: res.ResourcePath
                 });
-            });
+            })
+            .catch(err=>{console.log(err)});
     }
+    ngOnInit(){
+        this.getSlides();
+    }
+
     breadcrumbs =['Team Overview','Team Information' ,'Services'];
 }

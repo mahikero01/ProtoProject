@@ -1,7 +1,8 @@
 "use strict";
 var Resource = (function () {
-    function Resource(ResourcePath) {
+    function Resource(ResourcePath, ResourceCategory) {
         this.ResourcePath = ResourcePath;
+        this.ResourceCategory = ResourceCategory;
     }
     return Resource;
 }());
