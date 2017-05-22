@@ -6,16 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var NonAuthComponent = (function () {
-    function NonAuthComponent() {
+var router_1 = require("@angular/router");
+var appRoutes = [
+    { path: '', redirectTo: '/', pathMatch: 'full' }
+];
+var AppRouting = (function () {
+    function AppRouting() {
     }
-    return NonAuthComponent;
+    return AppRouting;
 }());
-NonAuthComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'non-auth',
-        templateUrl: 'non-auth.html'
+AppRouting = __decorate([
+    core_1.NgModule({
+        imports: [router_1.RouterModule.forRoot(appRoutes, { useHash: true })],
+        exports: [router_1.RouterModule]
     })
-], NonAuthComponent);
-exports.NonAuthComponent = NonAuthComponent;
+], AppRouting);
+exports.AppRouting = AppRouting;

@@ -160,3 +160,155 @@ h1 {
 }
 
 
+
+
+/*splash*/
+.fullSplash {
+    background:url("Resources/Images/background.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    text-align: center;
+}
+
+body{
+    background-color: transparent;
+    text-align: center;
+}
+
+.SplashTheme{
+    font-family: 'Lato', sans-serif;
+    color: #FFFFFF;
+}
+
+.User{
+    font-family: 'Lato', sans-serif;
+    font-size: 30px;
+    margin-top: 100px;
+    text-align: center;
+    position: relative;
+}
+
+.brandLogo{
+    margin: 0 auto;
+    width: 650px;
+    min-width: 150px;
+    margin-top: 150px;
+    text-align: -webkit-center;
+    text-align: center;
+    position: relative;
+}
+
+.divider{
+        width: 1px; 
+        height: 110px; 
+        background-color: white; 
+        display: block; 
+        margin: 0 10px; 
+        padding: 0.1%; 
+    }
+
+@media (max-width: 1050px) {
+    .brandLogo {
+        margin: 0 auto;
+        width: 250px;
+        margin-top: 150px;
+        text-align: -webkit-center;
+        text-align: center;
+        position: relative;
+    }
+    .divider{
+        width: 300px; 
+        height: 1px; 
+        background-color: white; 
+        display: block; 
+        margin: 20px 0px;
+    }
+}
+
+
+
+.Workplace{
+    font-family: 'Lato', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.authorized{
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    margin-top: 100px;
+    display: block;
+    text-align: center;
+    width: auto;
+}
+
+.buttondiv{
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    margin-top: 100px;
+    display: block;
+    text-align: center;
+    width: auto;
+}
+
+.Button{ 
+    display: block;
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+    border: 2px dotted #ffffff;  
+    text-align: -webkit-center;
+    margin: 0 auto;
+}
+
+.ButtonDesign{
+    color: #ffffff;
+    font-size: 12px;
+    font-family: 'Lato', sans-serif;
+    margin: 8%;
+    border: 1px solid #FFFFFF;
+    border-radius: 100%;
+    width: 85%;
+    height: 85%;
+    text-anchor: middle;
+    padding-top: 25%;
+}
+
+.Button:hover{
+    display: block;
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+    border: 2px solid #ffffff;  
+    text-align: -webkit-center;
+    margin: 0 auto;
+}
+
+.ButtonDesign:hover {
+    color: #00aeef;
+    font-size: 12px;
+    background-color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    margin: 8%;
+    border: 1px solid #FFFFFF;
+    border-radius: 100%;
+    width: 85%;
+    height: 85%;
+    text-anchor: middle;
+    padding-top: 25%;
+}
+
+.manulifelogo{
+    width: 100%; margin-top: 5%
+}
+
+.johnhancocklogo{
+    width: 100%; margin-top: 2%
+}
+
+.logo{
+    margin: 0; padding: 0
+}

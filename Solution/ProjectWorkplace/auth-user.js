@@ -9,30 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var auth_1 = require("./entities/auth");
-var WelcomeComponent = (function () {
-    function WelcomeComponent() {
-        this.cv = new core_1.EventEmitter();
+var AuthUserComponent = (function () {
+    function AuthUserComponent(router) {
+        this.router = router;
     }
-    WelcomeComponent.prototype.changeView = function () {
-        this.cv.emit();
+    AuthUserComponent.prototype.routeWithUserName = function (path) {
+        this.router.navigate(['/' + path, this.user.userName]);
     };
-    return WelcomeComponent;
+    AuthUserComponent.prototype.routeWOUserName = function (path) {
+        this.router.navigate(['/' + path]);
+    };
+    return AuthUserComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", auth_1.Auth)
-], WelcomeComponent.prototype, "user", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], WelcomeComponent.prototype, "cv", void 0);
-WelcomeComponent = __decorate([
+], AuthUserComponent.prototype, "user", void 0);
+AuthUserComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: 'welcome-user',
-        templateUrl: 'welcome.html',
-        styleUrls: ['welcome.css']
-    })
-], WelcomeComponent);
-exports.WelcomeComponent = WelcomeComponent;
+        selector: 'auth-user',
+        templateUrl: 'auth-user.html'
+    }),
+    __metadata("design:paramtypes", [router_1.Router])
+], AuthUserComponent);
+exports.AuthUserComponent = AuthUserComponent;

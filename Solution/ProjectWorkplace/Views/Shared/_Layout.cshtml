@@ -1,11 +1,20 @@
 ﻿<!DOCTYPE html>
-<html>
+<html class="fullSplash">
 <head>
     <base href="/">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-
+    <style>
+        .fullSplash {
+            background: url("Resources/Images/background.png") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+            text-align: center;
+        }
+    </style>
     <!-- Polyfill(s) for older browsers -->
     @Scripts.Render("~/bundles/polyfills")
 
@@ -15,12 +24,12 @@
     <!-- Bootstrap and Customm Style -->
     @Scripts.Render("~/bundles/bootstrap")
     @Styles.Render("~/Content/css")
-    
+
 
     @Scripts.Render("~/bundles/config")
     @Scripts.Render("~/bundles/modernizr")
     <script>
-        System.import('main.js').catch(function(err){ console.error(err); });
+        System.import('main.js').catch(function (err) { console.error(err); });
     </script>
 </head>
 <body>
