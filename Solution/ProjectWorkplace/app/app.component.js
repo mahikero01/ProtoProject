@@ -17,7 +17,6 @@ var AppComponent = (function () {
         this.authService = authService;
         this.auth = new auth_1.Auth(false, '', '');
         this.viewPage = 0;
-        this.photo = 'Resources/Images/background.png';
         this.authService.getAuthorization()
             .then(function (auth) {
             _this.auth = auth;

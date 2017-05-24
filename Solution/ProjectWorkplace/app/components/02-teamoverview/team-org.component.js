@@ -12,6 +12,7 @@ var core_1 = require("@angular/core");
 var TeamOrgComponent = (function () {
     function TeamOrgComponent() {
         this.slides = [];
+        this.path = 'resources/workplace/02TEAM OVERVIEW/Team Org/sample.html';
         this.breadcrumbs = ['Team Overview', 'Team Organization Chart'];
         this.addSlide('ESD_OrgChart.pptx.png');
     }

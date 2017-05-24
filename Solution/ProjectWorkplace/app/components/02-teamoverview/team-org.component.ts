@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
 })
 export class TeamOrgComponent  { 
     slides: any[] = [];
-
+    path:string ='resources/workplace/02TEAM OVERVIEW/Team Org/sample.html'
     public constructor() {
         this.addSlide('ESD_OrgChart.pptx.png');
     }

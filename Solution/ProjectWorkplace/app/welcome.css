@@ -1,43 +1,21 @@
 /*splash*/
-body {
-    background:url("Resources/Images/background.png") no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-.wrapper {
-    background:url("Resources/Images/background.png") no-repeat center center fixed;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    padding-top: 0px;
-    
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    text-align: center;
-    
-}
 
 .fullSplash {
-    background:url("Resources/Images/background.png") no-repeat center;
-    
-    position: absolute;
+    background:url("Resources/Images/background.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
     text-align: center;
+    position: fixed;
     width: 100%;
     height: 100%;
 }
 
-a.disabled {
-    color: gray;
-    cursor: not-allowed;
-    text-decoration: underline;
+.scrollAuto{
+    width: 100%; 
+    height: 100%; 
+    overflow: auto;
 }
 
 body{

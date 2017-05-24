@@ -6,8 +6,8 @@
     </div>
 </div>
 
-<div class="text-center"  style="box-shadow: 0px 2px 2px 2px #888888;">
-    <carousel [interval]="10000">
+<div [innerHTML]="path" class="text-center"  style="box-shadow: 0px 2px 2px 2px #888888;">
+    <!--<carousel [interval]="10000">
         <slide *ngFor="let slide of slides; let i = Index">
             <img [src]="slide.image">
             
@@ -15,5 +15,5 @@
                 {{i +1}} of {{slides.length}}
             </div>
         </slide>
-    </carousel>  
+    </carousel>  -->
 </div>
