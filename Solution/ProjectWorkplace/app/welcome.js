@@ -13,6 +13,7 @@ var auth_1 = require("./entities/auth");
 var WelcomeComponent = (function () {
     function WelcomeComponent() {
         this.cv = new core_1.EventEmitter();
+        this.photo = 'Resources/Images/background.png';
     }
     WelcomeComponent.prototype.changeView = function () {
         this.cv.emit();

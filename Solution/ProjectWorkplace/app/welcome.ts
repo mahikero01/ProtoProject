@@ -8,7 +8,10 @@ import { Auth } from './entities/auth';
 })
 export class WelcomeComponent  { 
   @Input() user:Auth;
+  
   @Output() cv=new EventEmitter();
+  
+  photo:string='Resources/Images/background.png';
   changeView(){
     this.cv.emit();
   }

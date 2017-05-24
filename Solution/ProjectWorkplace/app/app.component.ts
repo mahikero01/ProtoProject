@@ -9,7 +9,6 @@ import { Auth } from './entities/auth';
 export class AppComponent {
     auth:Auth=new Auth(false,'','');
     viewPage:number=0;
-
     constructor(
         public authService: AuthService,
     ){ 
