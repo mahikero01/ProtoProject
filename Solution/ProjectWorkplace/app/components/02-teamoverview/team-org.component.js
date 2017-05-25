@@ -9,21 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var resource_service_1 = require("../../services/resource.service");
 var platform_browser_1 = require("@angular/platform-browser");
-var contentreader_service_1 = require("../../services/contentreader.service");
 var TeamOrgComponent = (function () {
-    function TeamOrgComponent(cr, sanitizer) {
-        this.cr = cr;
+    function TeamOrgComponent(resourceService, sanitizer) {
+        this.resourceService = resourceService;
         this.sanitizer = sanitizer;
         this.slides = [];
-        this.path = 'resources/workplace/02TEAM OVERVIEW/Team Org/sample.html';
+        this.path = '';
+        // addSlide(filename:string): void {
+        //     this.slides.push({
+        //         image: `resources/workplace/02TEAM OVERVIEW/Gian Karlo Villaluz/${ filename }`
+        //     });
+        // }
         this.breadcrumbs = ['Team Overview', 'Team Organization Chart'];
-        //this.addSlide('ESD_OrgChart.pptx.png');
-        //cr.getContent('Team Org').then(content => this.content=content);
     }
-    TeamOrgComponent.prototype.addSlide = function (filename) {
-        this.slides.push({
-            image: "resources/workplace/02TEAM OVERVIEW/Gian Karlo Villaluz/" + filename
+    TeamOrgComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.resourceService.getResourcePath('Team Org')
+            .then(function (res) {
+            _this.path = res.ResourcePath;
         });
     };
     return TeamOrgComponent;
@@ -33,7 +38,7 @@ TeamOrgComponent = __decorate([
         moduleId: module.id,
         templateUrl: "team-org.component.html"
     }),
-    __metadata("design:paramtypes", [contentreader_service_1.ContentReaderService,
+    __metadata("design:paramtypes", [resource_service_1.ResourceService,
         platform_browser_1.DomSanitizer])
 ], TeamOrgComponent);
 exports.TeamOrgComponent = TeamOrgComponent;
