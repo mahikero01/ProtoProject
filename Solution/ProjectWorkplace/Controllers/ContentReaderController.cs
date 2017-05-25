@@ -21,7 +21,7 @@ namespace ProjectWorkplace.Controllers
             return new PW_ContentReader
             {
                 MyProperty=0,
-                ResourceContent=text.Replace("\r\n", string.Empty);
+                ResourceContent=text.Replace("\r\n", string.Empty)
             };
         }
 
