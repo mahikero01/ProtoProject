@@ -6,7 +6,8 @@
     </div>
 </div>
 
-<div [innerHTML]="path" class="text-center"  style="box-shadow: 0px 2px 2px 2px #888888;">
+<div class="text-center"  style="box-shadow: 0px 2px 2px 2px #888888; position: relative;">
+    <iframe width="100%" height="700px" [src]="sanitizer.bypassSecurityTrustResourceUrl(path)"></iframe>
     <!--<carousel [interval]="10000">
         <slide *ngFor="let slide of slides; let i = Index">
             <img [src]="slide.image">

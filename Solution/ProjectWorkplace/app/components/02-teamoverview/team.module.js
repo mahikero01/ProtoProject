@@ -18,6 +18,7 @@ var viewer_module_1 = require("../viewer/viewer.module");
 var ngx_bootstrap_1 = require("ngx-bootstrap");
 /*services */
 var resource_service_1 = require("../../services/resource.service");
+var contentreader_service_1 = require("../../services/contentreader.service");
 //import { PhotoViewerComponent } from '../photo-viewer/photo-viewer.component';
 var TeamModule = (function () {
     function TeamModule() {
@@ -40,7 +41,8 @@ TeamModule = __decorate([
             team_jobdesc_component_1.TeamJobDescComponent
         ],
         providers: [
-            resource_service_1.ResourceService
+            resource_service_1.ResourceService,
+            contentreader_service_1.ContentReaderService
         ]
     })
 ], TeamModule);

@@ -9,12 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var platform_browser_1 = require("@angular/platform-browser");
+var contentreader_service_1 = require("../../services/contentreader.service");
 var TeamOrgComponent = (function () {
-    function TeamOrgComponent() {
+    function TeamOrgComponent(cr, sanitizer) {
+        this.cr = cr;
+        this.sanitizer = sanitizer;
         this.slides = [];
         this.path = 'resources/workplace/02TEAM OVERVIEW/Team Org/sample.html';
         this.breadcrumbs = ['Team Overview', 'Team Organization Chart'];
-        this.addSlide('ESD_OrgChart.pptx.png');
+        //this.addSlide('ESD_OrgChart.pptx.png');
+        //cr.getContent('Team Org').then(content => this.content=content);
     }
     TeamOrgComponent.prototype.addSlide = function (filename) {
         this.slides.push({
@@ -28,6 +33,7 @@ TeamOrgComponent = __decorate([
         moduleId: module.id,
         templateUrl: "team-org.component.html"
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [contentreader_service_1.ContentReaderService,
+        platform_browser_1.DomSanitizer])
 ], TeamOrgComponent);
 exports.TeamOrgComponent = TeamOrgComponent;
