@@ -16,12 +16,12 @@
                     <a routerLink="/organization" class="list-group-item small"><i class="fa fa-circle-thin"></i> Organizational Chart</a>
                     <a routerLink="/strategies" class="list-group-item small"><i class="fa fa-circle-thin"></i> Strategies</a>
                     <a routerLink="/Functional-Tower" class="list-group-item small"><i class="fa fa-circle-thin"></i> Functional Tower</a>
-                    <a href="#" class="list-group-item small accordion-toggle" data-toggle="collapse" data-target="#programs_lg"><i class="fa fa-circle-thin"></i> Programs</a>
+                    <a (click)="routeWithID('Programs','Aspire');" class="list-group-item small accordion-toggle" data-toggle="collapse" data-target="#programs_lg"><i class="fa fa-circle-thin"></i> Programs</a>
                     <div id="programs_lg" class="sublinks collapse">
                         <a (click)="routeWithID('Programs','Aspire');" class="list-group-item small"><i class="fa fa-circle-thin"></i> Aspire</a>
                         <a (click)="routeWithID('Programs','Cares');" class="list-group-item small"><i class="fa fa-circle-thin"></i> Cares</a>
                         <a (click)="routeWithID('Programs','Careers');" class="list-group-item small"><i class="fa fa-circle-thin"></i> Careers</a>
-                        <a (click)="routeWithID('Programs','Digerati');" class="list-group-item small"><i class="fa fa-circle-thin"></i> Digerati</a>
+                        <a (click)="routeWithID('Programs','Digirati');" class="list-group-item small"><i class="fa fa-circle-thin"></i> Digirati</a>
                         <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Motivate</a>
                     </div>
                 </div>
@@ -37,12 +37,12 @@
                         <li><a routerLink="/strategies"><i class="fa fa-circle-thin"></i> Strategies</a></li>
                         <li><a routerLink="/Functional-Tower"><i class="fa fa-circle-thin"></i>Functional Tower</a></li>
                         <li class="dropdown">
-                            <a href="#"><i class="fa fa-circle-thin"></i> Programs<span class="glyphicon glyphicon-chevron-right pull-right" style="padding-top:2px;"></span></a>
+                            <a (click)="routeWithID('Programs','Aspire');"><i class="fa fa-circle-thin"></i> Programs<span class="glyphicon glyphicon-chevron-right pull-right" style="padding-top:2px;"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a (click)="routeWithID('Programs','Aspire');"><i class="fa fa-circle-thin"></i> Aspire</a></li>
                                 <li><a (click)="routeWithID('Programs','Cares');"><i class="fa fa-circle-thin"></i> Cares</a></li>
                                 <li><a (click)="routeWithID('Programs','Careers');"><i class="fa fa-circle-thin"></i> Careers</a></li>
-                                <li><a (click)="routeWithID('Programs','Digerati');"><i class="fa fa-circle-thin"></i> Digerati</a></li>
+                                <li><a (click)="routeWithID('Programs','Digirati');"><i class="fa fa-circle-thin"></i> Digirati</a></li>
                                 <li><a href="#"><i class="fa fa-circle-thin"></i> Motivate</a></li>
                             </ul>
                         </li>

@@ -15,21 +15,26 @@ var ProgramsComponent = (function () {
         this.route = route;
         this.router = router;
         this.slides = [];
-        this.breadcrumbs = ['DIS Overview', 'Programs'];
+        this.breadcrumbs = [];
     }
     ProgramsComponent.prototype.ngOnInit = function () {
-        this.breadcrumbs = ['DIS Overview', 'Programs'];
+        console.log('ngoninit');
         this.getRouteName();
-        this.getImage();
     };
     ProgramsComponent.prototype.getImage = function () {
+        console.log('getImage');
+        this.slides = [];
         this.addSlide(this.routeName + '.jpg');
     };
     ProgramsComponent.prototype.getRouteName = function () {
         var _this = this;
+        console.log('getRouteName');
         this.route.params.subscribe(function (params) {
             _this.routeName = params['id'];
+            _this.breadcrumbs = [];
+            _this.breadcrumbs = ['DIS Overview', 'Programs'];
             _this.breadcrumbs.push(_this.routeName);
+            _this.getImage();
         });
     };
     ProgramsComponent.prototype.addSlide = function (filename) {
