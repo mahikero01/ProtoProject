@@ -243,7 +243,6 @@
     <Content Include="app\app.module.ts" />
     <Content Include="app\app.routing.js" />
     <Content Include="app\app.routing.ts" />
-    <Content Include="app\auth-user.bak.html" />
     <Content Include="app\auth-user.html" />
     <Content Include="app\auth-user.js" />
     <Content Include="app\auth-user.ts" />
@@ -257,6 +256,8 @@
     <Content Include="app\components\01-disoverview\org.component.html" />
     <Content Include="app\components\01-disoverview\org.component.js" />
     <Content Include="app\components\01-disoverview\org.component.ts" />
+    <Content Include="app\components\01-disoverview\programs.component.js" />
+    <Content Include="app\components\01-disoverview\programs.component.ts" />
     <Content Include="app\components\01-disoverview\sc.component.html" />
     <Content Include="app\components\01-disoverview\sc.component.js" />
     <Content Include="app\components\01-disoverview\sc.component.ts" />
@@ -340,13 +341,12 @@
     <Content Include="app\entities\question.ts" />
     <Content Include="app\entities\resource.js" />
     <Content Include="app\entities\resource.ts" />
-    <Content Include="app\non-auth.html" />
-    <Content Include="app\non-auth.js" />
-    <Content Include="app\non-auth.ts" />
     <Content Include="app\services\answer.service.js" />
     <Content Include="app\services\answer.service.ts" />
     <Content Include="app\services\auth.service.js" />
     <Content Include="app\services\auth.service.ts" />
+    <Content Include="app\services\contentreader.service.js" />
+    <Content Include="app\services\contentreader.service.ts" />
     <Content Include="app\services\examinee.service.js" />
     <Content Include="app\services\examinee.service.ts" />
     <Content Include="app\services\person.service.js" />
@@ -355,6 +355,7 @@
     <Content Include="app\services\random-question.service.ts" />
     <Content Include="app\services\resource.service.js" />
     <Content Include="app\services\resource.service.ts" />
+    <Content Include="app\welcome.css" />
     <Content Include="app\welcome.html" />
     <Content Include="app\welcome.js" />
     <Content Include="app\welcome.ts" />
