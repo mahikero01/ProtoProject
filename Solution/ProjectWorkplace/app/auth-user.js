@@ -21,6 +21,9 @@ var AuthUserComponent = (function () {
     AuthUserComponent.prototype.routeWOUserName = function (path) {
         this.router.navigate(['/' + path]);
     };
+    AuthUserComponent.prototype.routeWithID = function (path, id) {
+        this.router.navigate(['/' + path, id]);
+    };
     return AuthUserComponent;
 }());
 __decorate([

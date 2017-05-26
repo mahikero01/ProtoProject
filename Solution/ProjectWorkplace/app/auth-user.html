@@ -18,10 +18,10 @@
                     <a routerLink="/Functional-Tower" class="list-group-item small"><i class="fa fa-circle-thin"></i> Functional Tower</a>
                     <a href="#" class="list-group-item small accordion-toggle" data-toggle="collapse" data-target="#programs_lg"><i class="fa fa-circle-thin"></i> Programs</a>
                     <div id="programs_lg" class="sublinks collapse">
-                        <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Aspire</a>
-                        <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Cares</a>
-                        <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Careers</a>
-                        <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Digerati</a>
+                        <a (click)="routeWithID('Programs','Aspire');" class="list-group-item small"><i class="fa fa-circle-thin"></i> Aspire</a>
+                        <a (click)="routeWithID('Programs','Cares');" class="list-group-item small"><i class="fa fa-circle-thin"></i> Cares</a>
+                        <a (click)="routeWithID('Programs','Careers');" class="list-group-item small"><i class="fa fa-circle-thin"></i> Careers</a>
+                        <a (click)="routeWithID('Programs','Digerati');" class="list-group-item small"><i class="fa fa-circle-thin"></i> Digerati</a>
                         <a href="#" class="list-group-item small"><i class="fa fa-circle-thin"></i> Motivate</a>
                     </div>
                 </div>
@@ -39,10 +39,10 @@
                         <li class="dropdown">
                             <a href="#"><i class="fa fa-circle-thin"></i> Programs<span class="glyphicon glyphicon-chevron-right pull-right" style="padding-top:2px;"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#"><i class="fa fa-circle-thin"></i> Aspire</a></li>
-                                <li><a href="#"><i class="fa fa-circle-thin"></i> Cares</a></li>
-                                <li><a href="#"><i class="fa fa-circle-thin"></i> Careers</a></li>
-                                <li><a href="#"><i class="fa fa-circle-thin"></i> Digerati</a></li>
+                                <li><a (click)="routeWithID('Programs','Aspire');"><i class="fa fa-circle-thin"></i> Aspire</a></li>
+                                <li><a (click)="routeWithID('Programs','Cares');"><i class="fa fa-circle-thin"></i> Cares</a></li>
+                                <li><a (click)="routeWithID('Programs','Careers');"><i class="fa fa-circle-thin"></i> Careers</a></li>
+                                <li><a (click)="routeWithID('Programs','Digerati');"><i class="fa fa-circle-thin"></i> Digerati</a></li>
                                 <li><a href="#"><i class="fa fa-circle-thin"></i> Motivate</a></li>
                             </ul>
                         </li>

@@ -18,4 +18,7 @@ export class AuthUserComponent  {
   routeWOUserName(path:string){
       this.router.navigate(['/'+path]);
   }
+  routeWithID(path:string,id:string){
+     this.router.navigate(['/'+path, id]);
+  }
 }
