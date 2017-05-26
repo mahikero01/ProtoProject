@@ -7,11 +7,13 @@ import { ActivatedRoute,  Params, Router } from '@angular/router';
 export class ProgramsComponent implements OnInit { 
     slides: any[] = [];
     routeName: '';
+    breadcrumbs =['DIS Overview','Programs'];
     public constructor(private route: ActivatedRoute,
         private router: Router) {
     }
 
     ngOnInit(){
+        this.breadcrumbs =['DIS Overview','Programs'];
         this.getRouteName();
         this.getImage();
     }
@@ -31,5 +33,4 @@ export class ProgramsComponent implements OnInit {
         });
     }
 
-    breadcrumbs =['DIS Overview','Programs'];
 }

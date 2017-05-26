@@ -18,6 +18,7 @@ var ProgramsComponent = (function () {
         this.breadcrumbs = ['DIS Overview', 'Programs'];
     }
     ProgramsComponent.prototype.ngOnInit = function () {
+        this.breadcrumbs = ['DIS Overview', 'Programs'];
         this.getRouteName();
         this.getImage();
     };
