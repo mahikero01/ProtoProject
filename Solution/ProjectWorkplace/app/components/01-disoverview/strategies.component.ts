@@ -19,6 +19,5 @@ export class StrategiesComponent  {
         });
     }
 
-    //path:string = 'resources/workplace/01DIS OVERVIEW/03-Strategies.png';
     breadcrumbs =['DIS Overview' ,'Strategies'];
 }

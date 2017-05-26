@@ -11,9 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var SCComponent = (function () {
     function SCComponent() {
-        // this.addSlide('ServiceCatalogue_GlobalReportAndDigitalStrategy.png');
-        // this.addSlide('ServiceCatalogue_ISOps.png');
-        // this.addSlide('ServiceCatalogue_SocialMediaServices.png');
         this.slides = [];
         this.breadcrumbs = ['DIS Overview', 'Functional Tower'];
         this.addSlide('04-Functional Tower.jpg');

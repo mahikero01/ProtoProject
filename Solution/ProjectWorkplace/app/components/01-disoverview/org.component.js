@@ -11,9 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var OrgComponent = (function () {
     function OrgComponent() {
-        // this.addSlide('ServiceCatalogue_GlobalReportAndDigitalStrategy.png');
-        // this.addSlide('ServiceCatalogue_ISOps.png');
-        // this.addSlide('ServiceCatalogue_SocialMediaServices.png');
         this.path = 'resources/workplace/01DIS OVERVIEW/02-Organizational Chart.jpg';
         this.breadcrumbs = ['DIS Overview', 'Organizational Structure'];
         this.slides = [];

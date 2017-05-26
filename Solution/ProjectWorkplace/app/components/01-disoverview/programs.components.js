@@ -9,18 +9,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var StrategiesComponent = (function () {
-    function StrategiesComponent() {
+    function StrategiesComponent(route, router) {
+        this.route = route;
+        this.router = router;
         this.slides = [];
-        this.breadcrumbs = ['DIS Overview', 'Strategies'];
-        this.addSlide('03a - customer experience.png');
-        this.addSlide('03b - process improvement.png');
-        this.addSlide('03c - cost efficiencies.png');
-        this.addSlide('03d - performance.png');
+        this.breadcrumbs = ['DIS Overview', 'Programs'];
     }
+    StrategiesComponent.prototype.ngOnInit = function () {
+        this.getRouteName();
+        this.getImage();
+    };
+    StrategiesComponent.prototype.getImage = function () {
+        this.addSlide(this.routeName + '.jpg');
+    };
+    StrategiesComponent.prototype.getRouteName = function () {
+        var _this = this;
+        this.route.params.subscribe(function (params) {
+            _this.routeName = params['id'];
+            _this.breadcrumbs.push(_this.routeName);
+        });
+    };
     StrategiesComponent.prototype.addSlide = function (filename) {
         this.slides.push({
-            image: "resources/workplace/01DIS OVERVIEW/strategies/" + filename
+            image: "resources/workplace/01DIS OVERVIEW/Programs/" + filename
         });
     };
     return StrategiesComponent;
@@ -30,6 +43,7 @@ StrategiesComponent = __decorate([
         moduleId: module.id,
         templateUrl: "strategies.component.html"
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [router_1.ActivatedRoute,
+        router_1.Router])
 ], StrategiesComponent);
 exports.StrategiesComponent = StrategiesComponent;
