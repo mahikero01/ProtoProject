@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MVComponent } from './mv.component';
 import { OrgComponent } from './org.component';
 import { StrategiesComponent } from './strategies.component';
-
+import { ProgramsComponent } from './programs.component';
 
 import { SCComponent } from './sc.component';
 import { DISOverviewRouting } from './disoverview.routing';
@@ -24,7 +24,7 @@ import { CarouselModule } from 'ngx-bootstrap';
         MVComponent,
         OrgComponent,
         StrategiesComponent,
-
+        ProgramsComponent,
         SCComponent,
     ],
     providers: [

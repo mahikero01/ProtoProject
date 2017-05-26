@@ -12,12 +12,14 @@ var mv_component_1 = require("./mv.component");
 var org_component_1 = require("./org.component");
 var sc_component_1 = require("./sc.component");
 var strategies_component_1 = require("./strategies.component");
+var programs_component_1 = require("./programs.component");
 var routes = [
     //paths
     { path: 'mission-vision', component: mv_component_1.MVComponent },
     { path: 'organization', component: org_component_1.OrgComponent },
     { path: 'strategies', component: strategies_component_1.StrategiesComponent },
     { path: 'Functional-Tower', component: sc_component_1.SCComponent },
+    { path: 'Programs/:id', component: programs_component_1.ProgramsComponent },
 ];
 var DISOverviewRouting = (function () {
     function DISOverviewRouting() {

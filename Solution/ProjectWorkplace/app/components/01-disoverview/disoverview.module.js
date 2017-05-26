@@ -11,6 +11,7 @@ var forms_1 = require("@angular/forms");
 var mv_component_1 = require("./mv.component");
 var org_component_1 = require("./org.component");
 var strategies_component_1 = require("./strategies.component");
+var programs_component_1 = require("./programs.component");
 var sc_component_1 = require("./sc.component");
 var disoverview_routing_1 = require("./disoverview.routing");
 var viewer_module_1 = require("../viewer/viewer.module");
@@ -34,6 +35,7 @@ DISOverviewModule = __decorate([
             mv_component_1.MVComponent,
             org_component_1.OrgComponent,
             strategies_component_1.StrategiesComponent,
+            programs_component_1.ProgramsComponent,
             sc_component_1.SCComponent,
         ],
         providers: []
