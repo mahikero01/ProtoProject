@@ -13,7 +13,6 @@ import { ViewerModule } from '../viewer/viewer.module';
 import { CarouselModule } from 'ngx-bootstrap';
 /*services */
 import { ResourceService } from '../../services/resource.service';
-import { ContentReaderService } from '../../services/contentreader.service';
 //import { PhotoViewerComponent } from '../photo-viewer/photo-viewer.component';
 @NgModule({
     imports: [
@@ -31,7 +30,6 @@ import { ContentReaderService } from '../../services/contentreader.service';
     ],
     providers: [
         ResourceService,
-        ContentReaderService
     ]
 })
 

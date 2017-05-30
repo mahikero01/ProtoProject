@@ -20,9 +20,6 @@ var AppComponent = (function () {
         this.authService.getAuthorization()
             .then(function (auth) {
             _this.auth = auth;
-            if (_this.auth.isAuthenticated == false) {
-                _this.viewPage = 2;
-            }
         });
     }
     AppComponent.prototype.changeView = function () {
