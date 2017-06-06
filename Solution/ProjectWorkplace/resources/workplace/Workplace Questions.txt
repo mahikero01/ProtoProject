@@ -1,0 +1,150 @@
+Questions for Workplace:
+
+1. Bereavement Policy: Can two employees with Family members claim the MBPS bereavement assistance?
+A.) Yes B.) No
+
+Answer: B
+
+2. Bereavement Policy: How much bereavement assistance will MBPS provide to the employee?
+A.) P 5 000 B.) P 8 000 C.) P 10 000 D.) 15 000
+
+Answer: B
+
+3. Vacation Leave Policy: How many emergency leaves per year can an employee use?
+A.) 2 B.) 3 C.) 4 D.) 5
+
+Answer: B
+
+4. Work Rules: What disciplinary action is taken when a Violation of Data Privacy Rules and Confidentiality Agreement as enunciated in contract of employment and Manulife Rules and Regulations?
+A.) 10 Days Suspension B.) Verbal Warning C.) 15 Days Suspension D.) Dismissal
+
+Answer: D
+
+5. Work Rules: What disciplinary action is taken when you are Reporting to work under the influence of prohibited substances?
+A.) Verbal Warning B.) Written Warning C.) 3 days Suspension D.) Dismissal
+
+Answer: D
+
+6. Work Rules: What disciplinary action is taken when you are Using profane or obscene language in addressing another person while on the job, company premises or during company sponsored activities (1st Offense).
+A.) 3 Days B.) 6 Days C.) 10 Days D.) 15 Days
+
+Answer: A
+
+7. Who is the DIS AVP?
+A.) Denmar Ong B.) Christina Ong C.) Gigi Mantaring D.) Richard Pineda
+
+Answer: A
+
+***********************************************************
+
+1. Work Rules: How many habitual absenteeism to inccur in a quarter before the leader sends a written warning?
+
+a. 3
+b. 4
+c. 5
+d. 10
+
+Answer: C
+
+2. Work Rules: Select the most proper attire to wear in Production Area
+
+A. Polo Shirt,Jeans,Brown/Black Shoes
+B. T-Shirt, Jeans,Snickers.
+C. T-Shirt, Black Pants, Black Shoes
+D. Polo Shirt, Corduroy Pants, Snickers
+
+Answer: A
+
+3. What DIS stands for:
+
+A. Digital Information Security
+B. Department of Information Services
+C. Distributed Information Security
+D. Digital Information Services
+
+Answer: D
+
+4. Who is your immediate supervisor?
+
+A. AVP
+B. Team Leader
+C. Manager
+D. Technical Leader
+
+Answer: B
+
+5. Main Building, Ground Floor Pantry. What type of area? 
+
+A. Production Area
+B. Public Area
+C. Internal Area
+D. Restricted Area
+
+Answer: B
+
+6. Which of the following is not good email etiquette?
+
+A. Keeping your email brief and to the point
+B. Putting the purpose of the email in the subject field
+C. Sending funny YouTube videos and personal emails to co-workers
+D. Using a signature that includes your contact information following your message
+
+Answer: C
+
+7. Select a website that you can access in Production Floor:
+
+A. Facebook
+B. Youtube
+C. Gmail
+D. Google
+
+Answer: D
+
+*************************************************************
+
+1. Which of the following is not a DIS Functional Tower? 
+A. IS Operations	B. Global Access Management	C. Social Media Services	D. Data Shared Services
+Answer: B
+
+2. Which of the following is not part of the DIS Programs?
+A. Aspire		B. Careers			C. Cares			D. Yammer
+Answer: D
+
+3. Which platform is being used by DIS Digerati?
+A. MFCentral		B. MFConnect			C. Yammer			D. Central Sharepoint
+Answer: C
+
+4. Which application is used to log in your attendance by using biometrics?
+A. Khronos		B. Workday			C. Yammer			D. MFCentral
+Answer: A
+
+5. Who is the Head of DIS Careers?
+A. Rexther De Sur	B. Denmar Ong			C. Inah Manzon			D. Richard Pineda
+Answer: C
+
+6. Which application is used to file your Sick/Vacation Leaves?
+A. Workday		B. Yammer			C. Sharepoint			D. MFCentral
+Answer: A
+
+**************************************************************************
+
+
+1.	What icon in Workday are you going to click if you have questions?
+Answers: AskHR     
+
+2-3. Workday is a cloud-based software vendor that specializes in 2. ___________ and 3. ___________ applications.
+Answers: (2) human capital management     (3) financial management
+
+      4-8. Which DIS Program are being described below?
+                4. Employee Rewards  & Recognition
+                5. School Partnership Activities
+                6. Sportsfest, Team Building, Fun Run Activity, Nature Camping Trip, Year-End Party
+                7. Outreach Program
+                8. DIS MFConnect / Yammer Community
+                
+                Answers: (4) DIS Aspire     
+                                    (5) DIS Careers     
+                                    (6) DIS Motivate     
+                                    (7) DIS Cares                 
+                                    (8) DIS Digerati
+
