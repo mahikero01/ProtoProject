@@ -6,17 +6,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var WorkRuleComponent = (function () {
-    function WorkRuleComponent() {
-        this.path = 'resources/workplace/05POLICIES/WORK RULES.pdf';
-        this.breadcrumbs = ['Policies', 'House Rules'];
+var PrivacyComponent = (function () {
+    function PrivacyComponent() {
+        this.path = 'resources/workplace/05POLICIES/Privacy Policy_CDN, Other Asia and Support_08-2012.pdf';
+        this.breadcrumbs = ['Policies', 'Privacy Policy'];
     }
-    return WorkRuleComponent;
+    return PrivacyComponent;
 }());
-WorkRuleComponent = __decorate([
+PrivacyComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         templateUrl: 'common.html'
     })
-], WorkRuleComponent);
-exports.WorkRuleComponent = WorkRuleComponent;
+], PrivacyComponent);
+exports.PrivacyComponent = PrivacyComponent;

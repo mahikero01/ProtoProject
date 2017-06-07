@@ -13,6 +13,8 @@ var bereavement_component_1 = require("./bereavement.component");
 var workrule_component_1 = require("./workrule.component");
 var viewer_module_1 = require("../viewer/viewer.module");
 var policy_routing_1 = require("./policy.routing");
+var information_component_1 = require("./information.component");
+var privacy_component_1 = require("./privacy.component");
 //import { PhotoViewerComponent } from '../photo-viewer/photo-viewer.component';
 var PolicyModule = (function () {
     function PolicyModule() {
@@ -30,7 +32,9 @@ PolicyModule = __decorate([
         declarations: [
             vl_component_1.VLComponent,
             workrule_component_1.WorkRuleComponent,
-            bereavement_component_1.BereavementComponent
+            bereavement_component_1.BereavementComponent,
+            information_component_1.InformationComponent,
+            privacy_component_1.PrivacyComponent
         ],
         providers: []
     })

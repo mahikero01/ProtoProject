@@ -16,7 +16,7 @@ var VLComponent = (function () {
 VLComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        templateUrl: 'vl.component.html'
+        templateUrl: 'common.html'
     })
 ], VLComponent);
 exports.VLComponent = VLComponent;

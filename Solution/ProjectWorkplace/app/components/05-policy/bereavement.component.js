@@ -16,7 +16,7 @@ var BereavementComponent = (function () {
 BereavementComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        templateUrl: 'bereavement.component.html'
+        templateUrl: 'common.html'
     })
 ], BereavementComponent);
 exports.BereavementComponent = BereavementComponent;
