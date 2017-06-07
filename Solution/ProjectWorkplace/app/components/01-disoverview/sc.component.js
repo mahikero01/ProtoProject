@@ -13,7 +13,8 @@ var SCComponent = (function () {
     function SCComponent() {
         this.slides = [];
         this.breadcrumbs = ['DIS Overview', 'Functional Tower'];
-        this.addSlide('04-Functional Tower.jpg');
+        //this.addSlide('04-Functional Tower.jpg');
+        this.addSlide('functional towers.jpg');
     }
     SCComponent.prototype.addSlide = function (filename) {
         this.slides.push({
