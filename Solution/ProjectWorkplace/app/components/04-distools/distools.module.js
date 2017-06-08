@@ -10,6 +10,7 @@ var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var opt_component_1 = require("./opt.component");
 var khronos_component_1 = require("./khronos.component");
+var workday_component_1 = require("./workday.component");
 var viewer_module_1 = require("../viewer/viewer.module");
 var distools_routing_1 = require("./distools.routing");
 //import { PhotoViewerComponent } from '../photo-viewer/photo-viewer.component';
@@ -29,6 +30,7 @@ DISToolsModule = __decorate([
         declarations: [
             opt_component_1.OptComponent,
             khronos_component_1.KhronosComponent,
+            workday_component_1.WorkdayComponent
         ],
         providers: []
     })

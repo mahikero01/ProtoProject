@@ -10,10 +10,12 @@ var router_1 = require("@angular/router");
 //component
 var opt_component_1 = require("./opt.component");
 var khronos_component_1 = require("./khronos.component");
+var workday_component_1 = require("./workday.component");
 var routes = [
     //paths
     { path: 'opt', component: opt_component_1.OptComponent },
     { path: 'khronos', component: khronos_component_1.KhronosComponent },
+    { path: 'workday', component: workday_component_1.WorkdayComponent },
 ];
 var DISToolsRouting = (function () {
     function DISToolsRouting() {
