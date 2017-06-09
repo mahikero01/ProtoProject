@@ -23,6 +23,7 @@ var ExamComponent = (function () {
         this.route = route;
         this.router = router;
         this.questions = [];
+        this.scores = null;
         this.canSubmit = false;
         this.score = 0;
         this.viewScore = false;
@@ -32,6 +33,7 @@ var ExamComponent = (function () {
     }
     ExamComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.examineeService.getScore().then(function (x) { return _this.scores = x; });
         this.randomQuestionService.getQuestions()
             .then(function (rq) {
             _this.questions = rq;

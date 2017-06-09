@@ -116,6 +116,18 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_TeamResources' does not have a
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_ViewEmployeeScore' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PW_ViewEmployeeScore">
+          <Key>
+            <PropertyRef Name="Score" />
+            <PropertyRef Name="Items" />
+          </Key>
+          <Property Name="Username" Type="varchar" MaxLength="25" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="Items" Type="int" Nullable="false" />
+          <Property Name="DateCompleted" Type="datetime2" Precision="7" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="PW_VW_QUESTIONS">
           <Key>
@@ -284,6 +296,14 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
     [PW_TeamResources].[TeamID] AS [TeamID], 
     [PW_TeamResources].[ResourceID] AS [ResourceID]
     FROM [dbo].[PW_TeamResources] AS [PW_TeamResources]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PW_ViewEmployeeScore" EntityType="Self.PW_ViewEmployeeScore" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PW_ViewEmployeeScore].[Username] AS [Username], 
+    [PW_ViewEmployeeScore].[Score] AS [Score], 
+    [PW_ViewEmployeeScore].[Items] AS [Items], 
+    [PW_ViewEmployeeScore].[DateCompleted] AS [DateCompleted]
+    FROM [dbo].[PW_ViewEmployeeScore] AS [PW_ViewEmployeeScore]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="PW_VW_QUESTIONS" EntityType="Self.PW_VW_QUESTIONS" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -521,6 +541,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
             <Parameter Name="username" Mode="In" Type="String" />
             <Parameter Name="resourceCategory" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="PW_ViewEmployeeScore" EntityType="ProjectWorkplaceModel.PW_ViewEmployeeScore" />
           </EntityContainer>
         <EntityType Name="PW_VW_QUESTIONS">
           <Key>
@@ -685,6 +706,16 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <Property Type="String" Name="ResourcePath" Nullable="true" MaxLength="150" />
           <Property Type="String" Name="ResourceCategory" Nullable="true" MaxLength="150" />
         </ComplexType>
+        <EntityType Name="PW_ViewEmployeeScore">
+          <Key>
+            <PropertyRef Name="Score" />
+            <PropertyRef Name="Items" />
+          </Key>
+          <Property Name="Username" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="Items" Type="Int32" Nullable="false" />
+          <Property Name="DateCompleted" Type="DateTime" Precision="7" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -827,6 +858,16 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="PW_ViewEmployeeScore">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_ViewEmployeeScore">
+              <MappingFragment StoreEntitySet="PW_ViewEmployeeScore">
+                <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
+                <ScalarProperty Name="Items" ColumnName="Items" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

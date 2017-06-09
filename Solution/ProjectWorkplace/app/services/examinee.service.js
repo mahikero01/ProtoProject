@@ -16,6 +16,7 @@ var ExamineeService = (function () {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         this.apiUrl = 'api/Examinees';
+        this.apiScoreUrl = 'api/ViewScore';
     }
     //pass the question id
     ExamineeService.prototype.getExaminees = function () {
@@ -24,6 +25,12 @@ var ExamineeService = (function () {
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
+    };
+    ExamineeService.prototype.getScore = function () {
+        return this.http
+            .get(this.apiScoreUrl, { headers: this.headers })
+            .toPromise()
+            .then(function (response) { return response.json(); });
     };
     ExamineeService.prototype.getExaminee = function (personId) {
         var url = this.apiUrl + "/" + personId;

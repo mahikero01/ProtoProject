@@ -11,18 +11,22 @@
         your score is {{score}}
     </div>
 
-    <div *ngIf="!viewScore">
+    <div *ngIf="!viewScore && scores==null">
         <div class="panel panel-default" *ngFor="let q of questions">
 
             <div class="panel-heading" >{{q.QuestionDesc}}</div>
             <div class="panel-body">
-            
+
             </div>
             <exam-form [question]="q" (getAnswer)="q.Answer" (sample)="checkAnswers()"
             > </exam-form>
 
         </div>
-        <button class="btn btn-default btn-sm" type="button" 
+        <button class="btn btn-default btn-sm" type="button"
             [disabled]="!canSubmit" (click)="submitScore()">Submit</button>
+    </div>
+
+    <div *ngIf="scores!=null">
+      Quiz already taken. Your score is {{scores.Score}}/{{scores.Items}}.
     </div>
 </div>

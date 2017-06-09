@@ -169,6 +169,7 @@
     <Compile Include="Controllers\SubjectsController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\UserAuthController.cs" />
+    <Compile Include="Controllers\ViewScoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -227,6 +228,9 @@
     </Compile>
     <Compile Include="Models\PW_TeamResource_DTO.cs" />
     <Compile Include="Models\PW_Teams.cs">
+      <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PW_ViewEmployeeScore.cs">
       <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PW_VW_QUESTIONS.cs">
