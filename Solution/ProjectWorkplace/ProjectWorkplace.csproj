@@ -1059,6 +1059,7 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="node_modules\core-js\client\shim.min.js.map" />
     <None Include="Properties\PublishProfiles\ProjectWorkplace.pubxml" />
     <Content Include="resources\051217\05 - WORK RULES.FINAL.pdf" />
     <Content Include="resources\051217\Project Workplace Status.xlsx" />
