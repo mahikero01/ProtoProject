@@ -6,17 +6,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var WorkdayComponent = (function () {
-    function WorkdayComponent() {
-        this.path = 'resources/workplace/04DIS TOOLS/Workday Guide.pdf';
-        this.breadcrumbs = ['DIS Tools', 'Workday'];
+var AVPComponent = (function () {
+    function AVPComponent() {
+        //path:string = 'resources/mock/videoplayback.mp4';
+        this.path = 'resources/workplace/03LEADERS/Denmar.mp4';
+        this.breadcrumbs = ['Leaders\' Video', 'Team Leader'];
     }
-    return WorkdayComponent;
+    return AVPComponent;
 }());
-WorkdayComponent = __decorate([
+AVPComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        templateUrl: "khronos.component.html"
+        templateUrl: "generic-vid.component.html"
     })
-], WorkdayComponent);
-exports.WorkdayComponent = WorkdayComponent;
+], AVPComponent);
+exports.AVPComponent = AVPComponent;

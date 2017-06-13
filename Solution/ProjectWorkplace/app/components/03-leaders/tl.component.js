@@ -8,7 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var TLComponent = (function () {
     function TLComponent() {
-        this.path = 'resources/mock/videoplayback.mp4';
+        //path:string = 'resources/mock/videoplayback.mp4';
+        this.path = 'resources/workplace/03LEADERS/gk.mp4';
         this.breadcrumbs = ['Leaders\' Video', 'Team Leader'];
     }
     return TLComponent;
@@ -16,7 +17,7 @@ var TLComponent = (function () {
 TLComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        templateUrl: "tl.component.html"
+        templateUrl: "generic-vid.component.html"
     })
 ], TLComponent);
 exports.TLComponent = TLComponent;

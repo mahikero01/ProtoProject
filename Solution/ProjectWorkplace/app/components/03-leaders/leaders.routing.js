@@ -9,9 +9,11 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 //component
 var tl_component_1 = require("./tl.component");
+var avp_component_1 = require("./avp.component");
 var routes = [
     //paths
     { path: 'Team-Leader', component: tl_component_1.TLComponent },
+    { path: 'AVP', component: avp_component_1.AVPComponent },
 ];
 var LeadersRouting = (function () {
     function LeadersRouting() {

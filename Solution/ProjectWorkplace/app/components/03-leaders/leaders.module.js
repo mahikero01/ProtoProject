@@ -9,6 +9,7 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var tl_component_1 = require("./tl.component");
+var avp_component_1 = require("./avp.component");
 var leaders_routing_1 = require("./leaders.routing");
 var viewer_module_1 = require("../viewer/viewer.module");
 //import { PhotoViewerComponent } from '../photo-viewer/photo-viewer.component';
@@ -27,6 +28,7 @@ LeadersModule = __decorate([
         ],
         declarations: [
             tl_component_1.TLComponent,
+            avp_component_1.AVPComponent,
         ],
         providers: []
     })

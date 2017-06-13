@@ -16,7 +16,7 @@ var OptComponent = (function () {
 OptComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        templateUrl: "opt.component.html"
+        templateUrl: "generic-pdf.template.html"
     })
 ], OptComponent);
 exports.OptComponent = OptComponent;

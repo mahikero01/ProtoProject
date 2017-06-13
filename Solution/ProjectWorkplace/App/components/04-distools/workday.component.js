@@ -16,7 +16,7 @@ var WorkdayComponent = (function () {
 WorkdayComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        templateUrl: "khronos.component.html"
+        templateUrl: "generic-pdf.template.html"
     })
 ], WorkdayComponent);
 exports.WorkdayComponent = WorkdayComponent;

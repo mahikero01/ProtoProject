@@ -9,21 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-//entities
-var VideoViewerComponent = (function () {
-    function VideoViewerComponent() {
+var ContactsComponent = (function () {
+    function ContactsComponent() {
+        this.breadcrumbs = ['DIS Tools', 'Contact Numbers'];
+        this.slides = [];
+        this.addSlide('MBPS Hotlines.jpg');
     }
-    return VideoViewerComponent;
+    ContactsComponent.prototype.addSlide = function (filename) {
+        this.slides.push({
+            image: "resources/workplace/04DIS TOOLS/" + filename
+        });
+    };
+    return ContactsComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], VideoViewerComponent.prototype, "srcString", void 0);
-VideoViewerComponent = __decorate([
+ContactsComponent = __decorate([
     core_1.Component({
-        //moduleId: module.id,
-        selector: 'view-vid',
-        template: "\n    <video controls class=\"content-img\" width=\"100%\" height=\"99%\">\n        <source [src]=\"srcString\" type=\"video/mp4\">\n        <source [src]=\"srcString\" type=\"video/wmv\">\n        Your browser does not support the video tag.\n    </video>\n        ",
-    })
-], VideoViewerComponent);
-exports.VideoViewerComponent = VideoViewerComponent;
+        moduleId: module.id,
+        templateUrl: "generic-pic.component.html"
+    }),
+    __metadata("design:paramtypes", [])
+], ContactsComponent);
+exports.ContactsComponent = ContactsComponent;
