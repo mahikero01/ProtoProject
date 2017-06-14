@@ -10,7 +10,7 @@ var AVPComponent = (function () {
     function AVPComponent() {
         //path:string = 'resources/mock/videoplayback.mp4';
         this.path = 'resources/workplace/03LEADERS/Denmar.mp4';
-        this.breadcrumbs = ['Leaders\' Video', 'Team Leader'];
+        this.breadcrumbs = ['Leaders\' Video', 'AVP'];
     }
     return AVPComponent;
 }());
