@@ -42,6 +42,7 @@ namespace ProjectWorkplace.Controllers
                     isAuthenticated = true,
                     userName=currentUsername,
                     domainName=currentDomainname,
+                    displayName=a.First().FirstName.Trim(),
                     fullName=a.First().FirstName.Trim() + " "+a.First().Lastname.Trim(),
                     role=a.First().PW_Roles.RoleDesc
                 };

@@ -11,6 +11,7 @@ namespace ProjectWorkplace.Models
         public string domainName { get; set; }
         public string userName { get; set; }
         public string fullName { get; set; }
+        public string displayName { get; set; }
         public string role { get; set; }
     }
 }
