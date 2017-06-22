@@ -13,6 +13,7 @@ var avp_component_1 = require("./avp.component");
 var routes = [
     //paths
     { path: 'Team-Leader', component: tl_component_1.TLComponent },
+    { path: 'Manager', component: avp_component_1.AVPComponent },
     { path: 'AVP', component: avp_component_1.AVPComponent },
 ];
 var LeadersRouting = (function () {

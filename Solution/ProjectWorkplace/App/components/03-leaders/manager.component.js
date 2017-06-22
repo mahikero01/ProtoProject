@@ -10,24 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var resource_service_1 = require("../../services/resource.service");
-var TLComponent = (function () {
-    function TLComponent(resourceService) {
+var ManagerComponent = (function () {
+    function ManagerComponent(resourceService) {
         this.resourceService = resourceService;
         this.path = ''; //'resources/workplace/03LEADERS/gk.mp4';
-        this.breadcrumbs = ['Leaders\' Video', 'Team Leader'];
+        this.breadcrumbs = ['Leaders\' Video', 'Manager'];
     }
-    TLComponent.prototype.ngOnInit = function () {
+    ManagerComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.resourceService.getResourcePath('Leaders')
+        this.resourceService.getResourcePath('Manager')
             .then(function (req) { return _this.path = req.ResourcePath; });
     };
-    return TLComponent;
+    return ManagerComponent;
 }());
-TLComponent = __decorate([
+ManagerComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         templateUrl: "generic-vid.component.html"
     }),
     __metadata("design:paramtypes", [resource_service_1.ResourceService])
-], TLComponent);
-exports.TLComponent = TLComponent;
+], ManagerComponent);
+exports.ManagerComponent = ManagerComponent;
