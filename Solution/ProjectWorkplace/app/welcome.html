@@ -1,38 +1,62 @@
-
-
 <div class="fullSplash">
-    <div class="scrollAuto">
-        <div class="SplashTheme brandLogo">
-            <div class="row">
-                <div class="col-md-6" style="margin: 0; padding: 0">
-                    <img src="resources/Images/Manulife.png" class="manulifelogo">
+            <div class="scrollAuto">
+              <div class="SplashTheme brandLogo">
+                  <div class="row">
+                      <div class="col-md-6" style="margin: 0; padding: 0">
+                          <img src="resources/Images/Manulife.png" class="manulifelogo">
+                      </div>
+                      <div class="col-md-1 divider"></div>
+                      <div class="col-md-5" style="margin: 0; padding: 0">
+                          <img src="resources/Images/JohnHancock.png" class="johnhancocklogo">
+                      </div>
+                  </div>
+              </div>
+
+                <!--<div class="SplashTheme User">
+                        Hi sarnife.
+                </div>-->
+                <div class="SplashTheme Workplace">
+                    Welcome to Workplace
                 </div>
-                <div class="col-md-1 divider"></div>
-                <div class="col-md-5" style="margin: 0; padding: 0">
-                    <img src="resources/Images/JohnHancock.png" class="johnhancocklogo">
+                <div class="SplashTheme authorized">
+                    <!--You are authorized to use this application-->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-4">
+                                <input type="text" class="form-control" placeholder="First Name"/>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-4">
+                                <input type="text" class="form-control" placeholder="Last Name"/>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-4">
+                                <select class="form-control">
+                                    <option>Please select your team</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-4">
+                                <select class="form-control">
+                                    <option>Please select your leader</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="SplashTheme User">
-            Hi {{user.displayName}}.
-        </div>
-        <div class="SplashTheme Workplace">
-            Welcome to Workplace
-        </div>
-        <div class="SplashTheme authorized">
-            You are <span *ngIf="!user.isAuthenticated"> not </span> authorized to use this application
-        </div>
-
-        <div class="SplashTheme buttondiv" *ngIf="user.isAuthenticated">
-            <diV class="Button">
-                <a (click)="changeView()" >
-                    <div class="ButtonDesign">ENTER</div>
-                </a>
-            <div>
-        </div>
-    </diV>
-</div>
-<!--welcome
-
-<a (click)="changeView()">click here to proceed</a>-->
+                <div class="SplashTheme buttondiv">
+                    <div class="Button">
+                        <a (click)="changeView()" >
+                            <div class="ButtonDesign">ENTER</div>
+                        </a>
+                   </div>
+	              </div>
+             </div>
+		</div>
