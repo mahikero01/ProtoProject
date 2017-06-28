@@ -23,13 +23,13 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 col-md-offset-4">
-                                <input required type="text" class="form-control" placeholder="First Name"/>
+                                <input [(ngModel)]="tempuser.FirstName" required type="text" class="form-control" placeholder="First Name"/>
                             </div>
                         </div>
                         <br />
                         <div class="row">
                             <div class="col-md-4 col-md-offset-4">
-                                <input required type="text" class="form-control" placeholder="Last Name"/>
+                                <input [(ngModel)]="tempuser.LastName" required type="text" class="form-control" placeholder="Last Name"/>
                             </div>
                         </div>
                         <br />
@@ -54,7 +54,7 @@
 
                 <div class="SplashTheme buttondiv">
                     <div class="Button">
-                        <a (click)="changeView()" >
+                        <a (click)="submitUser()" >
                             <div class="ButtonDesign">ENTER</div>
                         </a>
                    </div>

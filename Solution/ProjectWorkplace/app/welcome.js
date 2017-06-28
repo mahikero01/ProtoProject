@@ -10,18 +10,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var auth_1 = require("./entities/auth");
+var tempuser_1 = require("./entities/tempuser");
 var team_service_1 = require("./services/team.service");
 var WelcomeComponent = (function () {
     function WelcomeComponent(teamService) {
         this.teamService = teamService;
         this.cv = new core_1.EventEmitter();
         this.teams = [];
+        this.tempuser = new tempuser_1.TempUser(0, "", "", "", 0, "", 0, 0);
         this.photo = 'Resources/Images/background.png';
         this.getTeams();
     }
     WelcomeComponent.prototype.getTeams = function () {
         var _this = this;
         this.teamService.getTeams().then(function (teams) { return _this.teams = teams; });
+    };
+    WelcomeComponent.prototype.submitUser = function () {
+        if (this.tempuser.FirstName == "" ||
+            this.tempuser.LastName == "" ||
+            this.tempuser.Team == "" ||
+            this.tempuser.Leader == 0) {
+            alert("Some fields are not supplied.");
+        }
+        else {
+            this.changeView();
+        }
     };
     WelcomeComponent.prototype.changeView = function () {
         this.cv.emit();
