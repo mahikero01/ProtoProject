@@ -10,11 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var auth_1 = require("./entities/auth");
+var team_service_1 = require("./services/team.service");
 var WelcomeComponent = (function () {
-    function WelcomeComponent() {
+    function WelcomeComponent(teamService) {
+        this.teamService = teamService;
         this.cv = new core_1.EventEmitter();
+        this.teams = [];
         this.photo = 'Resources/Images/background.png';
+        this.getTeams();
     }
+    WelcomeComponent.prototype.getTeams = function () {
+        var _this = this;
+        this.teamService.getTeams().then(function (teams) { return _this.teams = teams; });
+    };
     WelcomeComponent.prototype.changeView = function () {
         this.cv.emit();
     };
@@ -34,6 +42,7 @@ WelcomeComponent = __decorate([
         selector: 'welcome-user',
         templateUrl: 'welcome.html',
         styleUrls: ['welcome.css']
-    })
+    }),
+    __metadata("design:paramtypes", [team_service_1.TeamService])
 ], WelcomeComponent);
 exports.WelcomeComponent = WelcomeComponent;
