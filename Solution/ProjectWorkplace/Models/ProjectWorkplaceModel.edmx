@@ -27,6 +27,14 @@
           <Property Name="Score" Type="int" Nullable="false" />
           <Property Name="Items" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="PW_Leaders">
+          <Key>
+            <PropertyRef Name="LeaderID" />
+          </Key>
+          <Property Name="LeaderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LeaderName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="ManagerID" Type="int" />
+        </EntityType>
         <EntityType Name="PW_Persons">
           <Key>
             <PropertyRef Name="PersonID" />
@@ -297,6 +305,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
         <EntityContainer Name="ProjectWorkplaceModelStoreContainer">
           <EntitySet Name="PW_Answers" EntityType="Self.PW_Answers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PW_Examinees" EntityType="Self.PW_Examinees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PW_Leaders" EntityType="Self.PW_Leaders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PW_Persons" EntityType="Self.PW_Persons" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PW_PersonTeams" EntityType="Self.PW_PersonTeams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PW_Questions" EntityType="Self.PW_Questions" Schema="dbo" store:Type="Tables" />
@@ -559,6 +568,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           </FunctionImport>
           <EntitySet Name="PW_ViewEmployeeScore" EntityType="ProjectWorkplaceModel.PW_ViewEmployeeScore" />
           <EntitySet Name="PW_TemporaryUsers" EntityType="ProjectWorkplaceModel.PW_TemporaryUsers" />
+          <EntitySet Name="PW_Leaders" EntityType="ProjectWorkplaceModel.PW_Leaders" />
           </EntityContainer>
         <EntityType Name="PW_VW_QUESTIONS">
           <Key>
@@ -748,6 +758,14 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <Property Name="ResultDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
+        <EntityType Name="PW_Leaders">
+          <Key>
+            <PropertyRef Name="LeaderID" />
+          </Key>
+          <Property Name="LeaderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LeaderName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ManagerID" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -913,6 +931,15 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PW_Leaders">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Leaders">
+              <MappingFragment StoreEntitySet="PW_Leaders">
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+                <ScalarProperty Name="LeaderName" ColumnName="LeaderName" />
+                <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
