@@ -1,6 +1,6 @@
 "use strict";
 var TempUser = (function () {
-    function TempUser(ID, FirstName, LastName, Team, Leader, UserName, QuizScore, QuizItem) {
+    function TempUser(ID, FirstName, LastName, Team, Leader, UserName, QuizScore, QuizItem, IsActive) {
         this.ID = ID;
         this.FirstName = FirstName;
         this.LastName = LastName;
@@ -9,6 +9,7 @@ var TempUser = (function () {
         this.UserName = UserName;
         this.QuizScore = QuizScore;
         this.QuizItem = QuizItem;
+        this.IsActive = IsActive;
     }
     return TempUser;
 }());

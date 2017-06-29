@@ -12,18 +12,31 @@ var core_1 = require("@angular/core");
 var auth_1 = require("./entities/auth");
 var tempuser_1 = require("./entities/tempuser");
 var team_service_1 = require("./services/team.service");
+var leader_service_1 = require("./services/leader.service");
+var tempuser_service_1 = require("./services/tempuser.service");
 var WelcomeComponent = (function () {
-    function WelcomeComponent(teamService) {
+    function WelcomeComponent(teamService, leaderService, tempuserService) {
         this.teamService = teamService;
+        this.leaderService = leaderService;
+        this.tempuserService = tempuserService;
+        this.user = new auth_1.Auth(true, '', '');
         this.cv = new core_1.EventEmitter();
         this.teams = [];
-        this.tempuser = new tempuser_1.TempUser(0, "", "", "", 0, "", 0, 0);
+        this.leaders = [];
+        this.tempuser = new tempuser_1.TempUser(0, "", "", "", 0, "", 0, 0, true);
         this.photo = 'Resources/Images/background.png';
         this.getTeams();
+        this.getLeaders();
     }
+    WelcomeComponent.prototype.ngOnInit = function () {
+    };
     WelcomeComponent.prototype.getTeams = function () {
         var _this = this;
         this.teamService.getTeams().then(function (teams) { return _this.teams = teams; });
+    };
+    WelcomeComponent.prototype.getLeaders = function () {
+        var _this = this;
+        this.leaderService.getLeaders().then(function (leaders) { return _this.leaders = leaders; });
     };
     WelcomeComponent.prototype.submitUser = function () {
         if (this.tempuser.FirstName == "" ||
@@ -33,6 +46,10 @@ var WelcomeComponent = (function () {
             alert("Some fields are not supplied.");
         }
         else {
+            this.tempuser.UserName = this.user.userName;
+            this.tempuserService.postTempUser(this.tempuser).then(function () {
+                console.log("okay");
+            });
             this.changeView();
         }
     };
@@ -56,6 +73,8 @@ WelcomeComponent = __decorate([
         templateUrl: 'welcome.html',
         styleUrls: ['welcome.css']
     }),
-    __metadata("design:paramtypes", [team_service_1.TeamService])
+    __metadata("design:paramtypes", [team_service_1.TeamService,
+        leader_service_1.LeaderService,
+        tempuser_service_1.TempUserService])
 ], WelcomeComponent);
 exports.WelcomeComponent = WelcomeComponent;

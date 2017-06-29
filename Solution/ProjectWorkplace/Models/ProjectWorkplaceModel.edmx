@@ -135,7 +135,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_TeamResources' does not have a
           <Property Name="Username" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="QuizScore" Type="int" Nullable="false" />
           <Property Name="QuizItem" Type="int" Nullable="false" />
-          <Property Name="ResultDate" Type="datetime" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -571,12 +570,12 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
             <Parameter Name="resourceCategory" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="PW_ViewEmployeeScore" EntityType="ProjectWorkplaceModel.PW_ViewEmployeeScore" />
-          <EntitySet Name="PW_TemporaryUsers" EntityType="ProjectWorkplaceModel.PW_TemporaryUsers" />
           <EntitySet Name="PW_Leaders" EntityType="ProjectWorkplaceModel.PW_Leaders" />
           <FunctionImport Name="PW_GetResourcePath2" ReturnType="Collection(ProjectWorkplaceModel.PW_GetResourcePath2_Result)">
             <Parameter Name="username" Mode="In" Type="String" />
             <Parameter Name="resourceCategory" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="PW_TemporaryUsers" EntityType="ProjectWorkplaceModel.PW_TemporaryUsers" />
           </EntityContainer>
         <EntityType Name="PW_VW_QUESTIONS">
           <Key>
@@ -751,21 +750,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <Property Name="Items" Type="Int32" Nullable="false" />
           <Property Name="DateCompleted" Type="DateTime" Precision="7" />
         </EntityType>
-        <EntityType Name="PW_TemporaryUsers">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="TeamID" Type="Guid" Nullable="false" />
-          <Property Name="LeaderID" Type="Int32" Nullable="false" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="QuizScore" Type="Int32" Nullable="false" />
-          <Property Name="QuizItem" Type="Int32" Nullable="false" />
-          <Property Name="ResultDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-        </EntityType>
         <EntityType Name="PW_Leaders">
           <Key>
             <PropertyRef Name="LeaderID" />
@@ -778,6 +762,20 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <Property Type="String" Name="ResourcePath" Nullable="true" MaxLength="150" />
           <Property Type="String" Name="ResourceCategory" Nullable="true" MaxLength="150" />
         </ComplexType>
+        <EntityType Name="PW_TemporaryUsers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="TeamID" Type="Guid" Nullable="false" />
+          <Property Name="LeaderID" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="QuizScore" Type="Int32" Nullable="false" />
+          <Property Name="QuizItem" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -930,22 +928,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PW_TemporaryUsers">
-            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_TemporaryUsers">
-              <MappingFragment StoreEntitySet="PW_TemporaryUsers">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ResultDate" ColumnName="ResultDate" />
-                <ScalarProperty Name="QuizItem" ColumnName="QuizItem" />
-                <ScalarProperty Name="QuizScore" ColumnName="QuizScore" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
-                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="PW_Leaders">
             <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Leaders">
               <MappingFragment StoreEntitySet="PW_Leaders">
@@ -963,6 +945,21 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="PW_TemporaryUsers">
+            <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_TemporaryUsers">
+              <MappingFragment StoreEntitySet="PW_TemporaryUsers">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="QuizItem" ColumnName="QuizItem" />
+                <ScalarProperty Name="QuizScore" ColumnName="QuizScore" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

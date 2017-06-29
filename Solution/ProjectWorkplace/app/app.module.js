@@ -24,6 +24,7 @@ var app_routing_1 = require("./app.routing");
 //services
 var auth_service_1 = require("./services/auth.service");
 var team_service_1 = require("./services/team.service");
+var leader_service_1 = require("./services/leader.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -44,7 +45,7 @@ AppModule = __decorate([
         ],
         declarations: [app_component_1.AppComponent, auth_user_1.AuthUserComponent, welcome_1.WelcomeComponent],
         bootstrap: [app_component_1.AppComponent],
-        providers: [auth_service_1.AuthService, team_service_1.TeamService]
+        providers: [auth_service_1.AuthService, team_service_1.TeamService, leader_service_1.LeaderService]
     })
 ], AppModule);
 exports.AppModule = AppModule;

@@ -160,6 +160,7 @@
     <Compile Include="Controllers\AnswersController.cs" />
     <Compile Include="Controllers\ExamineesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LeadersController.cs" />
     <Compile Include="Controllers\PersonsController.cs" />
     <Compile Include="Controllers\PersonTeamsController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />

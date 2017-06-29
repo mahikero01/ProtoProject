@@ -11,38 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 require("rxjs/add/operator/toPromise");
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-var ResourceService = (function () {
-    function ResourceService(http) {
+var LeaderService = (function () {
+    function LeaderService(http) {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        this.apiUrl = 'api/Resources';
+        this.apiUrl = 'api/Leaders';
     }
-    //pass the question id
-    ResourceService.prototype.getResourcePath = function (resourceCategory) {
-        var url = this.apiUrl + "/GetResourcePath/?resourceCategory=" + resourceCategory;
+    LeaderService.prototype.getLeaders = function () {
         return this.http
-            .get(url)
+            .get(this.apiUrl, { headers: this.headers })
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    //this get values related to PW_TEMPORARYUSERS (NOT YET DONE)
-    ResourceService.prototype.getResourcePath2 = function (resourceCategory) {
-        var url = this.apiUrl + "/GetResourcePath2/?resourceCategory=" + resourceCategory;
-        return this.http
-            .get(url)
-            .toPromise()
-            .then(function (response) { return response.json(); })
-            .catch(this.handleError);
-    };
-    ResourceService.prototype.handleError = function (error) {
+    LeaderService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
     };
-    return ResourceService;
+    return LeaderService;
 }());
-ResourceService = __decorate([
+LeaderService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_1.Http])
-], ResourceService);
-exports.ResourceService = ResourceService;
+], LeaderService);
+exports.LeaderService = LeaderService;

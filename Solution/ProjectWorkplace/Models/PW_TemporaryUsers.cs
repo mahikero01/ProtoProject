@@ -22,7 +22,6 @@ namespace ProjectWorkplace.Models
         public string Username { get; set; }
         public int QuizScore { get; set; }
         public int QuizItem { get; set; }
-        public System.DateTime ResultDate { get; set; }
         public bool IsActive { get; set; }
     }
 }
