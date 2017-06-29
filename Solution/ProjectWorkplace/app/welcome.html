@@ -35,7 +35,7 @@
                         <br />
                         <div class="row">
                             <div class="col-md-4 col-md-offset-4">
-                                <select class="form-control" [(ngModel)]="tempuser.Team" >
+                                <select class="form-control" [(ngModel)]="tempuser.TeamID" >
                                     <option [value]="''">Please select your team</option>
                                     <option *ngFor="let x of teams" [value]="x.TeamID"> {{x.TeamDesc}}</option>
                                 </select>
@@ -44,7 +44,7 @@
                         <br />
                         <div class="row">
                             <div class="col-md-4 col-md-offset-4">
-                                <select class="form-control"  [(ngModel)]="tempuser.Leader">
+                                <select class="form-control"  [(ngModel)]="tempuser.LeaderID">
                                     <option [value]="0">Please select your leader</option>
                                     <option *ngFor="let y of leaders" [value]="y.LeaderID"> {{y.LeaderName}}</option>
                                 </select>

@@ -41,8 +41,8 @@ var WelcomeComponent = (function () {
     WelcomeComponent.prototype.submitUser = function () {
         if (this.tempuser.FirstName == "" ||
             this.tempuser.LastName == "" ||
-            this.tempuser.Team == "" ||
-            this.tempuser.Leader == 0) {
+            this.tempuser.TeamID == "" ||
+            this.tempuser.LeaderID == 0) {
             alert("Some fields are not supplied.");
         }
         else {
