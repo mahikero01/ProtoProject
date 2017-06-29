@@ -41,7 +41,7 @@ namespace ProjectWorkplace.Controllers
 
         }
 
-        [Route("api/Resources/GetResourcePath")]
+        [Route("api/Resources/GetResourcePath2")]
         public PW_GetResourcePath2_Result GetResourcePath2(string resourceCategory)
         {
             string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
