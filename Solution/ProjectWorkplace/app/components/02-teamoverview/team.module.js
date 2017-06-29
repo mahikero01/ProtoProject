@@ -11,7 +11,6 @@ var forms_1 = require("@angular/forms");
 var team_org_component_1 = require("./team-org.component");
 var team_apps_component_1 = require("./team-apps.component");
 var team_services_component_1 = require("./team-services.component");
-var team_jobdesc_component_1 = require("./team-jobdesc.component");
 var team_routing_1 = require("./team.routing");
 var viewer_module_1 = require("../viewer/viewer.module");
 /* ngx-bootstrap */
@@ -37,7 +36,6 @@ TeamModule = __decorate([
             team_org_component_1.TeamOrgComponent,
             team_apps_component_1.TeamAppsComponent,
             team_services_component_1.TeamServicesComponent,
-            team_jobdesc_component_1.TeamJobDescComponent
         ],
         providers: [
             resource_service_1.ResourceService,
