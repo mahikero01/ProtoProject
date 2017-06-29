@@ -55,5 +55,18 @@ namespace ProjectWorkplace.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PW_GetResourcePath_Result>("PW_GetResourcePath", usernameParameter, resourceCategoryParameter);
         }
+    
+        public virtual ObjectResult<PW_GetResourcePath2_Result> PW_GetResourcePath2(string username, string resourceCategory)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var resourceCategoryParameter = resourceCategory != null ?
+                new ObjectParameter("resourceCategory", resourceCategory) :
+                new ObjectParameter("resourceCategory", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PW_GetResourcePath2_Result>("PW_GetResourcePath2", usernameParameter, resourceCategoryParameter);
+        }
     }
 }

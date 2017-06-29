@@ -26,7 +26,8 @@ var TeamOrgComponent = (function () {
     }
     TeamOrgComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.resourceService.getResourcePath('Team Org')
+        //this.resourceService.getResourcePath('Team Org')
+        this.resourceService.getResourcePath2('Team Org')
             .then(function (res) {
             _this.path = res.ResourcePath;
         });

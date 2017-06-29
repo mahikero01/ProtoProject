@@ -40,6 +40,22 @@ namespace ProjectWorkplace.Controllers
                 new PW_GetResourcePath_Result ();
 
         }
+
+        [Route("api/Resources/GetResourcePath")]
+        public PW_GetResourcePath2_Result GetResourcePath2(string resourceCategory)
+        {
+            string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
+            //username only
+            string currentUsername = currentDomainUser.Remove(0, currentDomainUser.IndexOf('\\') + 1);
+
+            //this comming code is the temporary solution of registration side PW_TEMPORARY USERS
+            var a = db.PW_GetResourcePath2(currentUsername, resourceCategory).ToList();
+
+
+            return (a.Count() > 0) ? a[0] :
+                new PW_GetResourcePath2_Result();
+
+        }
         
         // GET: api/Resources/5
         [ResponseType(typeof(PW_Resources))]

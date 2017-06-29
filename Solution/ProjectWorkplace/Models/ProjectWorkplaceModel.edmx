@@ -302,6 +302,10 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <Parameter Name="username" Type="varchar" Mode="In" />
           <Parameter Name="resourceCategory" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="PW_GetResourcePath2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="resourceCategory" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="ProjectWorkplaceModelStoreContainer">
           <EntitySet Name="PW_Answers" EntityType="Self.PW_Answers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PW_Examinees" EntityType="Self.PW_Examinees" Schema="dbo" store:Type="Tables" />
@@ -569,6 +573,10 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <EntitySet Name="PW_ViewEmployeeScore" EntityType="ProjectWorkplaceModel.PW_ViewEmployeeScore" />
           <EntitySet Name="PW_TemporaryUsers" EntityType="ProjectWorkplaceModel.PW_TemporaryUsers" />
           <EntitySet Name="PW_Leaders" EntityType="ProjectWorkplaceModel.PW_Leaders" />
+          <FunctionImport Name="PW_GetResourcePath2" ReturnType="Collection(ProjectWorkplaceModel.PW_GetResourcePath2_Result)">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="resourceCategory" Mode="In" Type="String" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="PW_VW_QUESTIONS">
           <Key>
@@ -766,6 +774,10 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <Property Name="LeaderName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ManagerID" Type="Int32" />
         </EntityType>
+        <ComplexType Name="PW_GetResourcePath2_Result">
+          <Property Type="String" Name="ResourcePath" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="ResourceCategory" Nullable="true" MaxLength="150" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -943,6 +955,14 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PW_GetResourcePath2" FunctionName="ProjectWorkplaceModel.Store.PW_GetResourcePath2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProjectWorkplaceModel.PW_GetResourcePath2_Result">
+                <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
+                <ScalarProperty Name="ResourceCategory" ColumnName="ResourceCategory" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

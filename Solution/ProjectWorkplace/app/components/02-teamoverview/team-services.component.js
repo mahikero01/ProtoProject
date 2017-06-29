@@ -19,7 +19,8 @@ var TeamServicesComponent = (function () {
     TeamServicesComponent.prototype.getSlides = function () {
         var _this = this;
         this.slides = [];
-        this.resourceService.getResourcePath('Team Services')
+        // this.resourceService.getResourcePath('Team Services')
+        this.resourceService.getResourcePath2('Team Services')
             .then(function (res) {
             _this.slides.push({
                 image: res.ResourcePath
