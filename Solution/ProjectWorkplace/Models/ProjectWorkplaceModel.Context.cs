@@ -40,6 +40,7 @@ namespace ProjectWorkplace.Models
         public virtual DbSet<PW_Teams> PW_Teams { get; set; }
         public virtual DbSet<PW_TeamResources> PW_TeamResources { get; set; }
         public virtual DbSet<PW_ViewEmployeeScore> PW_ViewEmployeeScore { get; set; }
+        public virtual DbSet<PW_TemporaryUsers> PW_TemporaryUsers { get; set; }
     
         public virtual ObjectResult<PW_GetResourcePath_Result> PW_GetResourcePath(string username, string resourceCategory)
         {

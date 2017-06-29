@@ -169,6 +169,7 @@
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
+    <Compile Include="Controllers\TemporaryUsersController.cs" />
     <Compile Include="Controllers\UserAuthController.cs" />
     <Compile Include="Controllers\ViewScoreController.cs" />
     <Compile Include="Global.asax.cs">
@@ -232,6 +233,9 @@
       <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PW_Teams_DTO.cs" />
+    <Compile Include="Models\PW_TemporaryUsers.cs">
+      <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PW_ViewEmployeeScore.cs">
       <DependentUpon>ProjectWorkplaceModel.tt</DependentUpon>
     </Compile>
