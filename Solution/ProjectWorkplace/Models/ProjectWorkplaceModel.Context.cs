@@ -81,5 +81,14 @@ namespace ProjectWorkplace.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PW_GetVideo_Result>("PW_GetVideo", usernameParameter, isLeaderParameter);
         }
+    
+        public virtual ObjectResult<PW_GetCurrentUser_Result> PW_GetCurrentUser(string username)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PW_GetCurrentUser_Result>("PW_GetCurrentUser", usernameParameter);
+        }
     }
 }

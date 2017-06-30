@@ -299,6 +299,9 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="PW_GetCurrentUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="PW_GetResourcePath" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="username" Type="varchar" Mode="In" />
           <Parameter Name="resourceCategory" Type="varchar" Mode="In" />
@@ -586,6 +589,9 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
             <Parameter Name="username" Mode="In" Type="String" />
             <Parameter Name="isLeader" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <FunctionImport Name="PW_GetCurrentUser" ReturnType="Collection(ProjectWorkplaceModel.PW_GetCurrentUser_Result)">
+            <Parameter Name="username" Mode="In" Type="String" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="PW_VW_QUESTIONS">
           <Key>
@@ -792,6 +798,17 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <Property Type="String" Name="ResourcePath" Nullable="true" MaxLength="150" />
           <Property Type="String" Name="ResourceCategory" Nullable="true" MaxLength="150" />
         </ComplexType>
+        <ComplexType Name="PW_GetCurrentUser_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="25" />
+          <Property Type="Guid" Name="TeamID" Nullable="false" />
+          <Property Type="Int32" Name="LeaderID" Nullable="false" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="QuizScore" Nullable="false" />
+          <Property Type="Int32" Name="QuizItem" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -983,6 +1000,21 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
               <ComplexTypeMapping TypeName="ProjectWorkplaceModel.PW_GetVideo_Result">
                 <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
                 <ScalarProperty Name="ResourceCategory" ColumnName="ResourceCategory" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PW_GetCurrentUser" FunctionName="ProjectWorkplaceModel.Store.PW_GetCurrentUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProjectWorkplaceModel.PW_GetCurrentUser_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="QuizScore" ColumnName="QuizScore" />
+                <ScalarProperty Name="QuizItem" ColumnName="QuizItem" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

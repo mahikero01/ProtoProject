@@ -47,9 +47,7 @@ namespace ProjectWorkplace.Controllers
             {
                 return BadRequest();
             }
-            //make it inactive
-            pw_temporaryusers.IsActive = false;
-
+            
             db.Entry(pw_temporaryusers).State = EntityState.Modified;
 
             try

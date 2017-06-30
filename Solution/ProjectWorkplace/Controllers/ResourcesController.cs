@@ -71,6 +71,22 @@ namespace ProjectWorkplace.Controllers
                 new PW_GetVideo_Result();
 
         }
+
+        [Route("api/Resources/GetCurrentUser")]
+        public PW_GetCurrentUser_Result GetCurrentUser()
+        {
+            string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
+            //username only
+            string currentUsername = currentDomainUser.Remove(0, currentDomainUser.IndexOf('\\') + 1);
+            //this code is the integration of original PW_PERSONS TABLE and OTHER RELATIONAL TABLES
+            var a = db.PW_GetCurrentUser(currentUsername).ToList();
+            //this comming code is the temporary solution of registration side PW_TEMPORARY USERS
+            //var a = db.PW_GetResourcePath2(currentUsername, resourceCategory).ToList();
+
+            return (a.Count() > 0) ? a[0] :
+                new PW_GetCurrentUser_Result();
+
+        }
         
         // GET: api/Resources/5
         [ResponseType(typeof(PW_Resources))]

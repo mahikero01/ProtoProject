@@ -19,6 +19,8 @@ var random_question_service_1 = require("../../services/random-question.service"
 var answer_service_1 = require("../../services/answer.service");
 var person_service_1 = require("../../services/person.service");
 var examinee_service_1 = require("../../services/examinee.service");
+var tempuser_service_1 = require("../../services/tempuser.service");
+var resource_service_1 = require("../../services/resource.service");
 var ExamModule = (function () {
     function ExamModule() {
     }
@@ -42,7 +44,9 @@ ExamModule = __decorate([
             random_question_service_1.RandomQuestionService,
             answer_service_1.AnswerService,
             person_service_1.PersonService,
-            examinee_service_1.ExamineeService
+            examinee_service_1.ExamineeService,
+            tempuser_service_1.TempUserService,
+            resource_service_1.ResourceService
         ]
     })
 ], ExamModule);

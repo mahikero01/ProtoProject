@@ -43,6 +43,14 @@ var ResourceService = (function () {
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    ResourceService.prototype.getCurrentUser = function () {
+        var url = this.apiUrl + "/GetCurrentUser/";
+        return this.http
+            .get(url)
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     ResourceService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);

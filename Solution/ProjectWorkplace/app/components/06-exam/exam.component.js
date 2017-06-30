@@ -15,13 +15,17 @@ var examinee_service_1 = require("../../services/examinee.service");
 var router_1 = require("@angular/router");
 var examinee_1 = require("../../entities/examinee");
 var angular2_uuid_1 = require("angular2-uuid");
+var tempuser_service_1 = require("../../services/tempuser.service");
+var resource_service_1 = require("../../services/resource.service");
 var ExamComponent = (function () {
-    function ExamComponent(randomQuestionService, personService, examineeService, route, router) {
+    function ExamComponent(randomQuestionService, personService, examineeService, route, router, tempUserService, resourceService) {
         this.randomQuestionService = randomQuestionService;
         this.personService = personService;
         this.examineeService = examineeService;
         this.route = route;
         this.router = router;
+        this.tempUserService = tempUserService;
+        this.resourceService = resourceService;
         this.questions = [];
         this.scores = null;
         this.canSubmit = false;
@@ -33,13 +37,14 @@ var ExamComponent = (function () {
     }
     ExamComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.examineeService.getScore().then(function (x) { return _this.scores = x; });
+        //this.examineeService.getScore().then(x=>this.scores=x);
         this.randomQuestionService.getQuestions()
             .then(function (rq) {
             _this.questions = rq;
             _this.getExamineeInfo();
             _this.getExamDetail();
         });
+        this.resourceService.getCurrentUser().then(function (user) { return _this.tempUser = user; });
     };
     //check answers if it is ready to submit
     ExamComponent.prototype.checkAnswers = function () {
@@ -58,8 +63,13 @@ var ExamComponent = (function () {
         this.viewScore = true;
         this.examinee.DateCompleted = new Date();
         this.examinee.Score = this.score;
+        this.tempUser.QuizScore = this.score;
+        //this.tempUser.QuizItem=this.scores.Items;
+        this.tempUserService.putTempUser(this.tempUser).then(function () {
+            console.log("..");
+        });
         //service for posting score to PW_Examiners
-        this.examineeService.postExaminee(this.examinee);
+        //this.examineeService.postExaminee(this.examinee);
     };
     ExamComponent.prototype.getExamineeInfo = function () {
         var _this = this;
@@ -83,6 +93,8 @@ ExamComponent = __decorate([
         person_service_1.PersonService,
         examinee_service_1.ExamineeService,
         router_1.ActivatedRoute,
-        router_1.Router])
+        router_1.Router,
+        tempuser_service_1.TempUserService,
+        resource_service_1.ResourceService])
 ], ExamComponent);
 exports.ExamComponent = ExamComponent;
