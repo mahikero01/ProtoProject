@@ -10,14 +10,10 @@
 namespace ProjectWorkplace.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class PW_Leaders
+    public partial class PW_GetVideo_Result
     {
-        public int LeaderID { get; set; }
-        public string LeaderName { get; set; }
-        public Nullable<int> ManagerID { get; set; }
-        public Nullable<System.Guid> LeaderResourceID { get; set; }
-        public Nullable<System.Guid> ManagerResourceID { get; set; }
+        public string ResourcePath { get; set; }
+        public string ResourceCategory { get; set; }
     }
 }

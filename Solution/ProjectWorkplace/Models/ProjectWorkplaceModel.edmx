@@ -307,6 +307,10 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <Parameter Name="username" Type="varchar" Mode="In" />
           <Parameter Name="resourceCategory" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="PW_GetVideo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="isLeader" Type="bit" Mode="In" />
+        </Function>
         <EntityContainer Name="ProjectWorkplaceModelStoreContainer">
           <EntitySet Name="PW_Answers" EntityType="Self.PW_Answers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PW_Examinees" EntityType="Self.PW_Examinees" Schema="dbo" store:Type="Tables" />
@@ -578,6 +582,10 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
             <Parameter Name="resourceCategory" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="PW_TemporaryUsers" EntityType="ProjectWorkplaceModel.PW_TemporaryUsers" />
+          <FunctionImport Name="PW_GetVideo" ReturnType="Collection(ProjectWorkplaceModel.PW_GetVideo_Result)">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="isLeader" Mode="In" Type="Boolean" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="PW_VW_QUESTIONS">
           <Key>
@@ -780,6 +788,10 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <Property Name="QuizItem" Type="Int32" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
+        <ComplexType Name="PW_GetVideo_Result">
+          <Property Type="String" Name="ResourcePath" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="ResourceCategory" Nullable="true" MaxLength="150" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -966,6 +978,14 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PW_GetVideo" FunctionName="ProjectWorkplaceModel.Store.PW_GetVideo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProjectWorkplaceModel.PW_GetVideo_Result">
+                <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
+                <ScalarProperty Name="ResourceCategory" ColumnName="ResourceCategory" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
