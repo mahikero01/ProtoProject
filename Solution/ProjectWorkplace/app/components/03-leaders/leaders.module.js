@@ -13,6 +13,7 @@ var manager_component_1 = require("./manager.component");
 var avp_component_1 = require("./avp.component");
 var leaders_routing_1 = require("./leaders.routing");
 var viewer_module_1 = require("../viewer/viewer.module");
+var resource_service_1 = require("../../services/resource.service");
 //import { PhotoViewerComponent } from '../photo-viewer/photo-viewer.component';
 var LeadersModule = (function () {
     function LeadersModule() {
@@ -32,7 +33,9 @@ LeadersModule = __decorate([
             avp_component_1.AVPComponent,
             manager_component_1.ManagerComponent
         ],
-        providers: []
+        providers: [
+            resource_service_1.ResourceService
+        ]
     })
 ], LeadersModule);
 exports.LeadersModule = LeadersModule;

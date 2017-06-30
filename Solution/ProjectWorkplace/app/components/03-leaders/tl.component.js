@@ -18,8 +18,9 @@ var TLComponent = (function () {
     }
     TLComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.resourceService.getResourcePath('Leaders')
-            .then(function (req) { return _this.path = req.ResourcePath; });
+        // this.resourceService.getResourcePath('Leaders')
+        //     .then(req=>this.path=req.ResourcePath);
+        this.resourceService.getVideo(true).then(function (req) { return _this.path = req.ResourcePath; });
     };
     return TLComponent;
 }());

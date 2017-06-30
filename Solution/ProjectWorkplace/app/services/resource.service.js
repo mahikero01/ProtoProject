@@ -35,6 +35,14 @@ var ResourceService = (function () {
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    ResourceService.prototype.getVideo = function (isLeader) {
+        var url = this.apiUrl + "/GetVideo/?isLeader=" + isLeader;
+        return this.http
+            .get(url)
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     ResourceService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
