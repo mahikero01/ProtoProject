@@ -29,7 +29,7 @@
         <AssociationConnector Association="ProjectWorkplaceModel.FK_PW_TeamResources_PW_Resources" />
         <AssociationConnector Association="ProjectWorkplaceModel.FK_PW_TeamResources_PW_Teams" />
         <EntityTypeShape EntityType="ProjectWorkplaceModel.PW_ViewEmployeeScore" Width="1.5" PointX="10.125" PointY="7.75" />
-        <EntityTypeShape EntityType="ProjectWorkplaceModel.PW_Leaders" Width="1.5" PointX="2.125" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectWorkplaceModel.PW_Leaders" Width="1.5" PointX="2.125" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectWorkplaceModel.PW_TemporaryUsers" Width="1.5" PointX="0.5" PointY="6.5" />
         </Diagram>
     </edmx:Diagrams>

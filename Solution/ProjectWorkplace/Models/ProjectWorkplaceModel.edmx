@@ -34,6 +34,8 @@
           <Property Name="LeaderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LeaderName" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="ManagerID" Type="int" />
+          <Property Name="LeaderResourceID" Type="uniqueidentifier" />
+          <Property Name="ManagerResourceID" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="PW_Persons">
           <Key>
@@ -757,6 +759,8 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <Property Name="LeaderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LeaderName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ManagerID" Type="Int32" />
+          <Property Name="LeaderResourceID" Type="Guid" />
+          <Property Name="ManagerResourceID" Type="Guid" />
         </EntityType>
         <ComplexType Name="PW_GetResourcePath2_Result">
           <Property Type="String" Name="ResourcePath" Nullable="true" MaxLength="150" />
@@ -931,6 +935,8 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.PW_VW_QUESTIONS' does not have a 
           <EntitySetMapping Name="PW_Leaders">
             <EntityTypeMapping TypeName="ProjectWorkplaceModel.PW_Leaders">
               <MappingFragment StoreEntitySet="PW_Leaders">
+                <ScalarProperty Name="ManagerResourceID" ColumnName="ManagerResourceID" />
+                <ScalarProperty Name="LeaderResourceID" ColumnName="LeaderResourceID" />
                 <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
                 <ScalarProperty Name="LeaderName" ColumnName="LeaderName" />
                 <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
