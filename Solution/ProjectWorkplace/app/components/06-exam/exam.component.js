@@ -64,7 +64,7 @@ var ExamComponent = (function () {
         this.examinee.DateCompleted = new Date();
         this.examinee.Score = this.score;
         this.tempUser.QuizScore = this.score;
-        //this.tempUser.QuizItem=this.scores.Items;
+        this.tempUser.QuizItem = this.questions.length;
         this.tempUserService.putTempUser(this.tempUser).then(function () {
             console.log("..");
         });
