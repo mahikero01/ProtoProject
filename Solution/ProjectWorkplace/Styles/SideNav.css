@@ -113,6 +113,13 @@
     border-left: 2px solid #f1f1f1;
 }
 
+.sidebar-wrapper .sublinks > a.list-group-item.active {
+    transition: all 0.3s;
+    background-color: #0C2C4D;
+    background-color: #35597D;
+    border-left: 2px solid #f1f1f1;
+}
+
 .sidebar-wrapper .list-group-item {
     color: #f9f9f9;
 }
@@ -282,7 +289,13 @@ a.list-group-item.brand:hover {
         color: #fff;
         text-decoration: none;
         background-color: #6b6a6a;
-         
+    }
+
+    .sidebar-wrapper .dropdown-menu > li > a.active {
+        transition: all 0.3s;
+        background-color: #0C2C4D;
+        background-color: #35597D;
+        border-left: 2px solid #f1f1f1;
     }
 
     .sidebar-wrapper .dropdown:hover > .dropdown-menu {

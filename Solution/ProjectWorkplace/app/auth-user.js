@@ -14,6 +14,7 @@ var auth_1 = require("./entities/auth");
 var AuthUserComponent = (function () {
     function AuthUserComponent(router) {
         this.router = router;
+        this.activeLink = 0;
     }
     AuthUserComponent.prototype.routeWithUserName = function (path) {
         this.router.navigate(['/' + path, this.user.userName]);
