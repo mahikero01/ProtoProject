@@ -15,6 +15,7 @@ var AuthUserComponent = (function () {
     function AuthUserComponent(router) {
         this.router = router;
         this.activeLink = 0;
+        this.routeWOUserName('mission-vision');
     }
     AuthUserComponent.prototype.routeWithUserName = function (path) {
         this.router.navigate(['/' + path, this.user.userName]);

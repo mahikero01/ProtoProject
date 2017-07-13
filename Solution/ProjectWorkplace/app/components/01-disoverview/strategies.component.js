@@ -21,7 +21,7 @@ var StrategiesComponent = (function () {
         // this.addSlide('03b - process improvement.png');
         // this.addSlide('03c - cost efficiencies.png');
         // this.addSlide('03d - performance.png');
-        this.addSlide('strategies.jpg');
+        // this.addSlide('strategies.jpg');
     }
     StrategiesComponent.prototype.addSlide = function (filename) {
         this.slides.push({
