@@ -19,7 +19,7 @@ namespace ProjectWorkplace.Controllers
         // GET api/Leaders
         public IQueryable<PW_Leaders> GetPW_Leaders()
         {
-            return db.PW_Leaders;
+            return db.PW_Leaders.OrderBy(x=>x.LeaderName);
         }
 
         // GET api/Leaders/5

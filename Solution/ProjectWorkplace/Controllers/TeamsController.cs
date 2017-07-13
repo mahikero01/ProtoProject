@@ -20,14 +20,14 @@ namespace ProjectWorkplace.Controllers
         // GET: api/Teams
         public IQueryable<PW_Teams_DTO> GetPW_Teams()
         {
-            return from l in db.PW_Teams
+            return (from l in db.PW_Teams
                    where l.IsActive == true
                    select new PW_Teams_DTO
                    {
                        IsActive=l.IsActive,
                        TeamDesc=l.TeamDesc,
                        TeamID=l.TeamID
-                   };
+                   }).OrderBy(x=>x.TeamDesc);
         }
 
         // GET: api/Teams/5
