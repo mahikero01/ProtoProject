@@ -13,6 +13,7 @@ var StrategiesComponent = (function () {
     function StrategiesComponent() {
         this.slides = [];
         this.breadcrumbs = ['DIS Overview', 'Strategies'];
+        this.addSlide('MBPS Digital Information Services TH April 28.jpg');
         this.addSlide('03 - Strategy-1.jpg');
         this.addSlide('03 - Strategy-2.jpg');
         this.addSlide('03 - Strategy-3.jpg');

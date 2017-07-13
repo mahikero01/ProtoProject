@@ -18,17 +18,17 @@ var ProgramsComponent = (function () {
         this.breadcrumbs = [];
     }
     ProgramsComponent.prototype.ngOnInit = function () {
-        console.log('ngoninit');
+        //console.log('ngoninit');
         this.getRouteName();
     };
     ProgramsComponent.prototype.getImage = function () {
-        console.log('getImage');
+        //console.log('getImage');
         this.slides = [];
         this.addSlide(this.routeName + '.jpg');
     };
     ProgramsComponent.prototype.getRouteName = function () {
         var _this = this;
-        console.log('getRouteName');
+        //console.log('getRouteName');
         this.route.params.subscribe(function (params) {
             _this.routeName = params['id'];
             _this.breadcrumbs = [];

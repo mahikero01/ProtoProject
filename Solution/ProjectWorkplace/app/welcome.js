@@ -48,7 +48,7 @@ var WelcomeComponent = (function () {
         else {
             this.tempuser.UserName = this.user.userName;
             this.tempuserService.postTempUser(this.tempuser).then(function () {
-                console.log("okay");
+                //console.log("okay");
             });
             this.changeView();
         }
